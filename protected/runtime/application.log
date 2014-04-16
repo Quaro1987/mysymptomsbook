@@ -1,0 +1,1292 @@
+2014/03/21 17:34:28 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'tbl_symptom' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"code" varchar(255) NOT NULL,
+	"title" varchar(255) NOT NULL,
+	"shortTitle" varchar(255) NOT NULL,
+	"inclusions" varchar(255) DEFAULT NULL,
+	"exclusions" varchar(255)  DEFAULT NULL,
+	"ICD10" varchar(255) NOT ULL
+) ENGINE=InnoDB
+2014/03/21 17:34:28 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ULL": syntax error. The SQL statement executed was: CREATE TABLE 'tbl_symptom' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"code" varchar(255) NOT NULL,
+	"title" varchar(255) NOT NULL,
+	"shortTitle" varchar(255) NOT NULL,
+	"inclusions" varchar(255) DEFAULT NULL,
+	"exclusions" varchar(255)  DEFAULT NULL,
+	"ICD10" varchar(255) NOT ULL
+) ENGINE=InnoDB.
+2014/03/21 17:34:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ULL": syntax error. The SQL statement executed was: CREATE TABLE 'tbl_symptom' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"code" varchar(255) NOT NULL,
+	"title" varchar(255) NOT NULL,
+	"shortTitle" varchar(255) NOT NULL,
+	"inclusions" varchar(255) DEFAULT NULL,
+	"exclusions" varchar(255)  DEFAULT NULL,
+	"ICD10" varchar(255) NOT ULL
+) ENGINE=InnoDB' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(1324): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\CDbMigration.php(233): CDbCommand->createTable('tbl_symptom', Array, 'ENGINE=InnoDB')
+#2 C:\xampp\htdocs\mySymptomsBook\protected\migrations\m140321_142051_create_Symptoms_Table.php(15): CDbMigration->createTable('tbl_symptom', Array, 'ENGINE=InnoDB')
+#3 C:\xampp\htdocs\yii\framework\cli\commands\MigrateCommand.php(385): m140321_142051_create_Symptoms_Table->up()
+#4 C:\xampp\htdocs\yii\framework\cli\commands\MigrateCommand.php(109): MigrateCommand->migrateUp('m140321_142051_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 C:\xampp\htdocs\yii\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 C:\xampp\htdocs\yii\framework\console\CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 C:\xampp\htdocs\yii\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CConsoleApplication->processRequest()
+#10 C:\xampp\htdocs\yii\framework\yiic.php(33): CApplication->run()
+#11 C:\xampp\htdocs\mySymptomsBook\protected\yiic.php(7): require_once('C:\xampp\htdocs...')
+#12 {main}
+---
+2014/03/21 17:34:49 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'tbl_symptom' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"code" varchar(255) NOT NULL,
+	"title" varchar(255) NOT NULL,
+	"shortTitle" varchar(255) NOT NULL,
+	"inclusions" varchar(255) DEFAULT NULL,
+	"exclusions" varchar(255)  DEFAULT NULL,
+	"ICD10" varchar(255) NOT NULL
+) ENGINE=InnoDB
+2014/03/21 17:34:49 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ENGINE": syntax error. The SQL statement executed was: CREATE TABLE 'tbl_symptom' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"code" varchar(255) NOT NULL,
+	"title" varchar(255) NOT NULL,
+	"shortTitle" varchar(255) NOT NULL,
+	"inclusions" varchar(255) DEFAULT NULL,
+	"exclusions" varchar(255)  DEFAULT NULL,
+	"ICD10" varchar(255) NOT NULL
+) ENGINE=InnoDB.
+2014/03/21 17:34:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ENGINE": syntax error. The SQL statement executed was: CREATE TABLE 'tbl_symptom' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"code" varchar(255) NOT NULL,
+	"title" varchar(255) NOT NULL,
+	"shortTitle" varchar(255) NOT NULL,
+	"inclusions" varchar(255) DEFAULT NULL,
+	"exclusions" varchar(255)  DEFAULT NULL,
+	"ICD10" varchar(255) NOT NULL
+) ENGINE=InnoDB' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(1324): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\CDbMigration.php(233): CDbCommand->createTable('tbl_symptom', Array, 'ENGINE=InnoDB')
+#2 C:\xampp\htdocs\mySymptomsBook\protected\migrations\m140321_142051_create_Symptoms_Table.php(15): CDbMigration->createTable('tbl_symptom', Array, 'ENGINE=InnoDB')
+#3 C:\xampp\htdocs\yii\framework\cli\commands\MigrateCommand.php(385): m140321_142051_create_Symptoms_Table->up()
+#4 C:\xampp\htdocs\yii\framework\cli\commands\MigrateCommand.php(109): MigrateCommand->migrateUp('m140321_142051_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 C:\xampp\htdocs\yii\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 C:\xampp\htdocs\yii\framework\console\CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 C:\xampp\htdocs\yii\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CConsoleApplication->processRequest()
+#10 C:\xampp\htdocs\yii\framework\yiic.php(33): CApplication->run()
+#11 C:\xampp\htdocs\mySymptomsBook\protected\yiic.php(7): require_once('C:\xampp\htdocs...')
+#12 {main}
+---
+2014/03/21 18:16:53 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'tbl_symptom' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"code" varchar(255) NOT NULL,
+	"title" varchar(255) NOT NULL,
+	"shortTitle" varchar(255) NOT NULL,
+	"inclusions" varchar(255) DEFAULT NULL,
+	"exclusions" varchar(255)  DEFAULT NULL,
+	"ICD10" varchar(255) NOT NULL
+) ENGINE=InnoDB
+2014/03/21 18:16:53 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ENGINE": syntax error. The SQL statement executed was: CREATE TABLE 'tbl_symptom' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"code" varchar(255) NOT NULL,
+	"title" varchar(255) NOT NULL,
+	"shortTitle" varchar(255) NOT NULL,
+	"inclusions" varchar(255) DEFAULT NULL,
+	"exclusions" varchar(255)  DEFAULT NULL,
+	"ICD10" varchar(255) NOT NULL
+) ENGINE=InnoDB.
+2014/03/21 18:16:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ENGINE": syntax error. The SQL statement executed was: CREATE TABLE 'tbl_symptom' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"code" varchar(255) NOT NULL,
+	"title" varchar(255) NOT NULL,
+	"shortTitle" varchar(255) NOT NULL,
+	"inclusions" varchar(255) DEFAULT NULL,
+	"exclusions" varchar(255)  DEFAULT NULL,
+	"ICD10" varchar(255) NOT NULL
+) ENGINE=InnoDB' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(1324): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\CDbMigration.php(233): CDbCommand->createTable('tbl_symptom', Array, 'ENGINE=InnoDB')
+#2 C:\xampp\htdocs\mySymptomsBook\protected\migrations\m140321_142051_create_Symptoms_Table.php(15): CDbMigration->createTable('tbl_symptom', Array, 'ENGINE=InnoDB')
+#3 C:\xampp\htdocs\yii\framework\cli\commands\MigrateCommand.php(385): m140321_142051_create_Symptoms_Table->up()
+#4 C:\xampp\htdocs\yii\framework\cli\commands\MigrateCommand.php(109): MigrateCommand->migrateUp('m140321_142051_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 C:\xampp\htdocs\yii\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 C:\xampp\htdocs\yii\framework\console\CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 C:\xampp\htdocs\yii\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CConsoleApplication->processRequest()
+#10 C:\xampp\htdocs\yii\framework\yiic.php(33): CApplication->run()
+#11 C:\xampp\htdocs\mySymptomsBook\protected\yiic.php(7): require_once('C:\xampp\htdocs...')
+#12 {main}
+---
+2014/03/21 18:18:30 [error] [system.db.CDbCommand] Error in preparing SQL: CREATE TABLE 'tbl_symptom' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"code" varchar(255) NOT NULL,
+	"title" varchar(255) NOT NULL,
+	"shortTitle" varchar(255) NOT NULL,
+	"inclusions" varchar(255) DEFAULT NULL,
+	"exclusions" varchar(255)  DEFAULT NULL,
+	"ICD10" varchar(255) NOT NULL
+) ENGINE=InnoDB
+2014/03/21 18:18:30 [error] [system.db.CDbCommand] CDbCommand::execute() failed: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ENGINE": syntax error. The SQL statement executed was: CREATE TABLE 'tbl_symptom' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"code" varchar(255) NOT NULL,
+	"title" varchar(255) NOT NULL,
+	"shortTitle" varchar(255) NOT NULL,
+	"inclusions" varchar(255) DEFAULT NULL,
+	"exclusions" varchar(255)  DEFAULT NULL,
+	"ICD10" varchar(255) NOT NULL
+) ENGINE=InnoDB.
+2014/03/21 18:18:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: CDbCommand failed to prepare the SQL statement: SQLSTATE[HY000]: General error: 1 near "ENGINE": syntax error. The SQL statement executed was: CREATE TABLE 'tbl_symptom' (
+	"id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	"code" varchar(255) NOT NULL,
+	"title" varchar(255) NOT NULL,
+	"shortTitle" varchar(255) NOT NULL,
+	"inclusions" varchar(255) DEFAULT NULL,
+	"exclusions" varchar(255)  DEFAULT NULL,
+	"ICD10" varchar(255) NOT NULL
+) ENGINE=InnoDB' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(1324): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\CDbMigration.php(233): CDbCommand->createTable('tbl_symptom', Array, 'ENGINE=InnoDB')
+#2 C:\xampp\htdocs\mySymptomsBook\protected\migrations\m140321_142051_create_Symptoms_Table.php(15): CDbMigration->createTable('tbl_symptom', Array, 'ENGINE=InnoDB')
+#3 C:\xampp\htdocs\yii\framework\cli\commands\MigrateCommand.php(385): m140321_142051_create_Symptoms_Table->up()
+#4 C:\xampp\htdocs\yii\framework\cli\commands\MigrateCommand.php(109): MigrateCommand->migrateUp('m140321_142051_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 C:\xampp\htdocs\yii\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 C:\xampp\htdocs\yii\framework\console\CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 C:\xampp\htdocs\yii\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CConsoleApplication->processRequest()
+#10 C:\xampp\htdocs\yii\framework\yiic.php(33): CApplication->run()
+#11 C:\xampp\htdocs\mySymptomsBook\protected\yiic.php(7): require_once('C:\xampp\htdocs...')
+#12 {main}
+---
+2014/03/21 18:22:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mysymptomsbook.tbl_migration' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `tbl_migration`.
+2014/03/21 18:40:22 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1166 Incorrect column name ''. The SQL statement executed was: CREATE TABLE `tbl_disease` (
+	`` varchar(5) DEFAULT NULL,
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+) ENGINE=InnoDB.
+2014/03/21 18:40:22 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1166 Incorrect column name ''. The SQL statement executed was: CREATE TABLE `tbl_disease` (
+	`` varchar(5) DEFAULT NULL,
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY
+) ENGINE=InnoDB' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(1324): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\CDbMigration.php(233): CDbCommand->createTable('tbl_disease', Array, 'ENGINE=InnoDB')
+#2 C:\xampp\htdocs\mySymptomsBook\protected\migrations\m140321_172522_create_disease_table.php(23): CDbMigration->createTable('tbl_disease', Array, 'ENGINE=InnoDB')
+#3 C:\xampp\htdocs\yii\framework\cli\commands\MigrateCommand.php(385): m140321_172522_create_disease_table->up()
+#4 C:\xampp\htdocs\yii\framework\cli\commands\MigrateCommand.php(109): MigrateCommand->migrateUp('m140321_172522_...')
+#5 [internal function]: MigrateCommand->actionUp(Array)
+#6 C:\xampp\htdocs\yii\framework\console\CConsoleCommand.php(172): ReflectionMethod->invokeArgs(Object(MigrateCommand), Array)
+#7 C:\xampp\htdocs\yii\framework\console\CConsoleCommandRunner.php(71): CConsoleCommand->run(Array)
+#8 C:\xampp\htdocs\yii\framework\console\CConsoleApplication.php(92): CConsoleCommandRunner->run(Array)
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CConsoleApplication->processRequest()
+#10 C:\xampp\htdocs\yii\framework\yiic.php(33): CApplication->run()
+#11 C:\xampp\htdocs\mySymptomsBook\protected\yiic.php(7): require_once('C:\xampp\htdocs...')
+#12 {main}
+---
+2014/03/27 00:10:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'mysymptomsbook.user' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `user`.
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/03/29 00:52:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "index?r=user".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('index?r=user')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('index?r=user')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/index?r=us...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/index?r=user
+---
+2014/03/30 12:04:08 [error] [php] include(WebUser.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\YiiBase.php(196): import()
+#1 C:\xampp\htdocs\yii\framework\base\CModule.php(386): createComponent()
+#2 C:\xampp\htdocs\yii\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php(35): CWebApplication->__get()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#8 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(206): CContentDecorator->run()
+#10 C:\xampp\htdocs\yii\framework\web\CBaseController.php(300): SiteController->endWidget()
+#11 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php(6): SiteController->endContent()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#13 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(784): SiteController->renderFile()
+#15 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(32): SiteController->render()
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php (35)
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php (6)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (32)
+2014/03/30 12:08:10 [error] [php] include(WebUser.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\YiiBase.php(196): import()
+#1 C:\xampp\htdocs\yii\framework\base\CModule.php(386): createComponent()
+#2 C:\xampp\htdocs\yii\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php(37): CWebApplication->__get()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#8 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(206): CContentDecorator->run()
+#10 C:\xampp\htdocs\yii\framework\web\CBaseController.php(300): SiteController->endWidget()
+#11 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php(6): SiteController->endContent()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#13 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(784): SiteController->renderFile()
+#15 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(32): SiteController->render()
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php (37)
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php (6)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (32)
+2014/03/30 12:08:11 [error] [php] include(WebUser.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\YiiBase.php(196): import()
+#1 C:\xampp\htdocs\yii\framework\base\CModule.php(386): createComponent()
+#2 C:\xampp\htdocs\yii\framework\base\CModule.php(103): CWebApplication->getComponent()
+#3 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php(37): CWebApplication->__get()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#8 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(206): CContentDecorator->run()
+#10 C:\xampp\htdocs\yii\framework\web\CBaseController.php(300): SiteController->endWidget()
+#11 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php(6): SiteController->endContent()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#13 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(784): SiteController->renderFile()
+#15 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(32): SiteController->render()
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php (37)
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php (6)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (32)
+2014/03/30 12:10:22 [error] [php] include(WebUser.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\YiiBase.php(196): import()
+#1 C:\xampp\htdocs\yii\framework\base\CModule.php(282): createComponent()
+#2 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php(37): CWebApplication->getModule()
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#6 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#7 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(206): CContentDecorator->run()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(300): SiteController->endWidget()
+#10 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php(6): SiteController->endContent()
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(784): SiteController->renderFile()
+#14 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(32): SiteController->render()
+#15 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php (37)
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php (6)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (32)
+2014/03/30 12:10:23 [error] [php] include(WebUser.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\YiiBase.php(196): import()
+#1 C:\xampp\htdocs\yii\framework\base\CModule.php(282): createComponent()
+#2 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php(37): CWebApplication->getModule()
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#6 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#7 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(206): CContentDecorator->run()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(300): SiteController->endWidget()
+#10 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php(6): SiteController->endContent()
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(784): SiteController->renderFile()
+#14 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(32): SiteController->render()
+#15 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php (37)
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php (6)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (32)
+2014/03/30 12:31:54 [error] [exception.CException] exception 'CException' with message 'WebUser and its behaviors do not have a method or closure named "t".' in C:\xampp\htdocs\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php(37): CComponent->__call('t', Array)
+#1 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php(37): WebUser->t('Login')
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/mysymptomsbook/index.php
+---
+2014/03/30 18:28:23 [error] [exception.CException] exception 'CException' with message 'Property "WebUser.controllerMap" is not defined.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\auth\CWebUser.php(146): CComponent->__get('controllerMap')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(329): CWebUser->__get('controllerMap')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(338): CWebApplication->createController('install/', Object(WebUser))
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(276): CWebApplication->createController('user/install')
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/install')
+#5 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/install
+---
+2014/03/31 23:55:25 [error] [exception.CException] exception 'CException' with message 'WebUser and its behaviors do not have a method or closure named "t".' in C:\xampp\htdocs\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php(37): CComponent->__call('t', Array)
+#1 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php(37): WebUser->t('Login')
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/mysymptomsbook/index.php
+---
+2014/03/31 23:55:47 [error] [php] include(RWebUser.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\YiiBase.php(196): import()
+#1 C:\xampp\htdocs\yii\framework\base\CModule.php(282): createComponent()
+#2 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php(37): CWebApplication->getModule()
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#6 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#7 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(206): CContentDecorator->run()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(300): SiteController->endWidget()
+#10 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php(6): SiteController->endContent()
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(784): SiteController->renderFile()
+#14 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(32): SiteController->render()
+#15 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php (37)
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php (6)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (32)
+2014/03/31 23:56:06 [error] [exception.CException] exception 'CException' with message 'WebUser and its behaviors do not have a method or closure named "t".' in C:\xampp\htdocs\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php(37): CComponent->__call('t', Array)
+#1 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php(37): WebUser->t('Login')
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(76): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate('<div id="conten...')
+#6 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput('<div id="conten...')
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(206): COutputProcessor->run()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(300): CBaseController->endWidget('CContentDecorat...')
+#9 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(784): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(32): CController->render('index')
+#14 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/mysymptomsbook/index.php
+---
+2014/03/31 23:59:16 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php:37)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(76): SiteController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#2 C:\xampp\htdocs\yii\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(206): CContentDecorator->run()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(300): SiteController->endWidget()
+#5 C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php(6): SiteController->endContent()
+#6 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(784): SiteController->renderFile()
+#9 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(32): SiteController->render()
+#10 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\main.php (37)
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column1.php (6)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (32)
+2014/04/01 16:57:23 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/01 16:57:25 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/01 16:57:32 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/01 19:26:23 [error] [exception.CException] exception 'CException' with message 'RegistrationForm has an invalid validation rule. The rule must specify attributes to be validated and the validator name.' in C:\xampp\htdocs\yii\framework\base\CModel.php:289
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CModel.php(260): CModel->createValidators()
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(547): CModel->getValidators()
+#2 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(564): CModel->getSafeAttributeNames()
+#3 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\views\user\registration.php(28): CActiveForm->errorSummary(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('/user/registrat...', Array, true)
+#8 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php(77): CController->render('/user/registrat...', Array)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): RegistrationController->actionRegistration()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/registrati...')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/registration
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php
+---
+2014/04/01 19:27:42 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/01 19:27:43 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/01 19:27:46 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/01 19:27:47 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/01 19:27:55 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/01 19:28:07 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/01 19:28:10 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:05:29 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:05:32 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:05:44 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:05:59 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:06:32 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:06:36 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:06:38 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:06:46 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:06:54 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:07:01 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:09:47 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:21:01 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:21:07 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:21:34 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:21:43 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:21:49 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:22:07 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:22:10 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:22:13 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:22:15 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:22:18 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:22:24 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:22:29 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:22:32 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:22:33 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:22:35 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:22:38 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:22:48 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/02 00:28:24 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "user.create_at". Note, the column must exist in the table or be an expression with alias.' in C:\xampp\htdocs\yii\framework\db\ar\CActiveFinder.php:960
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveFinder.php(1261): CJoinElement->getColumnSelect(Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveFinder.php(433): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 C:\xampp\htdocs\yii\framework\db\ar\CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#3 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), false)
+#4 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1519): CActiveRecord->query(Object(CDbCriteria))
+#5 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\components\UserIdentity.php(27): CActiveRecord->findByAttributes(Array)
+#6 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\models\UserLogin.php(52): UserIdentity->authenticate()
+#7 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(42): UserLogin->authenticate('password', Array)
+#8 C:\xampp\htdocs\yii\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(UserLogin), 'password')
+#9 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(UserLogin), NULL)
+#10 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\LoginController.php(19): CModel->validate()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/login')
+#17 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/login
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/login
+---
+2014/04/02 00:32:32 [error] [exception.CException] exception 'CException' with message 'Property "User.create_at" is not defined.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('create_at')
+#1 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\components\WebUser.php(41): CActiveRecord->__get('create_at')
+#2 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\components\WebUser.php(33): WebUser->updateSession()
+#3 C:\xampp\htdocs\yii\framework\web\auth\CWebUser.php(246): WebUser->afterLogin(false)
+#4 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\models\UserLogin.php(57): CWebUser->login(Object(UserIdentity), 2592000)
+#5 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(42): UserLogin->authenticate('password', Array)
+#6 C:\xampp\htdocs\yii\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(UserLogin), 'password')
+#7 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(UserLogin), NULL)
+#8 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\LoginController.php(19): CModel->validate()
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): LoginController->actionLogin()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/login')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/login
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/login
+---
+2014/04/02 00:45:52 [error] [exception.CException] exception 'CException' with message 'User has an invalid validation rule. The rule must specify attributes to be validated and the validator name.' in C:\xampp\htdocs\yii\framework\base\CModel.php:289
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CModel.php(260): CModel->createValidators()
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(547): CModel->getValidators()
+#2 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(564): CModel->getSafeAttributeNames()
+#3 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\views\profile\edit.php(31): CActiveForm->errorSummary(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('edit', Array, true)
+#8 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\ProfileController.php(58): CController->render('edit', Array)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ProfileController->actionEdit()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('edit')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/profile/ed...')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/profile/edit
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/profile
+---
+2014/04/02 00:46:04 [error] [exception.CException] exception 'CException' with message 'User has an invalid validation rule. The rule must specify attributes to be validated and the validator name.' in C:\xampp\htdocs\yii\framework\base\CModel.php:289
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\base\CModel.php(260): CModel->createValidators()
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(547): CModel->getValidators()
+#2 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(564): CModel->getSafeAttributeNames()
+#3 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\views\profile\edit.php(31): CActiveForm->errorSummary(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('edit', Array, true)
+#8 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\ProfileController.php(58): CController->render('edit', Array)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ProfileController->actionEdit()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('edit')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/profile/ed...')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/profile/edit
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/profile
+---
+2014/04/07 14:25:13 [error] [exception.CException] exception 'CException' with message 'SymptomsController cannot find the requested view "index".' in C:\xampp\htdocs\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#1 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomsController.php(128): CController->render('index', Array)
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SymptomsController->actionIndex()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('symptoms')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=symptoms
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=gii/crud/index
+---
+2014/04/08 16:10:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/index
+---
+2014/04/08 16:10:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php
+---
+2014/04/08 16:13:23 [error] [php] include(SearchSymptomForm.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(113): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (113)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/08 16:14:06 [error] [php] include(SearchForm.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(113): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (113)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/08 16:29:38 [error] [php] include(SearchForm.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(113): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (113)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/08 16:29:43 [error] [php] include(SearchForm.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(113): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (113)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/11 19:32:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php
+---
+2014/04/11 19:34:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/search
+---
+2014/04/11 19:36:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php
+---
+2014/04/11 19:37:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/contact
+---
+2014/04/11 19:38:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/search
+---
+2014/04/11 19:38:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/contact
+---
+2014/04/11 19:38:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/contact
+---
+2014/04/11 19:38:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/search
+---
+2014/04/11 19:46:10 [error] [exception.CException] exception 'CException' with message 'SearchController cannot find the requested view "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('search', Array, true)
+#1 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SearchController.php(40): CController->render('search', Array)
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SearchController->actionSearch()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('search/search')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=search/search
+---
+2014/04/11 19:49:27 [error] [php] include(search.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\search\search.php(28): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SearchController->renderInternal()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(869): SearchController->renderFile()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(782): SearchController->renderPartial()
+#5 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SearchController.php(40): SearchController->render()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SearchController->actionSearch()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): SearchController->runAction()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): SearchController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SearchController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=search/search
+in C:\xampp\htdocs\mySymptomsBook\protected\views\search\search.php (28)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SearchController.php (40)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/11 19:53:26 [error] [php] include(search.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\search\search.php(28): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SearchController->renderInternal()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(869): SearchController->renderFile()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(782): SearchController->renderPartial()
+#5 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SearchController.php(40): SearchController->render()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SearchController->actionSearch()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): SearchController->runAction()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): SearchController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SearchController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=search/search
+in C:\xampp\htdocs\mySymptomsBook\protected\views\search\search.php (28)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SearchController.php (40)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/11 19:53:31 [error] [php] include(search.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\search\search.php(28): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SearchController->renderInternal()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(869): SearchController->renderFile()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(782): SearchController->renderPartial()
+#5 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SearchController.php(40): SearchController->render()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SearchController->actionSearch()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): SearchController->runAction()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): SearchController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SearchController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=search/search
+in C:\xampp\htdocs\mySymptomsBook\protected\views\search\search.php (28)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SearchController.php (40)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/11 19:53:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/search
+---
+2014/04/11 19:53:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/search
+---
+2014/04/11 19:53:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/search
+---
+2014/04/11 19:53:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "search".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('search')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/contact
+---
+2014/04/11 19:53:46 [error] [php] include(search.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\search\search.php(28): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SearchController->renderInternal()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(869): SearchController->renderFile()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(782): SearchController->renderPartial()
+#5 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SearchController.php(40): SearchController->render()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SearchController->actionSearch()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): SearchController->runAction()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): SearchController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SearchController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=search/search
+in C:\xampp\htdocs\mySymptomsBook\protected\views\search\search.php (28)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SearchController.php (40)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/11 19:57:03 [error] [php] include(search.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php(28): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(869): SiteController->renderFile()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#5 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(143): SiteController->render()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+in C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php (28)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (143)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/11 19:57:06 [error] [php] include(search.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php(28): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(869): SiteController->renderFile()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#5 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(143): SiteController->render()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+in C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php (28)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (143)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/11 19:57:25 [error] [php] include(Search.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php(28): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(869): SiteController->renderFile()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#5 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(143): SiteController->render()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+in C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php (28)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (143)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/11 19:58:21 [error] [exception.CException] exception 'CException' with message 'CWebApplication and its behaviors do not have a method or closure named "getSymptomCategories".' in C:\xampp\htdocs\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php(28): CComponent->__call('getSymptomCateg...', Array)
+#1 C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php(28): CWebApplication->getSymptomCategories()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('search', Array, true)
+#6 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(143): CController->render('search', Array)
+#7 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#13 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/contact
+---
+2014/04/11 19:58:45 [error] [php] Missing argument 2 for CHtml::listData(), called in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php on line 149 and defined (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:2073)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(869): SiteController->renderFile()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#4 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(143): SiteController->render()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (149)
+in C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php (28)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (143)
+2014/04/11 20:02:22 [error] [php] Missing argument 3 for CHtml::listData(), called in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php on line 149 and defined (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:2073)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(869): SiteController->renderFile()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#4 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(143): SiteController->render()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (149)
+in C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php (28)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (143)
+2014/04/11 20:04:51 [error] [exception.CException] exception 'CException' with message 'Property "SearchForm.symptomCategory" is not defined.' in C:\xampp\htdocs\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(2529): CComponent->__get('symptomCategory')
+#1 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1802): CHtml::resolveValue(Object(SearchForm), 'symptomCategory')
+#2 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(847): CHtml::activeDropDownList(Object(SearchForm), 'symptomCategory', Array, Array)
+#3 C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php(28): CActiveForm->dropDownList(Object(SearchForm), 'symptomCategory', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('search', Array, true)
+#8 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(143): CController->render('search', Array)
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/contact
+---
+2014/04/11 20:11:21 [warning] [application] Failed to set unsafe attribute "symptomCategory" of "SearchForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (132)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/14 01:26:48 [error] [php] Use of undefined constant ajax - assumed 'ajax' (C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php:30)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#2 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(130): SiteController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+in C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php (30)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (130)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/14 01:28:53 [error] [php] Missing argument 3 for CHtml::listData(), called in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php on line 144 and defined (C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php:2073)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=site/loadSymptoms
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (144)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/14 01:33:49 [warning] [application] Failed to set unsafe attribute "symptomCategory" of "SearchForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (119)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/14 01:34:55 [warning] [application] Failed to set unsafe attribute "symptomCategory" of "SearchForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (119)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/14 20:35:09 [error] [php] include(Post.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(395): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\CActiveDataProvider.php(165): model()
+#2 C:\xampp\htdocs\yii\framework\web\CActiveDataProvider.php(87): CActiveDataProvider->getModel()
+#3 C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php(45): CActiveDataProvider->__construct()
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): SiteController->renderFile()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#8 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(130): SiteController->render()
+#9 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(286): SiteController->runAction()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+in C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php (45)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (130)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/14 20:35:29 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':this.value' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `tbl_symptoms` `t` WHERE symptomCategory=js:this.value.
+in C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php (48)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php (130)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/04/14 20:35:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':this.value' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `tbl_symptoms` `t` WHERE symptomCategory=js:this.value' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1601): CDbCommand->queryScalar()
+#2 C:\xampp\htdocs\yii\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\xampp\htdocs\yii\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#4 C:\xampp\htdocs\yii\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#5 C:\xampp\htdocs\yii\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#6 C:\xampp\htdocs\yii\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#7 C:\xampp\htdocs\yii\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(147): CGridView->init()
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#10 C:\xampp\htdocs\mySymptomsBook\protected\views\site\search.php(48): CBaseController->widget('zii.widgets.gri...', Array)
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('search', Array, true)
+#15 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SiteController.php(130): CController->render('search', Array)
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearch()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('search')
+#21 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/search')
+#22 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=site/search
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php
+---
