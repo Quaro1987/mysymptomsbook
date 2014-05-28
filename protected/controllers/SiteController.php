@@ -111,41 +111,54 @@ class SiteController extends Controller
 	
 	public function actionSearch()
 	{
-		$model=new SearchForm;
+		
 
-		//collect user input data
-		if(isset($_POST['SearchForm']))
-		{
-			$model->attributes=$_POST['SearchForm'];
+		//actoin search version 2
+		$model=new Symptoms('search');
 
-			if($model->validate())
-			{
-            
-            $this->redirect(Yii::app()->user->returnUrl);
+		$model->unsetAttributes();  // clear any default values
 
-        	}
-		}
+		if(isset($_GET['Symptoms']))
+			$model->attributes=$_GET['Symptoms'];
 
-		//render search form
-		$this->render('search',array('model'=>$model));
+			$this->render('search',array(
+			'model'=>$model,
+		));
 	} 
 
 	//returns symptom categories that the user can choose to pick a symptom
 	public static function getSymptomCategories()
 	{
-		return CHtml::listData(Yii::app()->db->createCommand()->select('category')->from('tbl_symptomcategory')->queryAll(), 'category', 'category');
+		 return array(
+		 				'Blood, immune sytem' => 'Blood, immune sytem',
+		 				'Circulatory' => 'Circulatory',
+		 				'Digestive' => 'Digestive',
+		 				'Ear, Hearing' => 'Ear, Hearing',
+		 				'Eye' => 'Eye',
+		 				'Female genital' => 'Female genital',
+		 				'General' => 'General',
+		 				'Male genital' => 'Male genital',
+		 				'Metabolic, endocrine' => 'Metabolic, endocrine',
+		 				'Musculoskeletal' => 'Musculoskeletal',
+		 				'Neurological' => 'Neurological',
+		 				'Psychological' => 'Psychological',
+		 				'Respiratory' => 'Respiratory',
+		 				'Skin' => 'Skin',
+		 				'Social problems' => 'Social problems',
+		 				'Urological' => 'Urological',
+		 				'Women\'s health, pregnancy' => 'Women\'s health, pregnancy'
+		 			  );
 	}
 
 	public function actionLoadSymptoms()
 	{
-		$data=symptoms::model()->findAll('symptomCategory=:symptomCategory',
-			array(':symptomCategory'=>(string) $_POST['symptomCategory']));
-
-		$data=CHtml::listData($data, 'title', 'title');
-
-		echo "<option value=''>Select Symptom</option>";
-		foreach($data as $value=>$symptomCategory)
-			echo CHtml::tag('option', array('value'=>$value), CHtml::encode($symptomCategory), true);
+		$model = new Symptoms;
+		
+		if (isset($_POST)){
+			$model->attributes = $_POST;
+			$dataProvider = $model->search();
+			$this->renderPartial('_searchSymptomsView', array('dataProvider' => $dataProvider));
+		}
 	}
 
 }

@@ -227,3 +227,8 @@ div.search-form
 {
 	background: #80CFFF;
 }
+
+.hidden
+{
+display : none;
+}

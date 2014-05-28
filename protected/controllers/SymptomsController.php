@@ -32,7 +32,7 @@ class SymptomsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'SymptomsSearch'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -169,5 +169,65 @@ class SymptomsController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	public function loadGrid()
+	{
+
+		$model=new Symptoms('search');
+
+		$model->unsetAttributes();  // clear any default values
+
+		if(isset($_GET['Symptoms']))
+			$model->attributes=$_GET['Symptoms'];
+
+			$this->render('search',array(
+			'model'=>$model,
+		));
+	}
+	
+
+	//Displays the Search Symptoms page
+	
+	public function actionSymptomsSearch()
+	{
+		
+
+		//actoin search version 2
+		$model=new Symptoms('search');
+
+		$model->unsetAttributes();  // clear any default values
+
+		if(isset($_GET['Symptoms']))
+			$model->attributes=$_GET['Symptoms'];
+
+			$this->render('symptomsSearch',array(
+			'model'=>$model,
+		));
+	} 
+
+
+	//returns symptom categories that the user can choose to pick a symptom
+	public static function getSymptomCategories()
+	{
+		 return array(
+		 				'Blood, immune sytem' => 'Blood, immune sytem',
+		 				'Circulatory' => 'Circulatory',
+		 				'Digestive' => 'Digestive',
+		 				'Ear, Hearing' => 'Ear, Hearing',
+		 				'Eye' => 'Eye',
+		 				'Female genital' => 'Female genital',
+		 				'General' => 'General',
+		 				'Male genital' => 'Male genital',
+		 				'Metabolic, endocrine' => 'Metabolic, endocrine',
+		 				'Musculoskeletal' => 'Musculoskeletal',
+		 				'Neurological' => 'Neurological',
+		 				'Psychological' => 'Psychological',
+		 				'Respiratory' => 'Respiratory',
+		 				'Skin' => 'Skin',
+		 				'Social problems' => 'Social problems',
+		 				'Urological' => 'Urological',
+		 				'Women\'s health, pregnancy' => 'Women\'s health, pregnancy'
+		 			  );
 	}
 }
