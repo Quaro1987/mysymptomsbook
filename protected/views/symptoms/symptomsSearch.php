@@ -6,6 +6,8 @@ $this->breadcrumbs=array(
 
 //select symptom category, reveal symptomSelectDiv and populate symptom select grid to choose symptom
 Yii::app()->clientScript->registerScript('search', "
+			$( document ).ready(function() {
+
 			$('#symptomSelectDiv').hide();
 
 			$('#categorySelectDropDown').change(function(){
@@ -17,12 +19,12 @@ Yii::app()->clientScript->registerScript('search', "
 			});
 			var ColVal = 'text';
 			
-			$('#symptoms-grid table tbody tr').click(function()
-       		{
-            	var firstColVal=$('#symptoms-grid table tbody tr').find('td:first-child').text();
-            	document.getElementByID('symptomToBeSearched').value = firstColVal;
-            	alert(firstColVal);
+			 $('#MyID table tbody tr').on('click', function() {
+  				var firstColVal = $(this).find('td:first-child').html();
+ 			 	$('#symptomToBeSearched').val(firstColVal);
+ 			 	alert(firstColVal);
             });
+			});
 	 "); 
 ?>
 <h1>Welcome to the search for symptoms page </h1>
