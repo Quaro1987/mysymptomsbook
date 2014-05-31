@@ -46,12 +46,14 @@ class Symptomhistory extends CActiveRecord
 	 */
 	public function relations()
 	{
-		// NOTE: you may need to adjust the relation name and the related
+		
+		//import module for relations between models
+		Yii::import('application.modules.user.models.*');
 		// class name for the relations automatically generated below.
 		return array(
-			'symptomCode0' => array(self::BELONGS_TO, 'Symptoms', 'symptomCode'),
+			'symptomCode' => array(self::BELONGS_TO, 'Symptoms', 'symptomCode'),
 			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
-		);
+		); 
 	}
 
 	/**
@@ -106,5 +108,18 @@ class Symptomhistory extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+
+	//function to get search history of logged in user
+	public function searchByUser($usersID)
+	{
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('user_id',$usersID);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
 	}
 }

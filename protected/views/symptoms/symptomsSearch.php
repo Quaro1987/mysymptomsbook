@@ -17,12 +17,11 @@ Yii::app()->clientScript->registerScript('search', "
 				});
 				return false;
 			});
-			var ColVal = 'text';
 			
-			 $('#MyID table tbody tr').on('click', function() {
-  				var firstColVal = $(this).find('td:first-child').html();
+			$('#symptomsSearchgrid table tbody tr').click(function() {
+  				
+  				var firstColVal = $(this).find('td:first-child').text();
  			 	$('#symptomToBeSearched').val(firstColVal);
- 			 	alert(firstColVal);
             });
 			});
 	 "); 
@@ -31,16 +30,15 @@ Yii::app()->clientScript->registerScript('search', "
 
 <div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'search-form',
+	'id'=>'searchSymptom-form',
 	'enableClientValidation'=>true,
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
 	),
 )); ?>
 
-<h1>Hello</h1>
 
-<p class="note">Fields with <span class="required">*</span> are required.</p>
+<p class="note"></p>
 	<!-- Select symptom category dropdown menu -->
 	<div class="search-form">
 			<?php $this->renderPartial('_searchCategory',array('model'=>$model)); ?>
@@ -53,7 +51,8 @@ Yii::app()->clientScript->registerScript('search', "
 	</div>
 
 	<div class="row buttons">
-		<input id="symptomToBeSearched" name="test" ></input>
+		<?php echo $form->textField($model,'symptomCode', array('id'=>'symptomToBeSearched')); ?>
+		
 		<?php  echo CHtml::submitButton('Search');  ?>
 	</div>
 

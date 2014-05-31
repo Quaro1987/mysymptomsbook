@@ -63,13 +63,21 @@ class SymptomhistoryController extends Controller
 	public function actionSearch()
 	{
 		$model=new Symptomhistory;
-
+		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
+
 		if(isset($_POST['Symptomhistory']))
 		{
-			$model->attributes=$_POST['Symptomhistory'];
+			
+			$model->setAttributes(array(
+									'user_id'=>Yii::app()->user->id,
+									'dateSearched'=>date('Y-m-d'),
+									'symptomCode'=>$_POST['Symptomhistory']['symptomCode'],
+									'dateSymptomFirstSeen'=>$_POST['Symptomhistory']['dateSymptomFirstSeen']
+									 ));
+			
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -171,6 +179,42 @@ class SymptomhistoryController extends Controller
 		}
 	}
 
-	
+	//returns symptom categories that the user can choose to pick a symptom
+	public static function getSymptomCategories()
+	{
+		 return array(
+		 				'Blood, immune sytem' => 'Blood, immune sytem',
+		 				'Circulatory' => 'Circulatory',
+		 				'Digestive' => 'Digestive',
+		 				'Ear, Hearing' => 'Ear, Hearing',
+		 				'Eye' => 'Eye',
+		 				'Female genital' => 'Female genital',
+		 				'General' => 'General',
+		 				'Male genital' => 'Male genital',
+		 				'Metabolic, endocrine' => 'Metabolic, endocrine',
+		 				'Musculoskeletal' => 'Musculoskeletal',
+		 				'Neurological' => 'Neurological',
+		 				'Psychological' => 'Psychological',
+		 				'Respiratory' => 'Respiratory',
+		 				'Skin' => 'Skin',
+		 				'Social problems' => 'Social problems',
+		 				'Urological' => 'Urological',
+		 				'Women\'s health, pregnancy' => 'Women\'s health, pregnancy'
+		 			  );
+	}
 
+	public function loadGrid()
+	{
+
+		$model=new Symptoms('search');
+
+		$model->unsetAttributes();  // clear any default values
+
+		if(isset($_GET['Symptoms']))
+			$model->attributes=$_GET['Symptoms'];
+
+			$this->render('search',array(
+			'model'=>$model,
+		));
+	}
 }

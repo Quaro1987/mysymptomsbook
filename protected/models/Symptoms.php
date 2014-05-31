@@ -51,6 +51,7 @@ class Symptoms extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'symptomDiseases' => array(self::HAS_MANY, 'SymptomDisease', 'symptomCode'),
+			'symptomHistory' => array(self::HAS_MANY, 'SymptomHistory', 'symptomCode'),
 		);
 	}
 

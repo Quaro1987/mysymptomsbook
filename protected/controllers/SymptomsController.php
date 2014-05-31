@@ -192,22 +192,24 @@ class SymptomsController extends Controller
 	public function actionSymptomsSearch()
 	{
 		
+		$model=new SearchSymptomForm;
 
-		//actoin search version 2
-		$model=new Symptoms('search');
+		if(isset($_POST['SearchSymptomForm']))
+		{
+			$model->attributes=$_POST['SearchSymptomForm'];
+			if($model->validate())
+			{
+				
+			}
+		}
+		
 
-		$model->unsetAttributes();  // clear any default values
-
-		if(isset($_GET['Symptoms']))
-			$model->attributes=$_GET['Symptoms'];
-
-			$this->render('symptomsSearch',array(
-			'model'=>$model,
-		));
+		
+		//render symptomsSearch view
+		$this->render('symptomsSearch',array('model'=>$model,));
 	} 
 
 
-	//returns symptom categories that the user can choose to pick a symptom
 	public static function getSymptomCategories()
 	{
 		 return array(
@@ -230,4 +232,5 @@ class SymptomsController extends Controller
 		 				'Women\'s health, pregnancy' => 'Women\'s health, pregnancy'
 		 			  );
 	}
+
 }

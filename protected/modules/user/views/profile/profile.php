@@ -47,3 +47,8 @@ $this->menu=array(
 		
 	</tr>
 </table>
+
+<div class="row">
+	<?php $model2 = new Symptomhistory; ?>
+	<?php $this->renderPartial('..\..\..\..\views\symptomhistory\_usersHistory',array('model'=>$model2)); ?>
+</div> 

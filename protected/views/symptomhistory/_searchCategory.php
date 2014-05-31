@@ -11,7 +11,7 @@
 )); ?>
 	<!-- form is automatically submitted when dropdown selection changes -->
 	<div class="row">
-		<?php $model = new Symptoms; ?>
+		
 		<?php echo $form->label($model,'symptomCategory'); ?>
 		<?php echo $form->dropDownList($model, 'symptomCategory',
 												$this->getSymptomCategories(),
