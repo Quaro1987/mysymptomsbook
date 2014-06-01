@@ -10,10 +10,7 @@
 				'dataProvider'=>$model->searchByUser($user_id),
 				'htmlOptions'=>array('id'=>'symptomsSearchgrid'),
 				'columns'=>array(
-					(Symptoms::model()->findByAttributes(array(
-														'symptomCode'=>$model->getAttributes(
-																	array('symptomCode')))
-														))->getAttributes(array('title'));,
+					'symptomTitle',
 					'dateSearched',
 					'dateSymptomFirstSeen',
 				),

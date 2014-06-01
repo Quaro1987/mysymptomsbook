@@ -22,7 +22,9 @@ Yii::app()->clientScript->registerScript('search', "
 			$('#symptomsSearchgrid table tbody tr').click(function() {
   				
   				var firstColVal = $(this).find('td:first-child').text();
- 			 	$('#symptomToBeSearched').val(firstColVal);
+ 			 	var secondColVal = $(this).find('td:nth-child(2)').text();
+ 			 	$('#symptomToBeSearchedCode').val(firstColVal);
+ 			 	$('#symptomToBeSearched').val(secondColVal);
             });
 			});
 	 "); 
@@ -55,10 +57,10 @@ Yii::app()->clientScript->registerScript('search', "
 )); ?>
 		<?php echo $form->errorSummary($model); ?>
 		<br/>
-		<?php echo $form->textField($model,'symptomCode', array('id'=>'symptomToBeSearched')); ?>
+		<?php echo $form->textField($model,'symptomCode', array('id'=>'symptomToBeSearchedCode')); ?>
 		<?php echo $form->error($model,'symptomCode'); ?>
 		<br/>
-		
+		<?php echo $form->textField($model,'symptomTitle', array('id'=>'symptomToBeSearched')); ?>
 
 		<?php $this->widget('zii.widgets.jui.CJuiDatePicker',
 			array(

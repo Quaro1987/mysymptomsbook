@@ -75,7 +75,8 @@ class SymptomhistoryController extends Controller
 									'user_id'=>Yii::app()->user->id,
 									'dateSearched'=>date('Y-m-d'),
 									'symptomCode'=>$_POST['Symptomhistory']['symptomCode'],
-									'dateSymptomFirstSeen'=>$_POST['Symptomhistory']['dateSymptomFirstSeen']
+									'dateSymptomFirstSeen'=>$_POST['Symptomhistory']['dateSymptomFirstSeen'],
+									'symptomTitle'=>$_POST['Symptomhistory']['symptomTitle'],
 									 ));
 			
 			if($model->save())
