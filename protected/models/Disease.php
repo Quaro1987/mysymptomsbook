@@ -1,28 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "{{symptoms}}".
+ * This is the model class for table "{{disease}}".
  *
- * The followings are the available columns in table '{{symptoms}}':
+ * The followings are the available columns in table '{{disease}}':
+ * @property string $ICD10
+ * @property string $diseaseTitle
  * @property integer $id
- * @property string $symptomCode
- * @property string $title
- * @property string $shortTitle
- * @property string $inclusions
- * @property string $exclusions
- * @property string $symptomCategory
  *
  * The followings are the available model relations:
  * @property SymptomDisease[] $symptomDiseases
  */
-class Symptoms extends CActiveRecord
+class Disease extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{symptoms}}';
+		return '{{disease}}';
 	}
 
 	/**
@@ -33,12 +29,11 @@ class Symptoms extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('symptomCode, title, shortTitle, inclusions, exclusions, symptomCategory', 'required'),
-			array('symptomCode', 'length', 'max'=>15),
-			array('title, shortTitle, inclusions, exclusions, symptomCategory', 'length', 'max'=>255),
+			array('ICD10', 'length', 'max'=>5),
+			array('diseaseTitle', 'length', 'max'=>185),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, symptomCode, title, shortTitle, inclusions, exclusions, symptomCategory', 'safe', 'on'=>'search'),
+			array('ICD10, diseaseTitle, id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,8 +45,7 @@ class Symptoms extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'symptomDiseases' => array(self::HAS_MANY, 'SymptomDisease', 'symptomCode'),
-			'symptomHistory' => array(self::HAS_MANY, 'SymptomHistory', 'symptomCode'),
+			'symptomDiseases' => array(self::HAS_MANY, 'SymptomDisease', 'diseaseCode'),
 		);
 	}
 
@@ -61,13 +55,9 @@ class Symptoms extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'symptomCode' => 'Symptom Code',
-			'title' => 'Title',
-			'shortTitle' => 'Short Title',
-			'inclusions' => 'Inclusions',
-			'exclusions' => 'Exclusions',
-			'symptomCategory' => 'Symptom Category',
+			'ICD10' => 'ICD10 Code',
+			'diseaseTitle' => 'Disease Title',
+			'id' => 'Database ID',
 		);
 	}
 
@@ -89,44 +79,34 @@ class Symptoms extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
+		$criteria->compare('ICD10',$this->ICD10,true);
+		$criteria->compare('diseaseTitle',$this->diseaseTitle,true);
 		$criteria->compare('id',$this->id);
-		$criteria->compare('symptomCode',$this->symptomCode,true);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('shortTitle',$this->shortTitle,true);
-		$criteria->compare('inclusions',$this->inclusions,true);
-		$criteria->compare('exclusions',$this->exclusions,true);
-		$criteria->compare('symptomCategory',$this->symptomCategory,false);
 
-		
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
-
-		
 	}
 
+	//function to search for multiple values based on ICD10 code
+	public function queryResultSearch($diseaseArray)
+	{
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('ICD10',$diseaseArray,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Symptoms the static model class
+	 * @return Disease the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-
-
-	//function to get specific symptom based on symptom code
-	public function searchByCode($symCode)
-	{
-		$criteria=new CDbCriteria;
-
-		$criteria->compare('symptomCode',$symCode);
-
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
 }
-

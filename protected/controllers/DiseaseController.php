@@ -1,6 +1,6 @@
 <?php
 
-class SymptomhistoryController extends Controller
+class DiseaseController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,7 +32,7 @@ class SymptomhistoryController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('search','update'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -60,33 +60,21 @@ class SymptomhistoryController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionSearch()
+	public function actionCreate()
 	{
-		$model=new Symptomhistory;
-		
+		$model=new Disease;
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-
-		if(isset($_POST['Symptomhistory']))
+		if(isset($_POST['Disease']))
 		{
-			//set attributes for symptom search with user id, current date, and form input
-			$model->setAttributes(array(
-									'user_id'=>Yii::app()->user->id,
-									'dateSearched'=>date('Y-m-d'),
-									'symptomCode'=>$_POST['Symptomhistory']['symptomCode'],
-									'dateSymptomFirstSeen'=>$_POST['Symptomhistory']['dateSymptomFirstSeen'],
-									'symptomTitle'=>$_POST['Symptomhistory']['symptomTitle'],
-									 ));
-			
+			$model->attributes=$_POST['Disease'];
 			if($model->save())
-			{
-				
-				$this->redirect(array('disease/index', 'symptomCode'=>$_POST['Symptomhistory']['symptomCode'])); 
-			}
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
-		$this->render('search',array(
+		$this->render('create',array(
 			'model'=>$model,
 		));
 	}
@@ -103,9 +91,9 @@ class SymptomhistoryController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Symptomhistory']))
+		if(isset($_POST['Disease']))
 		{
-			$model->attributes=$_POST['Symptomhistory'];
+			$model->attributes=$_POST['Disease'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -134,7 +122,30 @@ class SymptomhistoryController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Symptomhistory');
+		$model=new Disease('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Disease']))
+			$model->attributes=$_GET['Disease'];
+
+		//mysqul query based to return disease results
+		$diseaseCodes = Yii::app()->db->createCommand()
+						->select ('ICD10')
+						->from('tbl_disease')
+						->join('tbl_symptom_disease', 'tbl_disease.ICD10=tbl_symptom_disease.diseaseCode')
+						->where('symptomCode=:symptomCode', 
+								array(':symptomCode'=>$_GET['symptomCode']))
+						->queryAll();
+		//empty diseasearray
+		$diseaseArray=array();
+		//fill diseaseArray with ICD10 code from diseaseCodes query
+		foreach($diseaseCodes as $dc)
+		{
+			$diseaseArray[]=$dc['ICD10'];
+		}
+
+		//populate data provider
+		$dataProvider = $model->queryResultSearch($diseaseArray);
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -144,11 +155,11 @@ class SymptomhistoryController extends Controller
 	 * Manages all models.
 	 */
 	public function actionAdmin()
-	{
-		$model=new Symptomhistory('search');
+	{ 
+		$model=new Disease('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Symptomhistory']))
-			$model->attributes=$_GET['Symptomhistory'];
+		if(isset($_GET['Disease']))
+			$model->attributes=$_GET['Disease'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -159,12 +170,12 @@ class SymptomhistoryController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Symptomhistory the loaded model
+	 * @return Disease the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Symptomhistory::model()->findByPk($id);
+		$model=Disease::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -172,53 +183,14 @@ class SymptomhistoryController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Symptomhistory $model the model to be validated
+	 * @param Disease $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='symptomhistory-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='disease-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
-	}
-
-	//returns symptom categories that the user can choose to pick a symptom
-	public static function getSymptomCategories()
-	{
-		 return array(
-		 				'Blood, immune sytem' => 'Blood, immune sytem',
-		 				'Circulatory' => 'Circulatory',
-		 				'Digestive' => 'Digestive',
-		 				'Ear, Hearing' => 'Ear, Hearing',
-		 				'Eye' => 'Eye',
-		 				'Female genital' => 'Female genital',
-		 				'General' => 'General',
-		 				'Male genital' => 'Male genital',
-		 				'Metabolic, endocrine' => 'Metabolic, endocrine',
-		 				'Musculoskeletal' => 'Musculoskeletal',
-		 				'Neurological' => 'Neurological',
-		 				'Psychological' => 'Psychological',
-		 				'Respiratory' => 'Respiratory',
-		 				'Skin' => 'Skin',
-		 				'Social problems' => 'Social problems',
-		 				'Urological' => 'Urological',
-		 				'Women\'s health, pregnancy' => 'Women\'s health, pregnancy'
-		 			  );
-	}
-
-	public function loadGrid()
-	{
-
-		$model=new Symptoms('search');
-
-		$model->unsetAttributes();  // clear any default values
-
-		if(isset($_GET['Symptoms']))
-			$model->attributes=$_GET['Symptoms'];
-
-			$this->render('search',array(
-			'model'=>$model,
-		));
 	}
 }
