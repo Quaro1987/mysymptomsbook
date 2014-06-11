@@ -62,16 +62,30 @@ class SymptomhistoryController extends Controller
 	 */
 	public function actionSearch()
 	{
-		$model=new Symptomhistory;
-		
+		//session variable to store symptomTitles
+		$session=Yii::app()->session;
+		//initial model creation
+		if(!isset($model))
+		{
+			//initiliaze varaiable to keep count of active records to be created
+			$modelCounter=0;
+			//initialize empty model array for SymptomHistory ActiveRecords 
+			$model=array();
+			//initialize empty array for Symptom titles
+			$symptomTitles=array();
+			$model[$modelCounter]=new Symptomhistory;
+		}
+
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 
-		if(isset($_POST['Symptomhistory']))
+		if(isset($_POST['search']))
 		{
-			//set attributes for symptom search with user id, current date, and form input
-			$model->setAttributes(array(
+			
+			//populate symptom search model attributes with user id, current date, and form input
+			$model[$modelCounter]->setAttributes(array(
 									'user_id'=>Yii::app()->user->id,
 									'dateSearched'=>date('Y-m-d'),
 									'symptomCode'=>$_POST['Symptomhistory']['symptomCode'],
@@ -86,10 +100,60 @@ class SymptomhistoryController extends Controller
 			}
 		}
 
+		if(isset($_POST['add']))
+		{
+			//$session=Yii::app()->session['symptomTitles'];
+			//populate symptom search model attributes with user id, current date, and form input
+			$model[$modelCounter]->setAttributes(array(
+									'user_id'=>Yii::app()->user->id,
+									'dateSearched'=>date('Y-m-d'),
+									'symptomCode'=>$_POST['Symptomhistory']['symptomCode'],
+									'dateSymptomFirstSeen'=>$_POST['Symptomhistory']['dateSymptomFirstSeen'],
+									'symptomTitle'=>$_POST['Symptomhistory']['symptomTitle'],
+									 ));
+
+			//if sessoin variable is not set, populate it with first symptomTitle
+			if(!isset(Yii::app()->session['symptomTitles']))
+			{
+				Yii::app()->session['symptomTitles']=array($model[$modelCounter]['symptomTitle']);
+			}
+			else
+			{
+				/*copy past symptomtitle from session variable into array, then add new tittle to array, 
+				and add entire array to session variable again*/
+				$symptomTitles=Yii::app()->session['symptomTitles'];
+				$symptomTitles[$modelCounter]=$model[$modelCounter]['symptomTitle'];
+				Yii::app()->session['symptomTitles'][]=$symptomTitles;
+			}
+			//input into array newest symptom's title
+			$symptomTitles[$modelCounter]=$model[$modelCounter]['symptomTitle'];
+			//increase counter
+			$modelCounter++;
+			$model[$modelCounter]=new Symptomhistory;
+			$this->refresh();
+		}
+
 		$this->render('search',array(
-			'model'=>$model,
+			'model'=>$model[$modelCounter],'symptomTitles'=>$symptomTitles
 		));
 	}
+
+	public function actionSearch2()
+	{
+		if (!isset($model))
+		{
+			$model=new Symptomhistory;
+
+			$this->render('search',array(
+			'model'=>$model,
+		));
+		}
+		else
+		{
+
+		}
+	}
+
 
 	/**
 	 * Updates a particular model.

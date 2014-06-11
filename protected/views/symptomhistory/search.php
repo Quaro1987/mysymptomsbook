@@ -76,10 +76,24 @@ Yii::app()->clientScript->registerScript('search', "
   				
 
 		)); ?>
-		<?php  echo CHtml::submitButton('Search');  ?>
+		<?php echo CHtml::submitButton('Search Symptom(s)', array('name'=>'search'));  ?>
+		<?php echo CHtml::submitButton('Add Another Symptom to Search', array('name'=>'add'));  ?>
 	</div>
 
 
+<div>
+<?php
+//check if there's been already one symptom added to search query
+if(isset(Yii::app()->session['symptomTitles']))
+{
+	$br=Yii::app()->session['symptomTitles'];
+	foreach ($br as $tr) 
+	{
+		echo $tr;
+	}
+}
 
+?>
+</div>
 <?php $this->endWidget(); ?>
 </div>  <!-- end of form -->
