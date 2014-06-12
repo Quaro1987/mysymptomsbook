@@ -12,7 +12,6 @@
 				'id'=>'symptoms-grid',
 				'selectableRows'=>1, //ability to select one symptom at a time
 				'dataProvider'=>$model->search(),
-				'htmlOptions'=>array('id'=>'symptomsSearchgrid'),
 				'columns'=>array(
 					'symptomCode',
 					'title',
@@ -21,9 +20,12 @@
 					'symptomCategory',
 		
 				),
+				'htmlOptions'=>array('id'=>'symptomsSelectGrid'),
 		)); ?>
 		
 	</div>
 
 
 <?php $this->endWidget(); ?>
+
+</div>

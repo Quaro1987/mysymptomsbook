@@ -2,34 +2,15 @@
 $this->pageTitle=Yii::app()->name . ' - Search Symptoms';
 $this->breadcrumbs=array(
 	'Search Symptoms',
-);
-
-//select symptom category, reveal symptomSelectDiv and populate symptom select grid to choose symptom
-Yii::app()->clientScript->registerScript('search', "
-			$( document ).ready(function() {
-
-			$('#symptomSelectDiv').hide();
-
-			$('#categorySelectDropDown').change(function(){
-				$('#symptomSelectDiv').show();
-
-				$('#symptoms-grid').yiiGridView('update', {
-					data: $(this).serialize()
-				});
-				return false;
-			});
-			
-			$('#symptomsSearchgrid table tbody tr').click(function() {
-  				
-  				var firstColVal = $(this).find('td:first-child').text();
- 			 	var secondColVal = $(this).find('td:nth-child(2)').text();
- 			 	$('#symptomToBeSearchedCode').val(firstColVal);
- 			 	$('#symptomToBeSearched').val(secondColVal);
-            });
-			});
-	 "); 
+); ?>
+<?php
+//include custom JS scripts
+Yii::app()->clientScript->registerScriptFile(
+        Yii::app()->baseUrl . '/assets/mSBscripts.js',
+        CClientScript::POS_END
+	);
 ?>
-<h1>Welcome to the search for symptoms page </h1>
+<h1>Welcome to the search for symptoms page</h1>
 
 
 
@@ -60,40 +41,31 @@ Yii::app()->clientScript->registerScript('search', "
 		<?php echo $form->textField($model,'symptomCode', array('id'=>'symptomToBeSearchedCode')); ?>
 		<?php echo $form->error($model,'symptomCode'); ?>
 		<br/>
-		<?php echo $form->textField($model,'symptomTitle', array('id'=>'symptomToBeSearched')); ?>
-
+		<?php echo $form->textField($model,'symptomTitle', array('id'=>'symptomToBeSearchedTitle')); ?>
+		<?php echo $form->error($model,'symptomTitle'); ?>
+		<br/>
 		<?php $this->widget('zii.widgets.jui.CJuiDatePicker',
 			array(
 				'model'=>$model,
 				'attribute'=>'dateSymptomFirstSeen',
+				'id'=>'dateSymptomSeen',
     			'options'=>array(
        	 						'showAnim'=>'fold',
        	 						'dateFormat'=>'yy-mm-dd', //date format set to be compatible with database
     						),
-  				'htmlOptions'=>array(
-       							 'style'=>'height:20px;'
+  				'htmlOptions'=>array(	
+       							'style'=>'height:20px;'
     						),
   				
 
 		)); ?>
-		<?php echo CHtml::submitButton('Search Symptom(s)', array('name'=>'search'));  ?>
-		<?php echo CHtml::submitButton('Add Another Symptom to Search', array('name'=>'add'));  ?>
+		<?php echo CHtml::submitButton('Search Symptom(s)');  ?>
+		<?php echo CHtml::Button('Add Another Symptom to Search', array('id'=>'addSymptom'));  ?>
 	</div>
 
 
 <div>
-<?php
-//check if there's been already one symptom added to search query
-if(isset(Yii::app()->session['symptomTitles']))
-{
-	$br=Yii::app()->session['symptomTitles'];
-	foreach ($br as $tr) 
-	{
-		echo $tr;
-	}
-}
-
-?>
+<table id="symptomTable"><tr><td></td></tr></table>
 </div>
 <?php $this->endWidget(); ?>
 </div>  <!-- end of form -->
