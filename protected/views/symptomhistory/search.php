@@ -32,10 +32,9 @@ Yii::app()->clientScript->registerScriptFile(
 		<div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'symptomhistory-form',
-	'enableAjaxValidation'=>false,
-	
-	
+	'enableAjaxValidation'=>false,	
 )); ?>
+
 		<?php echo $form->errorSummary($model); ?>
 		<br/>
 		<?php echo $form->textField($model,'symptomCode', array('id'=>'symptomToBeSearchedCode')); ?>
@@ -56,10 +55,8 @@ Yii::app()->clientScript->registerScriptFile(
   				'htmlOptions'=>array(	
        							'style'=>'height:20px;'
     						),
-  				
-
 		)); ?>
-		<?php echo CHtml::submitButton('Search Symptom(s)');  ?>
+		<?php echo CHtml::submitButton('Search Symptom(s)', array('name'=>'completeSearch'));  ?>
 		<?php echo CHtml::Button('Add Another Symptom to Search', array('id'=>'addSymptom'));  ?>
 	</div>
 

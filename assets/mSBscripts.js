@@ -36,28 +36,26 @@ $(document).ready(function()
 				};
 				//pass new symptom into symptomsList array
 				symptomsList.push(newSymptom);
-				//empty input
-				$('#symptomToBeSearchedCode').val("");
- 			 	$('#symptomToBeSearchedTitle').val("");
- 			 	$('#dateSymptomSeen').val("");
-				//append symptoms table
-				$('#symptomTable tbody').append('<tr class="child"><td>'+newSymptom.symptomCode+'</td></tr>');
+				//get form data
+				var data = $('#symptomhistory-form').serialize();
+				//make ajax call to server
+				$.ajax({
+					type:'POST',
+					url: '<?php echo Yii::app()->createAbsoluteUrl("symptomHistory/search"); ?>',
+					success:function(data)
+					{
+						alert('working2');
+						//empty input
+						$('#symptomToBeSearchedCode').val("");
+ 			 			$('#symptomToBeSearchedTitle').val("");
+						//append symptoms table
+						$('#symptomTable tbody').append('<tr class="child"><td>'+newSymptom.symptomCode+'</td></tr>');
+					},
+					failure:function(data)
+					{
+						alert('Adding Symptom failed.');
+					},
+					dataType:'html'
+				});
 			});
-
-			$('#symptomhistory-form').on(submit, function(e)
-			{
-				e.preventDefault;
-
-				//create new symptom in javascript
-				var newSymptom = 
-				{
-					symptomCode: $('#symptomToBeSearchedCode').val(),
-					dateSymptomFirstSeen: $('#dateSymptomSeen').val(),
-					symptomTitle: $('symptomToBeSearchedTitle').val()
-				};
-				//pass new symptom into symptomsList array
-				symptomsList.push(newSymptom);
-				
-			});
-			
 });
