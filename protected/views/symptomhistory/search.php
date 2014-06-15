@@ -56,7 +56,7 @@ Yii::app()->clientScript->registerScriptFile(
        							'style'=>'height:20px;'
     						),
 		)); ?>
-		<?php echo CHtml::submitButton('Search Symptom(s)', array('name'=>'completeSearch'));  ?>
+		<?php echo CHtml::Button('Search Symptom(s)', array('id'=>'search'));  ?>
 		<?php echo CHtml::Button('Add Another Symptom to Search', array('id'=>'addSymptom'));  ?>
 	</div>
 

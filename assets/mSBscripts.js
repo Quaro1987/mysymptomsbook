@@ -4,7 +4,8 @@ $(document).ready(function()
 			{
 			//initialize symptoms array
 			var symptomsList=[];
-
+			var symptomCodes=[];
+			var stringRan = "";
 			$('#categorySelectDropDown').change(function()
 			{
 				$('#symptomSelectDiv').show();
@@ -25,37 +26,52 @@ $(document).ready(function()
  			 	$('#symptomToBeSearchedTitle').val(secondColVal);
             });
 
-			$('#addSymptom').click(function()
-			{
+            $('#addSymptom').click(function()
+            {
+            	//create new symptom in javascript
+				var newSymptom = 
+				{
+					symptomCode: $('#symptomToBeSearchedCode').val(),
+					dateSymptomFirstSeen: $('#dateSymptomSeen').val(),
+					symptomTitle: $('#symptomToBeSearchedTitle').val()
+				};
+				//pass new symptom into symptomsList array
+				symptomsList.push(newSymptom);
+				symptomCodes.push(newSymptom.symptomCode);
+				//empty input
+				$('#symptomToBeSearchedCode').val("");
+ 			 	$('#symptomToBeSearchedTitle').val("");
+				//append symptoms table
+				$('#symptomTable tbody').append('<tr class="child"><td>'+newSymptom.symptomCode+'</td></tr>');
+            });
+
+
+			$('#search').click(function()
+			{	
 				//create new symptom in javascript
 				var newSymptom = 
 				{
 					symptomCode: $('#symptomToBeSearchedCode').val(),
 					dateSymptomFirstSeen: $('#dateSymptomSeen').val(),
-					symptomTitle: $('symptomToBeSearchedTitle').val()
+					symptomTitle: $('#symptomToBeSearchedTitle').val()
 				};
 				//pass new symptom into symptomsList array
 				symptomsList.push(newSymptom);
-				//get form data
-				var data = $('#symptomhistory-form').serialize();
+				symptomCodes.push(newSymptom.symptomCode);
+				var symCods = $.param(symptomCodes);
+				console.log(symCods);
 				//make ajax call to server
 				$.ajax({
 					type:'POST',
-					url: '<?php echo Yii::app()->createAbsoluteUrl("symptomHistory/search"); ?>',
-					success:function(data)
-					{
-						alert('working2');
-						//empty input
-						$('#symptomToBeSearchedCode').val("");
- 			 			$('#symptomToBeSearchedTitle').val("");
-						//append symptoms table
-						$('#symptomTable tbody').append('<tr class="child"><td>'+newSymptom.symptomCode+'</td></tr>');
-					},
-					failure:function(data)
-					{
-						alert('Adding Symptom failed.');
-					},
-					dataType:'html'
+					url: '/mysymptomsbook/index.php?r=symptomhistory/search',
+					data:{symptomsList: symptomsList},
+					success: function(result) {
+           					console.log(result);
+           					for(i=0;i<ary.length-1;i++) {
+  		 							str+=ary[c]+'&';
+ 							}
+        			},
+					dataType:'html',
 				});
 			});
 });

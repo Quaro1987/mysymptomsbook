@@ -63,63 +63,38 @@ class SymptomhistoryController extends Controller
 	public function actionSearch()
 	{
 		//initial model creation
-		if(!isset($model))
-		{
-			//initiliaze varaiable to keep count of active records to be created
-			$modelCounter=0;
-			//initialize empty model array for SymptomHistory ActiveRecords 
-			$model=array();
-			$model[$modelCounter]=new Symptomhistory;
-			$i=0;
-		}
-
-
+		$model = new Symptomhistory;
+		//initialize array to store symptoms that are being searched, codes
+		$symptomCodes = array();
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-
-		if(isset($_POST['completeSearch']))
-		{
-			
-			//populate symptom search model attributes with user id, current date, and form input
-			$model[$modelCounter]->setAttributes(array(
-									'user_id'=>Yii::app()->user->id,
-									'dateSearched'=>date('Y-m-d'),
-									'symptomCode'=>$_POST['Symptomhistory']['symptomCode'],
-									'dateSymptomFirstSeen'=>$_POST['Symptomhistory']['dateSymptomFirstSeen'],
-									'symptomTitle'=>$_POST['Symptomhistory']['symptomTitle'],
-									 ));
-			
-			//save models
-			while($i <= $modelCounter)
+		if(isset($_POST['symptomsList']))
+		{	
+			foreach($_POST['symptomsList'] as $symptom)
 			{
-				$model[$i]->save();
-				$i++;
-			}
-
-			$this->redirect(array('disease/index', 'symptomCode'=>$_POST['Symptomhistory']['symptomCode'])); 
-			
-		}
-
-		if(isset($_POST['Symptomhistory']))
-		{
-			//populate symptom search model attributes with user id, current date, and form input
-			$model[$modelCounter]->setAttributes(array(
+				//populate symptom search model attributes with user id, current date, and form input
+				$newSymptom = new Symptomhistory;
+				$newSymptom->setAttributes(array(
 									'user_id'=>Yii::app()->user->id,
 									'dateSearched'=>date('Y-m-d'),
-									'symptomCode'=>$_POST['Symptomhistory']['symptomCode'],
-									'dateSymptomFirstSeen'=>$_POST['Symptomhistory']['dateSymptomFirstSeen'],
-									'symptomTitle'=>$_POST['Symptomhistory']['symptomTitle'],
+									'symptomCode'=>$symptom['symptomCode'],
+									'dateSymptomFirstSeen'=>$symptom['dateSymptomFirstSeen'],
+									'symptomTitle'=>$symptom['symptomTitle'],
 									 ));
-			//increase counter
-			$modelCounter++;
-			$model[$modelCounter]=new Symptomhistory;
+				//save search history
+				$newSymptom->save();
+				//add into the searched for symptoms code the latest code
+				array_push($symptomCodes, strval($symptom['symptomCode']));
+			}
+			
+			
+			$this->redirect(array('disease/index'));
 		}
 
-		if($modelCounter==0)
-		{
-			$this->render('search',array('model'=>$model[$modelCounter]));
-	    }
+		//render search view
+		$this->render('search',array('model'=>$model));
+
 	}
 
 
