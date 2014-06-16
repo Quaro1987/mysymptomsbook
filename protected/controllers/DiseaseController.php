@@ -127,21 +127,36 @@ class DiseaseController extends Controller
 		if(isset($_GET['Disease']))
 			$model->attributes=$_GET['Disease'];
 
-		//mysqul query based to return disease results
+		//empty diseasearray
+		$diseaseArray=array();
+		$symptomCodesArray = $_GET['symptomCode'];
 		$diseaseCodes = Yii::app()->db->createCommand()
 						->select ('ICD10')
 						->from('tbl_disease')
-						->join('tbl_symptom_disease', 'tbl_disease.ICD10=tbl_symptom_disease.diseaseCode')
-						->where('symptomCode=:symptomCode', 
-								array(':symptomCode'=>$_GET['symptomCode']))
 						->queryAll();
-		//empty diseasearray
-		$diseaseArray=array();
-		//fill diseaseArray with ICD10 code from diseaseCodes query
+						//fill diseaseArray with ICD10 code from diseaseCodes query
 		foreach($diseaseCodes as $dc)
 		{
 			$diseaseArray[]=$dc['ICD10'];
 		}
+		//mysqul query to return disease results
+		foreach ($symptomCodesArray as $symptom) {
+			$diseaseCodes = Yii::app()->db->createCommand()
+						->select ('diseaseCode')
+						->from('tbl_symptom_disease')
+						->where(array('and', 'symptomCode=:symptomCode',
+								array(':symptomCode'=>$symptom), 
+								array('in', 'diseaseCode', $diseaseCodes)))
+						->queryAll(); 
+						//fill diseaseArray with ICD10 code from diseaseCodes query
+						foreach($diseaseCodes as $dc)
+						{
+							$diseaseArray[]=$dc['diseaseCode'];
+						}
+		}
+		
+		
+		
 
 		//populate data provider
 		$dataProvider = $model->queryResultSearch($diseaseArray);

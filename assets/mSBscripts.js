@@ -3,9 +3,13 @@ $('#symptomSelectDiv').hide();
 $(document).ready(function() 
 			{
 			//initialize symptoms array
-			var symptomsList=[];
-			var symptomCodes=[];
-			var stringRan = "";
+			var symptomsList = [];
+			//innitialize symptomCodes array
+			var symptomCodesArray = [];
+			//innitialize counter
+			var counter = 0;
+			//innitialize queryString
+			var symptomCodesQueryString = "";
 			$('#categorySelectDropDown').change(function()
 			{
 				$('#symptomSelectDiv').show();
@@ -35,9 +39,12 @@ $(document).ready(function()
 					dateSymptomFirstSeen: $('#dateSymptomSeen').val(),
 					symptomTitle: $('#symptomToBeSearchedTitle').val()
 				};
+				//create new object for symptom code
+				symptomCodesQueryString = symptomCodesQueryString+"&symptomCode[]"+newSymptom.symptomCode;
 				//pass new symptom into symptomsList array
 				symptomsList.push(newSymptom);
-				symptomCodes.push(newSymptom.symptomCode);
+				//increase counter
+				counter++;
 				//empty input
 				$('#symptomToBeSearchedCode').val("");
  			 	$('#symptomToBeSearchedTitle').val("");
@@ -55,21 +62,21 @@ $(document).ready(function()
 					dateSymptomFirstSeen: $('#dateSymptomSeen').val(),
 					symptomTitle: $('#symptomToBeSearchedTitle').val()
 				};
+
 				//pass new symptom into symptomsList array
 				symptomsList.push(newSymptom);
-				symptomCodes.push(newSymptom.symptomCode);
-				var symCods = $.param(symptomCodes);
-				console.log(symCods);
+
+				symptomCodesQueryString = symptomCodesQueryString+"&symptomCode[]"+newSymptom.symptomCode;
+				
+				console.log(symptomCodesQueryString);
+
 				//make ajax call to server
 				$.ajax({
 					type:'POST',
 					url: '/mysymptomsbook/index.php?r=symptomhistory/search',
 					data:{symptomsList: symptomsList},
 					success: function(result) {
-           					console.log(result);
-           					for(i=0;i<ary.length-1;i++) {
-  		 							str+=ary[c]+'&';
- 							}
+           					window.location = '/mysymptomsbook/index.php?r=disease/index'+symptomCodesQueryString;
         			},
 					dataType:'html',
 				});
