@@ -40,7 +40,7 @@ $(document).ready(function()
 					symptomTitle: $('#symptomToBeSearchedTitle').val()
 				};
 				//create new object for symptom code
-				symptomCodesQueryString = symptomCodesQueryString+"&symptomCode[]"+newSymptom.symptomCode;
+				symptomCodesQueryString = symptomCodesQueryString+"&symptomCode[]="+newSymptom.symptomCode;
 				//pass new symptom into symptomsList array
 				symptomsList.push(newSymptom);
 				//increase counter
@@ -66,7 +66,7 @@ $(document).ready(function()
 				//pass new symptom into symptomsList array
 				symptomsList.push(newSymptom);
 
-				symptomCodesQueryString = symptomCodesQueryString+"&symptomCode[]"+newSymptom.symptomCode;
+				symptomCodesQueryString = symptomCodesQueryString+"&symptomCode[]="+newSymptom.symptomCode;
 				
 				console.log(symptomCodesQueryString);
 

@@ -99,6 +99,30 @@ class Disease extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+	//function to run multiple symptom Codes query
+	public function getMultipleSymptomsArray($sympomCodesArray)
+	{
+		//function scope array variable to store symptomCodes in OR comparison
+		$orQueryArray=array();
+		//or comparison
+		$orQueryArray[0]='or';
+		// empty string var
+		$queryStringVar = '';
+
+		//loop through symptomCodes
+		foreach($sympomCodesArray as $symptomCode)
+		{
+
+			//format symptomCode into string to be searched
+			$queryStringVar=("tbl_symptom_disease.symptomCode=\"".$symptomCode."\"");
+			//add symptomCode in the OR comparison
+			
+			array_push($orQueryArray, $queryStringVar);
+		}
+
+		return $orQueryArray;
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

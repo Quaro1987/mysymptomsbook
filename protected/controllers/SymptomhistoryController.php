@@ -64,8 +64,6 @@ class SymptomhistoryController extends Controller
 	{
 		//initial model creation
 		$model = new Symptomhistory;
-		//initialize array to store symptoms that are being searched, codes
-		$symptomCodes = array();
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -84,12 +82,10 @@ class SymptomhistoryController extends Controller
 									 ));
 				//save search history
 				$newSymptom->save();
-				//add into the searched for symptoms code the latest code
-				array_push($symptomCodes, strval($symptom['symptomCode']));
 			}
 			
-			
-			$this->redirect(array('disease/index'));
+			echo "success";
+			return;
 		}
 
 		//render search view
