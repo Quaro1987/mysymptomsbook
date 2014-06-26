@@ -33,7 +33,7 @@ class Disease extends CActiveRecord
 			array('diseaseTitle', 'length', 'max'=>185),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('ICD10, diseaseTitle, id', 'safe', 'on'=>'search'),
+			array('ICD10, diseaseTitle', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,7 +56,7 @@ class Disease extends CActiveRecord
 	{
 		return array(
 			'ICD10' => 'ICD10 Code',
-			'diseaseTitle' => 'Disease Title',
+			'diseaseTitle' => 'Disease Name',
 			'id' => 'Database ID',
 		);
 	}
@@ -101,27 +101,30 @@ class Disease extends CActiveRecord
 	}
 
 	//function to run multiple symptom Codes query
-	public function getMultipleSymptomsArray($sympomCodesArray)
+	public function getMultipleSymptomsOrQueryString($sympomCodesArray)
 	{
-		//function scope array variable to store symptomCodes in OR comparison
-		$orQueryArray=array();
-		//or comparison
-		$orQueryArray[0]='or';
-		// empty string var
-		$queryStringVar = '';
-
+		// empty symptoms or query string 
+		$querySymptomsString = '';
+		//first loop flag
+		$firstLoop = True;
 		//loop through symptomCodes
 		foreach($sympomCodesArray as $symptomCode)
 		{
-
-			//format symptomCode into string to be searched
-			$queryStringVar=("tbl_symptom_disease.symptomCode=\"".$symptomCode."\"");
-			//add symptomCode in the OR comparison
-			
-			array_push($orQueryArray, $queryStringVar);
+			if($firstLoop)
+			{
+				// pass into string symptomCode="symptomCode" 
+				$querySymptomsString.=("tbl_symptom_disease.symptomCode=\"".$symptomCode."\"");
+				//set first loop flag to false
+				$firstLoop = False;
+			}
+			else
+			{
+			// pass into string OR symptomCode="symptomCode" 
+			$querySymptomsString.=("OR tbl_symptom_disease.symptomCode=\"".$symptomCode."\"");
+			}					
 		}
-
-		return $orQueryArray;
+		//return to controller symptomCode query string: symptomCode="symptomCode" OR symptomCode="symptomCde" OR...
+		return $querySymptomsString;
 	}
 	/**
 	 * Returns the static model of the specified AR class.

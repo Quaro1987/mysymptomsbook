@@ -233,4 +233,16 @@ class SymptomsController extends Controller
 		 			  );
 	}
 
+	public function symptomCategoriesDataProvider()
+	{
+		if(isset($_POST['symptomCategory']))
+		{
+			$dataProvider = Symptoms::model()->searchCategory($_POST['symptomCategory']);
+		}
+		else
+		{
+			$dataProvider = Symptoms::model()->search();
+			return $dataProvider;
+		}
+	}
 }

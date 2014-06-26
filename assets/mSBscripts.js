@@ -1,4 +1,4 @@
-$('#symptomSelectDiv').hide();
+
 
 $(document).ready(function() 
 			{
@@ -10,24 +10,19 @@ $(document).ready(function()
 			var counter = 0;
 			//innitialize queryString
 			var symptomCodesQueryString = "";
-			$('#categorySelectDropDown').change(function()
-			{
-				$('#symptomSelectDiv').show();
-				
-				$('#symptoms-grid').yiiGridView('update', 
-				{
-					data: $(this).serialize()
-				});
-				return false;
-			});
+		
+
 
 			//copy choice to input textboxes
 			$('#symptomsSelectGrid table tbody tr').click(function() 
 			{		
+				var valu = $('symptoms-grid').yiiGridView('getSelection');
+				alert(valu);
   				var firstColVal = $(this).find('td:first-child').text();
   				var secondColVal = $(this).find('td:nth-child(2)').text();		 	
  			 	$('#symptomToBeSearchedCode').val(firstColVal);
  			 	$('#symptomToBeSearchedTitle').val(secondColVal);
+ 			 	
             });
 
             $('#addSymptom').click(function()

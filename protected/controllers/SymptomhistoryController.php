@@ -27,12 +27,8 @@ class SymptomhistoryController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('search','update'),
+			array('allow', // allow authenticated user to perform 'create', view, and 'update' actions
+				'actions'=>array('search','update', 'index','view', 'updateSymptomsGridView'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -64,6 +60,7 @@ class SymptomhistoryController extends Controller
 	{
 		//initial model creation
 		$model = new Symptomhistory;
+		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -88,6 +85,9 @@ class SymptomhistoryController extends Controller
 			return;
 		}
 
+		
+
+		
 		//render search view
 		$this->render('search',array('model'=>$model));
 
@@ -209,7 +209,7 @@ class SymptomhistoryController extends Controller
 		 				'Women\'s health, pregnancy' => 'Women\'s health, pregnancy'
 		 			  );
 	}
-
+	//potentially useless
 	public function loadGrid()
 	{
 
@@ -223,5 +223,20 @@ class SymptomhistoryController extends Controller
 			$this->render('search',array(
 			'model'=>$model,
 		));
+	}
+	
+	public function actionUpdateSymptomsGridView()
+	{
+		$symptomsModel = new Symptoms;
+
+		if(isset($_POST['symptomCategory']))
+		{
+			
+			$symptomsModel->setAttributes(array(
+										'symptomCategory'=>$_POST['symptomCategory']));
+			$dataProvider = $symptomsModel->searchCategory();
+
+			 $this->renderPartial('_symptomsGrid', array('dataProvider'=>$dataProvider));
+		}
 	}
 }

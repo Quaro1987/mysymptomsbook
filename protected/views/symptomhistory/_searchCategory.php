@@ -5,23 +5,31 @@
 
 <div class="wide form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'action'=>Yii::app()->createUrl($this->route),
-	'method'=>'get', 
-)); ?>
+<?php 
+		 ?>
 	<!-- form is automatically submitted when dropdown selection changes -->
-	<div class="row">
-		
-		<?php echo $form->label($model,'symptomCategory'); ?>
-		<?php echo $form->dropDownList($model, 'symptomCategory',
-												$this->getSymptomCategories(),
-												array('submit'=>'',
-													  'id'=>'categorySelectDropDown',
-													  'prompt'=>"Select Symptom Category")); ?>
-		
-	</div>
+
+<!-- form is automatically submitted when dropdown selection changes -->
+<div class="row">
+    
+    
+    <?php 
+    	echo	CHtml::dropDownList('symptomCategory', 'symptomCategory',
+                                             $this->getSymptomCategories(),
+                                            array('id'=>'categorySelectDropDown',
+                                                  'prompt'=>"Select Symptom Category",  
+                                            		  'ajax'=> array(
+                                            					'type'=>'POST',
+                                            					'url'=>Yii::app()->createUrl('symptomhistory/updateSymptomsGridView'),
+                                            					'update'=>'#symptoms-grid',
+                                            					'data'=>array('symptomCategory'=>'js:this.value', 'YII_CSRF_TOKEN' => Yii::app()->request->csrfToken))                                                                            
+                                                  ));
+
+                                                  ?>
+
+</div>
+ 
 
 
-<?php $this->endWidget(); ?>
 
 </div> <!-- end search form --> 
