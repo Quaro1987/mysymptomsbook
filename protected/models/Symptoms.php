@@ -114,7 +114,7 @@ class Symptoms extends CActiveRecord
 		$criteria->compare('symptomCategory',$this->symptomCategory,true);
 		
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+			'criteria'=>$criteria, 
 		));
 
 		
@@ -140,8 +140,10 @@ class Symptoms extends CActiveRecord
 		$criteria->compare('symptomCode',$symCode);
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+			'criteria'=>$criteria, 
 		));
 	}
+
+	
 }
 

@@ -12,12 +12,20 @@ $(document).ready(function()
 			var symptomCodesQueryString = "";
 		
 
+			$('#categorySelectDropDown').change(function(){
+
+			$('.search-form form').submit(function(){
+				$('#symptoms-grid').yiiGridView('update', {
+					data: $(this).serialize()
+				});
+			return false;
+			});
+
+			});
 
 			//copy choice to input textboxes
-			$('#symptomsSelectGrid table tbody tr').click(function() 
+			$('#symptomSelectDiv').on('click', 'table tbody tr', function() 
 			{		
-				var valu = $('symptoms-grid').yiiGridView('getSelection');
-				alert(valu);
   				var firstColVal = $(this).find('td:first-child').text();
   				var secondColVal = $(this).find('td:nth-child(2)').text();		 	
  			 	$('#symptomToBeSearchedCode').val(firstColVal);

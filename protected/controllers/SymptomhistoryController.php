@@ -58,9 +58,8 @@ class SymptomhistoryController extends Controller
 	 */
 	public function actionSearch()
 	{
-		//initial model creation
 		$model = new Symptomhistory;
-		
+		$symptomsModel = new Symptoms;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -86,10 +85,13 @@ class SymptomhistoryController extends Controller
 		}
 
 		
-
-		
+		if(isset($_GET['Symptoms'])) 
+		{
+			$symptomsModel->attributes=$_GET['Symptoms'];
+		}		
 		//render search view
-		$this->render('search',array('model'=>$model));
+		$this->render('search',array('model'=>$model,'symptomsModel'=>$symptomsModel));
+		
 
 	}
 
@@ -227,16 +229,17 @@ class SymptomhistoryController extends Controller
 	
 	public function actionUpdateSymptomsGridView()
 	{
-		$symptomsModel = new Symptoms;
+		$symptomsModel = new Symptoms('searchCategory');
 
 		if(isset($_POST['symptomCategory']))
 		{
 			
 			$symptomsModel->setAttributes(array(
 										'symptomCategory'=>$_POST['symptomCategory']));
-			$dataProvider = $symptomsModel->searchCategory();
-
-			 $this->renderPartial('_symptomsGrid', array('dataProvider'=>$dataProvider));
+			
 		}
+			$this->renderPartial('_symptomsGrid', array('model'=>$symptomsModel), false, true);
+
+		
 	}
 }
