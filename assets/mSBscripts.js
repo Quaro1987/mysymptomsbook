@@ -35,24 +35,31 @@ $(document).ready(function()
 
             $('#addSymptom').click(function()
             {
-            	//create new symptom in javascript
-				var newSymptom = 
-				{
-					symptomCode: $('#symptomToBeSearchedCode').val(),
-					dateSymptomFirstSeen: $('#dateSymptomSeen').val(),
-					symptomTitle: $('#symptomToBeSearchedTitle').val()
-				};
-				//create new object for symptom code
-				symptomCodesQueryString = symptomCodesQueryString+"&symptomCode[]="+newSymptom.symptomCode;
-				//pass new symptom into symptomsList array
-				symptomsList.push(newSymptom);
-				//increase counter
-				counter++;
-				//empty input
-				$('#symptomToBeSearchedCode').val("");
- 			 	$('#symptomToBeSearchedTitle').val("");
-				//append symptoms table
-				$('#symptomTable tbody').append('<tr class="child"><td>'+newSymptom.symptomCode+'</td></tr>');
+            	if($('#symptomToBeSearchedTitle').val()=="")
+            	{
+            		alert('You need to select a symptom.')
+            	}	
+            	else
+            	{
+            		//create new symptom in javascript
+					var newSymptom = 
+					{
+						symptomCode: $('#symptomToBeSearchedCode').val(),
+						dateSymptomFirstSeen: $('#dateSymptomSeen').val(),
+						symptomTitle: $('#symptomToBeSearchedTitle').val()
+					};
+					//create new object for symptom code
+					symptomCodesQueryString = symptomCodesQueryString+"&symptomCode[]="+newSymptom.symptomCode;
+					//pass new symptom into symptomsList array
+					symptomsList.push(newSymptom);
+					//increase counter
+					counter++;
+					//empty input
+					$('#symptomToBeSearchedCode').val("");
+ 			 		$('#symptomToBeSearchedTitle').val("");
+					//append symptoms table
+					$('#symptomTable tbody').append('<tr class="child"><td>'+newSymptom.symptomCode+'</td></tr>');
+				}
             });
 
 

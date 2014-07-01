@@ -185,30 +185,6 @@ class SymptomsController extends Controller
 			'model'=>$model,
 		));
 	}
-	
-
-	//Displays the Search Symptoms page
-	
-	public function actionSymptomsSearch()
-	{
-		
-		$model=new SearchSymptomForm;
-
-		if(isset($_POST['SearchSymptomForm']))
-		{
-			$model->attributes=$_POST['SearchSymptomForm'];
-			if($model->validate())
-			{
-				
-			}
-		}
-		
-
-		
-		//render symptomsSearch view
-		$this->render('symptomsSearch',array('model'=>$model,));
-	} 
-
 
 	public static function getSymptomCategories()
 	{

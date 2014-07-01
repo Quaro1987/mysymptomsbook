@@ -3,14 +3,24 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Diseases',
+	'Disease Results',
 );
 
 ?>
 
 <h1>Disease Search Results:</h1>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
-)); ?>
+<?php 
+
+	if($resultsExist==true)
+	{
+		$this->widget('zii.widgets.CListView', array(
+			'dataProvider'=>$dataProvider,
+			'itemView'=>'_view',
+		));
+	}
+	else
+	{
+		echo '</br>';
+		echo '<b>We\'re sorry, but no diseases exist with those symptoms.</b>';	 
+	} ?>

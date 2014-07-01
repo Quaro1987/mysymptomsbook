@@ -25,7 +25,6 @@ Yii::app()->clientScript->registerScriptFile(
 	'method'=>'get',
 )); ?>
 
- 	<?php echo $form->label($symptomsModel,'symptomCategory'); ?>
     <?php echo $form->dropDownList($symptomsModel, 'symptomCategory',
                                             $this->getSymptomCategories(),
                                             array('submit'=>'',
@@ -34,7 +33,7 @@ Yii::app()->clientScript->registerScriptFile(
 <?php $this->endWidget(); ?>
 </div>
 
-		
+<div class="row"><br/> <b>Select Symptom:</b> </div>	
 <div class="row" id="symptomSelectDiv" >
 		
 	<?php 
@@ -66,12 +65,14 @@ $this->widget('zii.widgets.grid.CGridView', array(
 
 		<?php echo $form->errorSummary($model); ?>
 		<br/>
+
 		<?php echo $form->textField($model,'symptomCode', array('id'=>'symptomToBeSearchedCode')); ?>
-		<?php echo $form->error($model,'symptomCode'); ?>
+		
 		<br/>
 		<?php echo $form->textField($model,'symptomTitle', array('id'=>'symptomToBeSearchedTitle')); ?>
-		<?php echo $form->error($model,'symptomTitle'); ?>
+		
 		<br/>
+		<?php echo $form->label($model,'dateSymptomFirstSeen'); ?>
 		<?php $this->widget('zii.widgets.jui.CJuiDatePicker',
 			array(
 				'model'=>$model,
