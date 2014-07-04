@@ -107,11 +107,10 @@ class Symptoms extends CActiveRecord
 
 	public  function searchCategory()
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
-
+		
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('symptomCategory',$this->symptomCategory,true);
+		$criteria->compare('symptomCategory',$this->symptomCategory,false);
 		
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria, 
