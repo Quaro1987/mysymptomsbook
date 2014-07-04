@@ -9,22 +9,15 @@ if(Yii::app()->user->isGuest): ?>
 
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+<p>To use My Symptoms Book, please click on the Register button in the menu to create
+your User account.</p>
 
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
-
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>
+<p>If you already have an account, click the Login button to start using My Symptoms Book services.</p>
 <?php
 else: ?>
 
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?>, </i><?php echo CHtml::encode(Yii::app()->user->username); ?>!</h1>
-
+<p>Click on the "Search Symptoms" button to search for diseases based on your symptoms.</p>
+<p>Click on the "Profile" button to see your user page and past symptom search history.</p>
 
 <?php endif ?>

@@ -7,7 +7,9 @@ $this->menu=array(
 	((UserModule::isAdmin())
 		?array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin'))
 		:array()),
-    array('label'=>UserModule::t('List User'), 'url'=>array('/user')),
+    ((UserModule::isAdmin())
+    	?array('label'=>UserModule::t('List User'), 'url'=>array('/user'))
+    	:array()),
     array('label'=>UserModule::t('Profile'), 'url'=>array('/user/profile')),
     array('label'=>UserModule::t('Change password'), 'url'=>array('changepassword')),
     array('label'=>UserModule::t('Logout'), 'url'=>array('/user/logout')),
@@ -63,6 +65,12 @@ $this->menu=array(
 		<?php echo $form->labelEx($model,'email'); ?>
 		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'email'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'AMKA'); ?>
+		<?php echo $form->textField($model,'AMKA',array('size'=>11,'maxlength'=>11)); ?>
+		<?php echo $form->error($model,'AMKA'); ?>
 	</div>
 
 	<div class="row buttons">

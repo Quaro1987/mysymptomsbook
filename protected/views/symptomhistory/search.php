@@ -3,6 +3,8 @@ $this->pageTitle=Yii::app()->name . ' - Search Symptoms';
 $this->breadcrumbs=array(
 	'Search Symptoms',
 ); ?>
+
+
 <?php
 //include custom JS scripts
 Yii::app()->clientScript->registerScriptFile(
@@ -12,11 +14,13 @@ Yii::app()->clientScript->registerScriptFile(
 
 
 ?>
+
+
 <h1>Welcome to the search for symptoms page</h1>
 
 
 
-<p class="note"></p>
+
 	<!-- Select symptom category dropdown menu -->
 <div class="search-form">
 			
@@ -32,8 +36,8 @@ Yii::app()->clientScript->registerScriptFile(
                                                   'prompt'=>"Select Symptom Category")); ?>
 <?php $this->endWidget(); ?>
 </div>
-
 <div class="row"><br/> <b>Select Symptom:</b> </div>	
+
 <div class="row" id="symptomSelectDiv" >
 		
 	<?php 
@@ -63,15 +67,14 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'enableAjaxValidation'=>false,	
 )); ?>
 
-		<?php echo $form->errorSummary($model); ?>
 		<br/>
-
-		<?php echo $form->textField($model,'symptomCode', array('id'=>'symptomToBeSearchedCode')); ?>
+		<?php echo $form->hiddenField($model,'symptomCode', array('id'=>'symptomToBeSearchedCode')); ?>
 		
 		<br/>
-		<?php echo $form->textField($model,'symptomTitle', array('id'=>'symptomToBeSearchedTitle')); ?>
+		<?php echo $form->hiddenField($model,'symptomTitle', array('id'=>'symptomToBeSearchedTitle')); ?>
 		
 		<br/>
+		<div class="search-form">
 		<?php echo $form->label($model,'dateSymptomFirstSeen'); ?>
 		<?php $this->widget('zii.widgets.jui.CJuiDatePicker',
 			array(
@@ -80,20 +83,24 @@ $this->widget('zii.widgets.grid.CGridView', array(
 				'id'=>'dateSymptomSeen',
     			'options'=>array(
        	 						'showAnim'=>'fold',
+       	 						'maxDate'=>"+0D", //the latest date the user can pick is the current date
        	 						'dateFormat'=>'yy-mm-dd', //date format set to be compatible with database
     						),
   				'htmlOptions'=>array(	
        							'style'=>'height:20px;'
     						),
 		)); ?>
-		<?php echo $form->error($model,'dateSymptomFirstSeen'); ?>
+		</div>
+
+		</br>	
 		<?php echo CHtml::Button('Search Symptom(s)', array('id'=>'search'));  ?>
 		<?php echo CHtml::Button('Add Another Symptom to Search', array('id'=>'addSymptom'));  ?>
 	</div>
 
 
-<div>
-<table id="symptomTable"><tr><td></td></tr></table>
-</div>
+
 <?php $this->endWidget(); ?>
 </div>  <!-- end of form -->
+
+
+

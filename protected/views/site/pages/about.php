@@ -8,5 +8,15 @@ $this->breadcrumbs=array(
 ?>
 <h1>About</h1>
 
-<p>This is a "static" page. You may change the content of this page
-by updating the file <code><?php echo __FILE__; ?></code>.</p>
+<p>This web application was developed by Ioannis Pasmatzis for the Department of Digital Systems
+of the University of Piraeus, as part of his thesis. </p>
+
+<p>This service uses the World Health Organization's (WHO) ICD10 and ICPC2 databases
+for the classificaton of diseases and symptoms.</br> More info can be found at:</p>
+
+<a href="http://www.who.int/classifications/icd/en/">International Classification of Diseases (ICD)</a>
+</br>
+<a href="http://www.who.int/classifications/icd/adaptations/icpc2/en/">International Classification of Primary Care, Second edition (ICPC-2)</a>
+</br>
+</br>
+<p>For any questions please use the Contact page.</p>

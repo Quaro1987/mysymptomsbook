@@ -230,5 +230,22 @@ div.search-form
 
 .hidden
 {
-display : none;
+	display : none;
 }
+
+.symptomsTable
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.symptomsTable th, td 
+{
+   border: 1px solid black;
+} 
+
+.symptomsTable th
+{
+	text-align: center;
+	font-weight:bold;
+} 

@@ -6,7 +6,7 @@ class SymptomhistoryController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/righty';
 
 	/**
 	 * @return array action filters
@@ -211,35 +211,5 @@ class SymptomhistoryController extends Controller
 		 				'Women\'s health, pregnancy' => 'Women\'s health, pregnancy'
 		 			  );
 	}
-	//potentially useless
-	public function loadGrid()
-	{
-
-		$model=new Symptoms('search');
-
-		$model->unsetAttributes();  // clear any default values
-
-		if(isset($_GET['Symptoms']))
-			$model->attributes=$_GET['Symptoms'];
-
-			$this->render('search',array(
-			'model'=>$model,
-		));
-	}
 	
-	public function actionUpdateSymptomsGridView()
-	{
-		$symptomsModel = new Symptoms('searchCategory');
-
-		if(isset($_POST['symptomCategory']))
-		{
-			
-			$symptomsModel->setAttributes(array(
-										'symptomCategory'=>$_POST['symptomCategory']));
-			
-		}
-			$this->renderPartial('_symptomsGrid', array('model'=>$symptomsModel), false, true);
-
-		
-	}
 }

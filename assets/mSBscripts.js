@@ -37,8 +37,16 @@ $(document).ready(function()
             {
             	if($('#symptomToBeSearchedTitle').val()=="")
             	{
-            		alert('You need to select a symptom.')
+            		alert('You need to select a symptom.');
+            	}
+            	else if($('#dateSymptomSeen').val()=="")
+            	{
+            		alert('You need to select the date the symptom was first seen on.');
             	}	
+            	else if(!($.inArray($('#symptomToBeSearchedCode').val(), symptomCodesArray)==-1))
+            	{
+            		alert('This Symptom already exists in your search.');
+            	}
             	else
             	{
             		//create new symptom in javascript
@@ -48,7 +56,9 @@ $(document).ready(function()
 						dateSymptomFirstSeen: $('#dateSymptomSeen').val(),
 						symptomTitle: $('#symptomToBeSearchedTitle').val()
 					};
-					//create new object for symptom code
+					//pass new symptom code into symptomCodes array
+					symptomCodesArray.push(newSymptom.symptomCode);
+					//add symptom code to query string
 					symptomCodesQueryString = symptomCodesQueryString+"&symptomCode[]="+newSymptom.symptomCode;
 					//pass new symptom into symptomsList array
 					symptomsList.push(newSymptom);
@@ -58,37 +68,52 @@ $(document).ready(function()
 					$('#symptomToBeSearchedCode').val("");
  			 		$('#symptomToBeSearchedTitle').val("");
 					//append symptoms table
-					$('#symptomTable tbody').append('<tr class="child"><td>'+newSymptom.symptomCode+'</td></tr>');
+					$('#symptomToBeSearchedTable tbody').append('<tr class="child"><td>'+newSymptom.symptomTitle+'</td></tr>');
+					//make table visable
+					$('#symptomToBeSearchedTable').removeClass("hidden");
 				}
             });
 
 
 			$('#search').click(function()
 			{	
-				//create new symptom in javascript
-				var newSymptom = 
-				{
-					symptomCode: $('#symptomToBeSearchedCode').val(),
-					dateSymptomFirstSeen: $('#dateSymptomSeen').val(),
-					symptomTitle: $('#symptomToBeSearchedTitle').val()
-				};
-
-				//pass new symptom into symptomsList array
-				symptomsList.push(newSymptom);
-
-				symptomCodesQueryString = symptomCodesQueryString+"&symptomCode[]="+newSymptom.symptomCode;
-				
-				console.log(symptomCodesQueryString);
-
-				//make ajax call to server
-				$.ajax({
-					type:'POST',
-					url: '/mysymptomsbook/index.php?r=symptomhistory/search',
-					data:{symptomsList: symptomsList},
-					success: function(result) {
+				if($('#symptomToBeSearchedTitle').val()=="")
+            	{
+            		alert('You need to select a symptom.');
+            	}
+            	else if($('#dateSymptomSeen').val()=="")
+            	{
+            		alert('You need to select the date the symptom was first seen on.');
+            	}	
+            	else if(!($.inArray($('#symptomToBeSearchedCode').val(), symptomCodesArray)==-1))
+            	{
+            		alert('This Symptom already exists in your search.');
+            	}
+            	else
+            	{
+					//create new symptom in javascript
+					var newSymptom = 
+					{
+						symptomCode: $('#symptomToBeSearchedCode').val(),
+						dateSymptomFirstSeen: $('#dateSymptomSeen').val(),
+						symptomTitle: $('#symptomToBeSearchedTitle').val()
+					};
+					//pass new symptom code into symptomCodes array
+					symptomCodesArray.push(newSymptom.symptomCode);
+					//pass new symptom into symptomsList array
+					symptomsList.push(newSymptom);
+					//add symptom code to query string
+					symptomCodesQueryString = symptomCodesQueryString+"&symptomCode[]="+newSymptom.symptomCode;
+					//make ajax call to server
+					$.ajax({
+						type:'POST',
+						url: '/mysymptomsbook/index.php?r=symptomhistory/search',
+						data:{symptomsList: symptomsList},
+						success: function(result) {
            					window.location = '/mysymptomsbook/index.php?r=disease/index'+symptomCodesQueryString;
-        			},
-					dataType:'html',
-				});
+        				},
+						dataType:'html',
+					});
+				}
 			});
 });
