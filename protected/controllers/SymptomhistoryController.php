@@ -6,7 +6,7 @@ class SymptomhistoryController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/righty';
+	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -28,7 +28,7 @@ class SymptomhistoryController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create', view, and 'update' actions
-				'actions'=>array('search','update', 'index','view', 'updateSymptomsGridView'),
+				'actions'=>array('addSymptom', 'successPage', 'update', 'index','view', 'userHistory'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -56,45 +56,44 @@ class SymptomhistoryController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionSearch()
+	public function actionAddSymptom()
 	{
 		$model = new Symptomhistory;
 		$symptomsModel = new Symptoms;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['symptomsList']))
+		if(isset($_POST['Symptomhistory']))
 		{	
-			foreach($_POST['symptomsList'] as $symptom)
-			{
 				//populate symptom search model attributes with user id, current date, and form input
-				$newSymptom = new Symptomhistory;
-				$newSymptom->setAttributes(array(
+				$model->setAttributes(array(
 									'user_id'=>Yii::app()->user->id,
 									'dateSearched'=>date('Y-m-d'),
-									'symptomCode'=>$symptom['symptomCode'],
-									'dateSymptomFirstSeen'=>$symptom['dateSymptomFirstSeen'],
-									'symptomTitle'=>$symptom['symptomTitle'],
+									'symptomCode'=>$_POST['Symptomhistory']['symptomCode'],
+									'dateSymptomFirstSeen'=>$_POST['Symptomhistory']['dateSymptomFirstSeen'],
+									'symptomTitle'=>$_POST['Symptomhistory']['symptomTitle'],
 									 ));
 				//save search history
-				$newSymptom->save();
-			}
-			
-			echo "success";
-			return;
+				$model->save();
+				$this->redirect(array('successPage'));
+				
 		}
-
-		
+		//used to update symptoms grid with ajax call
 		if(isset($_GET['Symptoms'])) 
 		{
 			$symptomsModel->attributes=$_GET['Symptoms'];
 		}		
 		//render search view
-		$this->render('search',array('model'=>$model,'symptomsModel'=>$symptomsModel));
+		$this->render('addSymptom',array('model'=>$model,'symptomsModel'=>$symptomsModel));
 		
 
 	}
 
+	/* action that renders the symptom successfully added paged */
+	public function actionSuccessPage()
+	{
+		$this->render('successPage');
+	}
 
 	/**
 	 * Updates a particular model.
@@ -212,4 +211,13 @@ class SymptomhistoryController extends Controller
 		 			  );
 	}
 	
+	public function actionUserHistory()
+	{
+		$model = new Symptomhistory;
+		$user_id=Yii::app()->user->id;
+		$dataProvider = $model->searchByUser($user_id);
+		$this->render('userHistory',array('model'=>$model,
+			'dataProvider'=>$dataProvider,
+		));
+	}
 }

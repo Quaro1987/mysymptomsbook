@@ -28,7 +28,7 @@ class UserController extends Controller
 				'actions'array('index'),
 				'users'=>array('admin'),
 			),
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+			array('allow',  // allow all users to perform 'view' actions
 				'actions'=>array('view'),
 				'users'=>array('@'),
 			),

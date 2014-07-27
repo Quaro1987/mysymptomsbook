@@ -55,6 +55,12 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row">
+	<?php echo $form->labelEx($model,'userType'); ?>
+	<?php echo $form->dropDownList($model,'userType', array('User', 'Doctor')); ?>
+	<?php echo $form->error($model,'userType'); ?>
+	</div>
+
+	<div class="row">
 	<?php echo $form->labelEx($model,'AMKA'); ?>
 	<?php echo $form->textField($model,'AMKA'); ?>
 	<?php echo $form->error($model,'AMKA'); ?>

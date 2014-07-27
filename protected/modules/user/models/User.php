@@ -60,6 +60,8 @@ class User extends CActiveRecord
             array('lastvisit_at', 'default', 'value' => '0000-00-00 00:00:00', 'setOnEmpty' => true, 'on' => 'insert'),
 			array('username, email, superuser, status, AMKA', 'required'),
 			array('superuser, status', 'numerical', 'integerOnly'=>true),
+			//userType 0 if patient 1 if doctor
+			array('userType', 'in', 'range'=>array(0,1)),
 			// AMKA code
 			array('AMKA', 'length', 'max'=>11, 'min' => 11,'message' => UserModule::t("Incorrect AMKA number. An AMKA number is made up of 11 digits.")),
 			array('AMKA', 'unique', 'message' => UserModule::t("This user's AMKA number already exists.")),
@@ -107,6 +109,7 @@ class User extends CActiveRecord
 			'superuser' => UserModule::t("Superuser"),
 			'status' => UserModule::t("Status"),
 			'AMKA'=>UserModule::t("AMKA"),
+			'userType' => UserModule::t("Type of User")
 		);
 	}
 	
@@ -125,8 +128,12 @@ class User extends CActiveRecord
             'superuser'=>array(
                 'condition'=>'superuser=1',
             ),
+            //scope if the user is a doctor
+            'doctorUser'=>array(
+            	'condition' => 'userType=1',
+            ),
             'notsafe'=>array(
-            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, AMKA',
+            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, AMKA, userType',
             ),
         );
     }
@@ -135,7 +142,7 @@ class User extends CActiveRecord
     {
         return CMap::mergeArray(Yii::app()->getModule('user')->defaultScope,array(
             'alias'=>'user',
-            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status, user.AMKA',
+            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status, user.AMKA, user.userType',
         ));
     }
 	
@@ -173,12 +180,12 @@ class User extends CActiveRecord
         $criteria->compare('password',$this->password);
         $criteria->compare('email',$this->email,true);
         $criteria->compare('activkey',$this->activkey);
-
         $criteria->compare('lastvisit_at',$this->lastvisit_at);
         $criteria->compare('superuser',$this->superuser);
         $criteria->compare('status',$this->status);
         $criteria->compare('AMKA',$this->AMKA);
-
+		$criteria->compare('userType',$this->userType);
+        
         return new CActiveDataProvider(get_class($this), array(
             'criteria'=>$criteria,
         	'pagination'=>array(
