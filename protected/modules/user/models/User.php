@@ -20,7 +20,8 @@ class User extends CActiveRecord
 	 * @var integer $lastvisit_at
 	 * @var integer $superuser
 	 * @var integer $status
-     * @var string AMKA
+     * @var string $AMKA
+     * @var integer $userType
 	 */
 
 	/**
@@ -62,6 +63,8 @@ class User extends CActiveRecord
 			array('superuser, status', 'numerical', 'integerOnly'=>true),
 			//userType 0 if patient 1 if doctor
 			array('userType', 'in', 'range'=>array(0,1)),
+			//doctor specialty for doctor users
+			array('doctorSpecialty', 'in', 'range'=>array(null,'Doctor')),
 			// AMKA code
 			array('AMKA', 'length', 'max'=>11, 'min' => 11,'message' => UserModule::t("Incorrect AMKA number. An AMKA number is made up of 11 digits.")),
 			array('AMKA', 'unique', 'message' => UserModule::t("This user's AMKA number already exists.")),
@@ -109,7 +112,8 @@ class User extends CActiveRecord
 			'superuser' => UserModule::t("Superuser"),
 			'status' => UserModule::t("Status"),
 			'AMKA'=>UserModule::t("AMKA"),
-			'userType' => UserModule::t("Type of User")
+			'userType' => UserModule::t("Type of User"),
+			'doctorSpecialty' => UserModule::t("Your Specialty")
 		);
 	}
 	
@@ -142,7 +146,7 @@ class User extends CActiveRecord
     {
         return CMap::mergeArray(Yii::app()->getModule('user')->defaultScope,array(
             'alias'=>'user',
-            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status, user.AMKA, user.userType',
+            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status, user.AMKA, user.userType, user.doctorSpecialty',
         ));
     }
 	

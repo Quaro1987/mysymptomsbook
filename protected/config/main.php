@@ -85,7 +85,7 @@ return array(
 			'connectionString' => 'mysql:host=127.0.0.1;dbname=mySymptomsBook',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',
+			'password' => 'yannis1987',
 			'charset' => 'utf8',
 			'tablePrefix' => 'tbl_',
 		),

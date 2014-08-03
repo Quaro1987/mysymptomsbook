@@ -4,6 +4,14 @@ $this->breadcrumbs=array(
 );
 ?>
 
+<?php
+//include custom JS scripts
+Yii::app()->clientScript->registerScriptFile(
+        Yii::app()->baseUrl . '/assets/mSBscripts.js',
+        CClientScript::POS_END
+	);
+?>
+
 <h1><?php echo UserModule::t("Registration"); ?></h1>
 
 <?php if(Yii::app()->user->hasFlash('registration')): ?>
@@ -56,8 +64,13 @@ $this->breadcrumbs=array(
 
 	<div class="row">
 	<?php echo $form->labelEx($model,'userType'); ?>
-	<?php echo $form->dropDownList($model,'userType', array('User', 'Doctor')); ?>
+	<?php echo $form->dropDownList($model,'userType', array('0'=>'User', '1'=>'Doctor'), array( 'id'=>'userTypeSelectDropDown',)); ?>
 	<?php echo $form->error($model,'userType'); ?>
+	</div>
+
+	<div id="doctorSpecialtyFormInput">
+	<?php echo $form->labelEx($model,'doctorSpecialty'); ?>
+	<?php echo $form->dropDownList($model,'doctorSpecialty', array(null=>'Select Specialty', 'Doctor'=>'Doctor'), array( 'id'=>'doctorSpecialtySelectDropDown',)); ?>
 	</div>
 
 	<div class="row">
