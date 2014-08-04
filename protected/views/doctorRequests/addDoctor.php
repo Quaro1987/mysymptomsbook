@@ -69,10 +69,6 @@ Yii::app()->clientScript->registerScriptFile(
 		<?php echo $form->error($model,'doctorID'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->hiddenField($model,'userID', array('value'=>Yii::app()->user->id)); ?>
-		<?php echo $form->error($model,'userID'); ?>
-	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Add Doctor'); ?>

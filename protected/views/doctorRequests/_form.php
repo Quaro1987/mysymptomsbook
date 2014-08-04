@@ -21,15 +21,10 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'doctorID'); ?>
-		<?php echo $form->textField($model,'doctorID'); ?>
+		<?php echo $form->textField($model,'doctorID', array('id'=>'doctorIDTextfield')); ?>
 		<?php echo $form->error($model,'doctorID'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'userID'); ?>
-		<?php echo $form->textField($model,'userID'); ?>
-		<?php echo $form->error($model,'userID'); ?>
-	</div>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

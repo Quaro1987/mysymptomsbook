@@ -65,5 +65,12 @@ class WebUser extends CWebUser
     public function isAdmin() {
         return Yii::app()->getModule('user')->isAdmin();
     }
-
+    //returns current users usertype (0 if it's a simple user, 1 if it's a doctor user)
+    public function getUserType(){
+        if(!Yii::app()->user->isGuest)
+        {
+            $user = User::model()->findByAttributes(array('id'=>Yii::app()->user->id));
+            return $user->userType;
+        }
+    }
 }

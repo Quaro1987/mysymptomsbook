@@ -25,11 +25,11 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',
-				'actions'array('index'),
+				'actions'=>array('index'),
 				'users'=>array('admin'),
 			),
 			array('allow',  // allow all users to perform 'view' actions
-				'actions'=>array('view'),
+				'actions'=>array('view', 'viewDoctor'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -41,14 +41,19 @@ class UserController extends Controller
 	/**
 	 * Displays a particular model.
 	 */
-	public function actionView()
+	public function actionView($id)
 	{
-		$model = $this->loadModel();
 		$this->render('view',array(
-			'model'=>$model,
+			'model'=> $this->loadModel($id),
 		));
 	}
 
+	public function actionViewDoctor($id)
+	{
+		$this->render('view',array(
+			'model'=> $this->loadModel($id),
+		));
+	}
 	/**
 	 * Lists all models.
 	 */

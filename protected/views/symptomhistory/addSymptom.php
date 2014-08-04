@@ -11,8 +11,6 @@ Yii::app()->clientScript->registerScriptFile(
         Yii::app()->baseUrl . '/assets/mSBscripts.js',
         CClientScript::POS_END
 	);
-
-
 ?>
 
 

@@ -30,11 +30,11 @@ class DoctorRequests extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('doctorID, userID', 'required'),
-			array('doctorID, userID', 'numerical', 'integerOnly'=>true),
+			array('doctorID', 'required'),
+			array('doctorID, userID, doctorAccepted', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, doctorID, userID', 'safe', 'on'=>'search'),
+			array('id, doctorID, userID, doctorAccepted', 'safe', 'on'=>'search'),
 		);
 	}
 

@@ -59,11 +59,10 @@ $(document).ready(function()
 				event.preventDefault();
 				}		
 			});
-			//send add doctor request
-			function addDoctor()
-			{
-				var doctorID = $.fn.yiiGridView.getSelection('doctors-grid');
-
-				alert(doctorID);
-			}
+			//copy add doctor request choice to input textboxe
+			$('#doctors-grid').on('click', 'table tbody tr', function() 
+			{		
+  				var doctorID = $.fn.yiiGridView.getSelection('doctors-grid'); 	
+ 			 	$('#doctorIDTextfield').val(doctorID);	 	
+            });
 });

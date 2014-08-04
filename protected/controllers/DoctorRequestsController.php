@@ -32,8 +32,13 @@ class DoctorRequestsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create', 'addDoctor','update'),
+				'actions'=>array('create','addDoctor','update'),
 				'users'=>array('@'),
+			),
+			array('allow', // allow doctor user to perform 'update' actions
+				'actions'=>array('manageRequests', 'acceptUser', 'rejectUser'),
+				'users'=>array('@'),
+				'expression'=>'Yii::app()->user->usertype==1',
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
@@ -157,6 +162,7 @@ class DoctorRequestsController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
+
 	//function to find and add a new doctor
 	public function actionAddDoctor()
 	{
@@ -173,15 +179,74 @@ class DoctorRequestsController extends Controller
 
 		if(isset($_POST['DoctorRequests']))
 		{
-			$model->attributes=$_POST['DoctorRequests'];
+			$model->setAttributes(array(
+								'doctorID'=>$_POST['DoctorRequests']['doctorID'],
+								'userID'=>Yii::app()->user->id,
+								'doctorAccepted'=>0
+			));
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
-		$this->render('create',array(
+		$this->render('addDoctor',array(
 			'model'=>$model, 'dataProvider'=>$dataProvider
 		));
 	}
+
+	//function to manage doctor requests
+	public function actionManageRequests()
+	{
+		$model=new DoctorRequests;
+
+		$dataProvider=new CActiveDataProvider('DoctorRequests', array(
+			'criteria'=>array(
+		        'condition'=>'doctorID=:doctorID AND doctorAccepted=:doctorAccepted', 
+		        'params'=>array(':doctorID'=>Yii::app()->user->id, ':doctorAccepted'=>0),
+		    )
+		));
+
+		$this->render('manageRequests',array(
+			'model'=>$model, 'dataProvider'=>$dataProvider
+		));
+	}
+
+	//function to get the user's who made the request last name
+	public function getUserLastName($data,$row)
+	{
+		$user = $data->userID;
+		$userData = User::model()->findByPk($user);
+		//get user lastname
+		$lastName = $userData->profile->lastname;
+		return $lastName;
+	}
+
+	//function to get the user's who made the request first name
+	public function getUserFirstName($data,$row)
+	{
+		$user = $data->userID;
+		$userData = User::model()->findByPk($user);
+		//get user first name
+		$firstName = $userData->profile->firstname;
+		return $firstName;
+	}
+
+	//accept user request function
+	public function actionAcceptUser($id)
+	{
+		$model=$this->loadModel($id);
+		//change doctorAccepted value to 1 which means the doctor has accepted the user
+		$model->setAttribute('doctorAccepted', 1);
+		//save changes
+		$model->save();
+	}
+
+	//reject user request function
+	public function actionRejectUser($id)
+	{
+		//delete doctor request
+		DoctorRequests::model()->deleteByPk($id);
+	}
+
 	/**
 	 * Performs the AJAX validation.
 	 * @param DoctorRequests $model the model to be validated
