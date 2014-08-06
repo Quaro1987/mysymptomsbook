@@ -36,13 +36,14 @@
 				array('label'=>'Symptom History', 'url'=>array('/symptomhistory/userHistory'), 'visible'=>!Yii::app()->user->isGuest), //user symptom history page
 				array('label'=>'Find a Doctor', 'url'=>array('/doctorRequests/addDoctor'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Manage User Requests', 'url'=>array('/doctorRequests/manageRequests'), 'visible'=>(Yii::app()->user->usertype==1)),//doctor user manages requests
+				array('label'=>'Patient Symptom History', 'url'=>array('/user/user/managePatients'), 'visible'=>(Yii::app()->user->usertype==1)),//doctor user gets patient history
 				//array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				//array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 				array('url'=>Yii::app()->getModule('user')->loginUrl, 'label'=>Yii::app()->getModule('user')->t("Login"), 'visible'=>Yii::app()->user->isGuest),
 				array('url'=>Yii::app()->getModule('user')->registrationUrl, 'label'=>Yii::app()->getModule('user')->t("Register"), 'visible'=>Yii::app()->user->isGuest),
 				array('url'=>Yii::app()->getModule('user')->profileUrl, 'label'=>Yii::app()->getModule('user')->t("Profile"), 'visible'=>!Yii::app()->user->isGuest),
 				array('url'=>Yii::app()->getModule('user')->logoutUrl, 'label'=>Yii::app()->getModule('user')->t("Logout").' ('.Yii::app()->user->name.')', 'visible'=>!Yii::app()->user->isGuest), 
-			),
+			), 
 		)); ?>
 	</div><!-- mainmenu -->
 	<?php if(isset($this->breadcrumbs)):?>

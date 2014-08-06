@@ -29,7 +29,7 @@ class UserController extends Controller
 				'users'=>array('admin'),
 			),
 			array('allow',  // allow all users to perform 'view' actions
-				'actions'=>array('view', 'viewDoctor'),
+				'actions'=>array('view', 'viewDoctor', 'managePatients'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -106,5 +106,55 @@ class UserController extends Controller
 				throw new CHttpException(404,'The requested page does not exist.');
 		}
 		return $this->_model;
+	}
+
+	//function to get access to a doctor's connected users
+	public function actionManagePatients()
+	{
+		$model=new User;
+		
+		//query builder to get doctor's patients IDs
+		$userIDs = Yii::app()->db->createCommand()
+					->select('tbl_users.id')
+    				->from('tbl_users')
+    				->join('tbl_doctor_requests', 'tbl_users.id = tbl_doctor_requests.userID')
+    				->where('tbl_doctor_requests.doctorID=:doctorID and tbl_doctor_requests.doctorAccepted = 1', array(':doctorID'=>Yii::app()->user->id))
+    				->queryAll();
+
+    	//copy query results into patientIDArray
+		foreach ($userIDs as $uI) 
+		{
+			$patientIDArray[] = $uI['id'];
+		}
+
+		//create search criteria for the user ids in the patientIDArray
+		$criteria = new CDbCriteria();
+		$criteria->addInCondition('id', $patientIDArray);
+
+		//populate dataProvider
+		$dataProvider=new CActiveDataProvider('User', array(
+			'criteria'=>$criteria
+		)); 
+
+		//render managePatients page
+		$this->render('managePatients',array(
+			'model'=>$model,'dataProvider'=>$dataProvider
+		));
+	}
+
+	//function to get the user last name
+	public function getUserLastName($data)
+	{
+		//get user lastname
+		$lastName = $data->profile->lastname;
+		return $lastName;
+	}
+
+	//function to get the user first name
+	public function getUserFirstName($data)
+	{
+		//get user first name
+		$firstName = $data->profile->firstname;
+		return $firstName;
 	}
 }
