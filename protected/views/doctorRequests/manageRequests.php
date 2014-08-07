@@ -28,35 +28,35 @@ $this->breadcrumbs=array(
 			'template'=>'{Accept},{Reject}',
 			'buttons'=>array(
 						'Accept' => array(
-            				'label'=>'Accept User',
-            				//'imageUrl'=>Yii::app()->request->baseUrl.'/images/email.png',
-            				'click'=>"function(){
-            					$.fn.yiiGridView.update('doctor-requests-grid', {
-                        	                type:'POST',
-                        	                url:$(this).attr('href'),
-                        	                success:function(data) {
-                        	                	$.fn.yiiGridView.update('doctor-requests-grid');
-                        	                }
-                        	            })
-                        	            return false;
-            				}",
-            				'url'=>'Yii::app()->controller->createUrl("acceptUser",array("id"=>$data->primaryKey))',
+            				      'label'=>'Accept User',
+            				      //'imageUrl'=>Yii::app()->request->baseUrl.'/images/email.png',
+            				      'click'=>"function(){
+            				        	$.fn.yiiGridView.update('doctor-requests-grid', {
+                        	                        type:'POST',
+                        	                        url:$(this).attr('href'),
+                        	                        success:function(data) {
+                        	                           $.fn.yiiGridView.update('doctor-requests-grid');
+                        	                          }
+                        	                       })
+                        	                       return false;
+            				        }",
+            				        'url'=>'Yii::app()->controller->createUrl("acceptUser",array("id"=>$data->primaryKey))',
+            			      ),
+            			      'Reject' => array(
+            				      'label'=>'Reject User',
+            				      //'imageUrl'=>Yii::app()->request->baseUrl.'/images/email.png',
+            				      'click'=>"function(){
+            				      	$.fn.yiiGridView.update('doctor-requests-grid', {
+                        	                      type:'POST',
+                        	                      url:$(this).attr('href'),
+                        	                      success:function(data) {
+                        	                      	$.fn.yiiGridView.update('doctor-requests-grid');
+                        	                      }
+                        	                  })
+                        	                  return false;
+            				      }",
+            				      'url'=>'Yii::app()->controller->createUrl("rejectUser",array("id"=>$data->primaryKey))',
             			),
-            			'Reject' => array(
-            				'label'=>'Reject User',
-            				//'imageUrl'=>Yii::app()->request->baseUrl.'/images/email.png',
-            				'click'=>"function(){
-            					$.fn.yiiGridView.update('doctor-requests-grid', {
-                        	                type:'POST',
-                        	                url:$(this).attr('href'),
-                        	                success:function(data) {
-                        	                	$.fn.yiiGridView.update('doctor-requests-grid');
-                        	                }
-                        	            })
-                        	            return false;
-            				}",
-            				'url'=>'Yii::app()->controller->createUrl("rejectUser",array("id"=>$data->primaryKey))',
-            			),
-		),
-	),
+		      ),
+	     ),
 ))); ?>

@@ -7,6 +7,8 @@ class UserController extends Controller
 	 */
 	private $_model;
 
+	public $layout='//layouts/column2';
+
 	/**
 	 * @return array action filters
 	 */

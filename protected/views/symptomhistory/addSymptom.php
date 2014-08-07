@@ -1,11 +1,33 @@
 <?php
-$this->pageTitle=Yii::app()->name . ' - Search Symptoms';
+$this->pageTitle=Yii::app()->name . ' - Add Symptom';
 $this->breadcrumbs=array(
-	'Search Symptoms',
-); ?>
+	'Add Symptom',
+); 
 
+//side menu
+$this->menu=array(
+	array(
+			'label'=>'Add Symptom', 
+			'url'=>array('/symptomhistory/addSymptom'),
+			'visible'=>!Yii::app()->user->isGuest
+	),
+	array(
+			'label'=>'Find a Doctor', 
+			'url'=>array('/doctorRequests/addDoctor'),
+			'visible'=>!Yii::app()->user->isGuest
+	),
+	array(
+			'label'=>'Manage User Requests', 
+			'url'=>array('doctorRequests/manageRequests'),
+			'visible'=>(Yii::app()->user->usertype==1)
+	),
+	array(
+			'label'=>'Check Patient Symptom History', 
+			'url'=>array('/user/user/managePatients'),
+			'visible'=>(Yii::app()->user->usertype==1)
+	),
+);
 
-<?php
 //include custom JS scripts
 Yii::app()->clientScript->registerScriptFile(
         Yii::app()->baseUrl . '/assets/mSBscripts.js',

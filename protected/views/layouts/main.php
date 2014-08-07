@@ -35,7 +35,6 @@
 				array('label'=>'Add Symptom', 'url'=>array('/symptomhistory/addSymptom'), 'visible'=>!Yii::app()->user->isGuest), //add symptom page
 				array('label'=>'Symptom History', 'url'=>array('/symptomhistory/userHistory'), 'visible'=>!Yii::app()->user->isGuest), //user symptom history page
 				array('label'=>'Find a Doctor', 'url'=>array('/doctorRequests/addDoctor'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'Manage User Requests', 'url'=>array('/doctorRequests/manageRequests'), 'visible'=>(Yii::app()->user->usertype==1)),//doctor user manages requests
 				array('label'=>'Patient Symptom History', 'url'=>array('/user/user/managePatients'), 'visible'=>(Yii::app()->user->usertype==1)),//doctor user gets patient history
 				//array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				//array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
