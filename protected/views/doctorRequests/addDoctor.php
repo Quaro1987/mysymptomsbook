@@ -1,11 +1,10 @@
 <?php
 /* @var $this DoctorRequestsController */
 /* @var $model DoctorRequests */
-
+$this->pageTitle=Yii::app()->name . ' - Find A Doctor';
 $this->breadcrumbs=array(
-	'Doctor Requests'=>array('index'),
-	'Create',
-);
+	'Find A Doctor',
+); 
 
 
 
@@ -14,14 +13,36 @@ Yii::app()->clientScript->registerScriptFile(
         Yii::app()->baseUrl . '/assets/mSBscripts.js',
         CClientScript::POS_END
 	);
-?>
 
-<h1>Create DoctorRequests</h1>
+//side menu
+$this->menu=array(
+	array(
+			'label'=>'Add Symptom', 
+			'url'=>array('/symptomhistory/addSymptom'),
+			'visible'=>!Yii::app()->user->isGuest
+	),
+	array(
+			'label'=>'Manage User Requests', 
+			'url'=>array('doctorRequests/manageRequests'),
+			'visible'=>(Yii::app()->user->usertype==1)
+	),
+	array(
+			'label'=>'Check Patient Symptom History', 
+			'url'=>array('/user/user/managePatients'),
+			'visible'=>(Yii::app()->user->usertype==1)
+	),
+); ?>
+
+
+<h1>Find a Doctor</h1>
 <div id="chooseDoctorDiv">
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php 
+	
+$this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'doctors-grid',
 	'selectableRows'=>1,
 	'dataProvider'=>$dataProvider,
+	'rowHtmlOptionsExpression'=>'array("data-id"=>$data->id)',
 	'columns'=>array(
 		/*  code linking to a doctor's profile, for use if we need to add a link to
 		each doctor's profile from the search function in the future 
@@ -59,14 +80,10 @@ Yii::app()->clientScript->registerScriptFile(
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'doctorID'); ?>
-		<?php echo $form->textField($model,'doctorID', array('id'=>'doctorIDTextfield')); ?>
-		<?php echo $form->error($model,'doctorID'); ?>
+		<?php echo $form->hiddenField($model,'doctorID', array('id'=>'doctorIDTextfield')); ?>
 	</div>
 
 

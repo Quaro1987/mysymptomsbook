@@ -16,6 +16,8 @@
 */
 class Symptomhistory extends CActiveRecord
 {
+
+public $layout='//layouts/column2';
 /**
 * @return string the associated database table name
 */

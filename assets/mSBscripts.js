@@ -38,7 +38,7 @@ $(document).ready(function()
 				}
 				return false;
 			});
-			//check if symptom and symptom date is sellected before submitting form
+			//check if symptom and symptom date is selected before submitting form
 			$("#symptomhistory-form").submit(function( event ) {
 				if($('#symptomToBeSearchedTitle').val()=="")
 				{
@@ -53,16 +53,19 @@ $(document).ready(function()
 			});
 			//check if a doctor user has sellected a specialty
 			$("#registration-form").submit(function( event ) {
-				if($('#doctorSpecialtySelectDropDown').selectedIndex.val()==0)
+				if(document.getElementById("userTypeSelectDropDown").value==1)
 				{
-				alert('You need to select a specialty, Doctor.');
-				event.preventDefault();
+					if(document.getElementById("doctorSpecialtySelectDropDown").value==null)
+					{
+					alert('You need to select a specialty, Doctor.');
+					event.preventDefault();
+					}
 				}		
 			});
 			//copy add doctor request choice to input textboxe
 			$('#doctors-grid').on('click', 'table tbody tr', function() 
 			{		
-  				var doctorID = $.fn.yiiGridView.getSelection('doctors-grid'); 	
+  				var doctorID = $(this).attr("data-id"); 	
  			 	$('#doctorIDTextfield').val(doctorID);	 	
             });
 });

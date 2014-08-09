@@ -31,8 +31,13 @@ class UserController extends Controller
 				'users'=>array('admin'),
 			),
 			array('allow',  // allow all users to perform 'view' actions
-				'actions'=>array('view', 'viewDoctor', 'managePatients'),
+				'actions'=>array('view', 'viewDoctor'),
 				'users'=>array('@'),
+			),
+			array('allow', // allow doctor user to perform managePatients and patientSymptomHistory actions
+				'actions'=>array('managePatients', 'patientSymptomHistory'),
+				'users'=>array('@'),
+				'expression'=>'Yii::app()->user->usertype==1',
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -141,6 +146,14 @@ class UserController extends Controller
 		//render managePatients page
 		$this->render('managePatients',array(
 			'model'=>$model,'dataProvider'=>$dataProvider
+		));
+	}
+	//action to render the patient's symptom history
+	public function actionPatientSymptomHistory($id)
+	{
+
+		$this->render('patientSymptomHistory',array(
+			'model'=> $this->loadModel($id),
 		));
 	}
 

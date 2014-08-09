@@ -43,16 +43,12 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			'class'=>'CButtonColumn',
 			'template'=>'{Get Symptoms History}',
 			'buttons'=>array(
-						'Accept' => array(
-            				      'label'=>'Get User\'s Symptoms History',
+						'Get Symptoms History' => array(
+            				      'label'=>'Get Users Symptoms History',
             				      //'imageUrl'=>Yii::app()->request->baseUrl.'/images/email.png',
-            				      'click'=>"function(){
-            				        	
-                        	                       return false;
-            				        }",
-            				        'url'=>'Yii::app()->controller->createUrl("acceptUser",array("id"=>$data->primaryKey))',
+            				        'url'=>'Yii::app()->controller->createUrl("patientSymptomHistory",array("id"=>$data->primaryKey))',
             			      ),
 		),
 	),
-)); ?>
+))); ?>
 

@@ -68,9 +68,9 @@ Yii::app()->clientScript->registerScriptFile(
 	<?php echo $form->error($model,'userType'); ?>
 	</div>
 
-	<div id="doctorSpecialtyFormInput">
+	<div class="row" id="doctorSpecialtyFormInput">
 	<?php echo $form->labelEx($model,'doctorSpecialty'); ?>
-	<?php echo $form->dropDownList($model,'doctorSpecialty', array(null=>'Select Specialty', 'Doctor'=>'Doctor'), array( 'id'=>'doctorSpecialtySelectDropDown',)); ?>
+	<?php echo $form->dropDownList($model,'doctorSpecialty', array('0'=>'Select Specialty', 'Doctor'=>'Doctor'), array( 'id'=>'doctorSpecialtySelectDropDown',)); ?>
 	</div>
 
 	<div class="row">

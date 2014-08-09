@@ -28,7 +28,7 @@ class SymptomhistoryController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create', view, and 'update' actions
-				'actions'=>array('addSymptom', 'successPage', 'update', 'index','view', 'userHistory'),
+				'actions'=>array('addSymptom', 'successPage', 'update', 'index','view', 'userHistory', 'usersSymptomHistory'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -211,13 +211,21 @@ class SymptomhistoryController extends Controller
 		 			  );
 	}
 	
-	public function actionUserHistory()
+	//return user symptom history (based on id)
+	public function actionUserHistory($id)
 	{
 		$model = new Symptomhistory;
-		$user_id=Yii::app()->user->id;
-		$dataProvider = $model->searchByUser($user_id);
-		$this->render('userHistory',array('model'=>$model,
-			'dataProvider'=>$dataProvider,
+		$dataProvider = $model->searchByUser($id);
+		$this->render('userHistory',array('dataProvider'=>$dataProvider,
+		));
+	}
+
+	//return current user's symptom history
+	public function actionUsersSymptomHistory()
+	{
+		$model = new Symptomhistory;
+		$dataProvider = $model->searchByUser(Yii::app()->user->id);
+		$this->render('usersSymptomHistory',array('dataProvider'=>$dataProvider,
 		));
 	}
 }

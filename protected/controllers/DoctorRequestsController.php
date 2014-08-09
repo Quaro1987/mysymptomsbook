@@ -35,7 +35,7 @@ class DoctorRequestsController extends Controller
 				'actions'=>array('create','addDoctor','update'),
 				'users'=>array('@'),
 			),
-			array('allow', // allow doctor user to perform 'update' actions
+			array('allow', // allow doctor user to perform 'manageRequests', 'acceptUser', 'rejectUser' actions
 				'actions'=>array('manageRequests', 'acceptUser', 'rejectUser'),
 				'users'=>array('@'),
 				'expression'=>'Yii::app()->user->usertype==1',
@@ -168,10 +168,28 @@ class DoctorRequestsController extends Controller
 	{
 		$model=new DoctorRequests;
 
+		//query builder to get doctors the user has already made requests for
+		$alreadyAddedDoctorIDs = Yii::app()->db->createCommand()
+					->select('doctorID')
+    				->from('tbl_doctor_requests')
+    				->where('userID=:userID', array(':userID'=>Yii::app()->user->id))
+    				->queryAll();
+
+    	//copy query results into alreadyAddedDoctorIDArray
+		foreach ($alreadyAddedDoctorIDs as $dI) 
+		{
+			$alreadyAddedDoctorIDArray[] = $dI['doctorID'];
+		}
+
+		//create search criteria for the doctor ids
+		$criteria = new CDbCriteria();
+		$criteria
+				->addNotInCondition('id', $alreadyAddedDoctorIDArray)
+				->addCondition('userType=1');
+
+
 		$dataProvider=new CActiveDataProvider('User', array(
-			'criteria'=>array(
-		        'condition'=>'userType=1',
-		    )
+			'criteria'=>$criteria
 		));
 
 		// Uncomment the following line if AJAX validation is needed
