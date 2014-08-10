@@ -37,6 +37,10 @@ class RegistrationController extends Controller
 		    	if(isset($_POST['RegistrationForm'])) {
 					$model->attributes=$_POST['RegistrationForm'];
 					$profile->attributes=((isset($_POST['Profile'])?$_POST['Profile']:array()));
+					if($model->userType==1)
+					{
+						$model->setscenario('doctor');
+					}
 					if($model->validate()&&$profile->validate())
 					{
 						$soucePassword = $model->password;

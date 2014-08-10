@@ -28,11 +28,11 @@ $(document).ready(function()
             $('#userTypeSelectDropDown').change(function(){
             	if(document.getElementById("userTypeSelectDropDown").value==1)
             	{
-            		$('#doctorSpecialtyFormInput').toggle();
+            		$('#doctorSpecialtyFormInput').show();
             	}
 				else if(document.getElementById("userTypeSelectDropDown").value==0)
 				{
-					$('#doctorSpecialtyFormInput').toggle();
+					$('#doctorSpecialtyFormInput').hide();
 					//set doctor specialty to null so a normal user won't input a doctor specialty
 					document.getElementById("doctorSpecialtySelectDropDown").selectedIndex = 0;
 				}
