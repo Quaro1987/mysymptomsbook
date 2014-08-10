@@ -19,7 +19,7 @@ $this->menu=array(
 	),
 	array(
 			'label'=>'Manage User Requests', 
-			'url'=>array('doctorRequests/manageRequests'),
+			'url'=>array('/doctorRequests/manageRequests'),
 			'visible'=>(Yii::app()->user->usertype==1)
 	),
 );

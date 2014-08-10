@@ -69,7 +69,7 @@ class User extends CActiveRecord
 			array('AMKA', 'length', 'max'=>11, 'min' => 11,'message' => UserModule::t("Incorrect AMKA number. An AMKA number is made up of 11 digits.")),
 			array('AMKA', 'unique', 'message' => UserModule::t("This user's AMKA number already exists.")),
 			array('AMKA', 'match', 'pattern' => '/^[0-9_]+$/u','message' => UserModule::t("Incorrect symbols (0-9).")),
-			array('id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, AMKA', 'safe', 'on'=>'search'),
+			array('id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, AMKA, userType, doctorSpecialty', 'safe', 'on'=>'search'),
 		):((Yii::app()->user->id==$this->id)?array(
 			array('username, email, AMKA', 'required'),
 			array('username', 'length', 'max'=>20, 'min' => 3,'message' => UserModule::t("Incorrect username (length between 3 and 20 characters).")),
@@ -139,7 +139,7 @@ class User extends CActiveRecord
             	'condition' => 'userType=1',
             ),
             'notsafe'=>array(
-            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, AMKA, userType',
+            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, AMKA, userType, doctorSpecialty',
             ),
         );
     }

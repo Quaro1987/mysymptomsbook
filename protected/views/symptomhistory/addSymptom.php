@@ -18,7 +18,7 @@ $this->menu=array(
 	),
 	array(
 			'label'=>'Manage User Requests', 
-			'url'=>array('doctorRequests/manageRequests'),
+			'url'=>array('/doctorRequests/manageRequests'),
 			'visible'=>(Yii::app()->user->usertype==1)
 	),
 	array(
@@ -30,7 +30,7 @@ $this->menu=array(
 
 //include custom JS scripts
 Yii::app()->clientScript->registerScriptFile(
-        Yii::app()->baseUrl . '/assets/mSBscripts.js',
+        Yii::app()->baseUrl . '/assets/addSymptomJS.js',
         CClientScript::POS_END
 	);
 ?>
@@ -42,25 +42,25 @@ Yii::app()->clientScript->registerScriptFile(
 
 
 	<!-- Select symptom category dropdown menu -->
-<div class="search-form">
+<div id="searchCategory" class="search-form">
 			
-	<?php $form=$this->beginWidget('CActiveForm', array(
-	'action'=>Yii::app()->createUrl($this->route),
-	'method'=>'get',
+<?php $form=$this->beginWidget('CActiveForm', array(
+'action'=>Yii::app()->createUrl($this->route),
+'method'=>'get',
 )); ?>
 
-    <?php echo $form->dropDownList($symptomsModel, 'symptomCategory',
-                                            $this->getSymptomCategories(),
-                                            array('submit'=>'',
-                                                  'id'=>'categorySelectDropDown',
-                                                  'prompt'=>"Select Symptom Category")); ?>
+<?php echo $form->dropDownList($symptomsModel, 'symptomCategory',
+                                        $this->getSymptomCategories(),
+                                        array('submit'=>'',
+                                              'id'=>'categorySelectDropDown',
+                                              'prompt'=>"Select Symptom Category")); ?>
 <?php $this->endWidget(); ?>
 </div>
 <div class="row"><br/> <b>Select Symptom:</b> </div>	
 
 <div class="row" id="symptomSelectDiv" >
 
-	<?php 
+<?php 
 
 $this->widget('zii.widgets.grid.CGridView', array(
 		'id'=>'symptoms-grid',
@@ -80,8 +80,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
 
 	
 
-	<div class="row buttons">
-		<div class="form">
+<div class="row buttons">
+<div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'symptomhistory-form',
 	'enableAjaxValidation'=>false,	
@@ -117,7 +117,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		<div class="row buttons">
 		<?php echo CHtml::submitButton('Add Symptom'); ?>
 		</div>
-	</div>
+</div>
 
 
 

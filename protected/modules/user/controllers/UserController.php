@@ -119,6 +119,7 @@ class UserController extends Controller
 	public function actionManagePatients()
 	{
 		$model=new User;
+		$patientIDArray = array();
 		
 		//query builder to get doctor's patients IDs
 		$userIDs = Yii::app()->db->createCommand()

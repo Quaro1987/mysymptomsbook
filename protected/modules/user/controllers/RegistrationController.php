@@ -81,4 +81,16 @@ class RegistrationController extends Controller
 			    $this->render('/user/registration',array('model'=>$model,'profile'=>$profile));
 		    }
 	}
+
+	//get doctor specialties
+	public static function getDoctorSpecialties()
+	{
+		 return array(
+		 				'0'=>'Select Specialty',
+		 				'Cardiologist'=>'Cardiologist',
+		 				'Dentist'=>'Dentist',
+		 				'Dermatologist'=>'Dermatologist',
+		 				'Pathologist'=>'Pathologist',
+		 			  );
+	}
 }

@@ -32,7 +32,7 @@ class DoctorRequestsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','addDoctor','update'),
+				'actions'=>array('create','addDoctor','update', 'successPage'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow doctor user to perform 'manageRequests', 'acceptUser', 'rejectUser' actions
@@ -166,8 +166,8 @@ class DoctorRequestsController extends Controller
 	//function to find and add a new doctor
 	public function actionAddDoctor()
 	{
-		$model=new DoctorRequests;
-
+		$model = new DoctorRequests;
+		$userModel = new User;
 		//query builder to get doctors the user has already made requests for
 		$alreadyAddedDoctorIDs = Yii::app()->db->createCommand()
 					->select('doctorID')
@@ -183,10 +183,15 @@ class DoctorRequestsController extends Controller
 
 		//create search criteria for the doctor ids
 		$criteria = new CDbCriteria();
-		$criteria
-				->addNotInCondition('id', $alreadyAddedDoctorIDArray)
-				->addCondition('userType=1');
+		$criteria->addNotInCondition('id', $alreadyAddedDoctorIDArray)
+				 ->addCondition('userType=1');
 
+
+		//used to update symptoms grid with ajax call
+		if(isset($_GET['User'])) 
+		{
+			$criteria->addCondition('doctorSpecialty="'.$_GET['User']['doctorSpecialty'].'"');
+		}
 
 		$dataProvider=new CActiveDataProvider('User', array(
 			'criteria'=>$criteria
@@ -194,7 +199,7 @@ class DoctorRequestsController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		//create add doctor request
 		if(isset($_POST['DoctorRequests']))
 		{
 			$model->setAttributes(array(
@@ -203,11 +208,11 @@ class DoctorRequestsController extends Controller
 								'doctorAccepted'=>0
 			));
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('addDoctor'));
 		}
 
 		$this->render('addDoctor',array(
-			'model'=>$model, 'dataProvider'=>$dataProvider
+			'model'=>$model, 'userModel'=>$userModel, 'dataProvider'=>$dataProvider
 		));
 	}
 
@@ -276,5 +281,22 @@ class DoctorRequestsController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	//get doctor specialties
+	public static function getDoctorSpecialties()
+	{
+		 return array(
+		 				'Cardiologist'=>'Cardiologist',
+		 				'Dentist'=>'Dentist',
+		 				'Dermatologist'=>'Dermatologist',
+		 				'Pathologist'=>'Pathologist',
+		 			  );
+	}
+
+	/* action that renders the symptom successfully added paged */
+	public function actionSuccessPage()
+	{
+		$this->render('successPage');
 	}
 }

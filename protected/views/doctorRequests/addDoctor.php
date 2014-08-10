@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 
 //include custom JS scripts
 Yii::app()->clientScript->registerScriptFile(
-        Yii::app()->baseUrl . '/assets/mSBscripts.js',
+        Yii::app()->baseUrl . '/assets/addDoctorJS.js',
         CClientScript::POS_END
 	);
 
@@ -35,6 +35,24 @@ $this->menu=array(
 
 
 <h1>Find a Doctor</h1>
+
+<div class="search-form">
+<!-- start of get doctor specialty form -->	
+<?php $form=$this->beginWidget('CActiveForm', array(
+'action'=>Yii::app()->createUrl($this->route),
+'method'=>'get',
+)); 
+
+echo $form->dropDownList($userModel, 'doctorSpecialty',
+                                        $this->getDoctorSpecialties(),
+                                        array('submit'=>'',
+                                              'id'=>'specialtySelectDropDown',
+                                              'prompt'=>"Select Doctor Specialty")); 
+//end of form
+$this->endWidget();?>
+
+</div>
+
 <div id="chooseDoctorDiv">
 <?php 
 	

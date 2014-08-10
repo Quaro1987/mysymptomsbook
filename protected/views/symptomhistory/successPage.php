@@ -1,15 +1,5 @@
 <!-- page to display the success message for the successfully added symptom to the symptom history of the user -->
 
-<?php
-//include custom JS scripts
-Yii::app()->clientScript->registerScriptFile(
-        Yii::app()->baseUrl . '/assets/mSBscripts.js',
-        CClientScript::POS_END
-);
-//load jquery
-Yii::app()->clientScript->registerCoreScript('jquery');
-?>
-
 <?php //side menu
 $this->menu=array(
 	array(
