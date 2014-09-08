@@ -7,6 +7,24 @@ $this->breadcrumbs=array(
 	'Manage',
 );
 
+//side menu
+$this->menu=array(
+      array(
+                  'label'=>'Add Symptom', 
+                  'url'=>array('/symptomhistory/addSymptom'),
+                  'visible'=>!Yii::app()->user->isGuest
+      ),
+      array(
+                  'label'=>'Find a Doctor', 
+                  'url'=>array('/doctorRequests/addDoctor'),
+                  'visible'=>!Yii::app()->user->isGuest
+      ),
+      array(
+                  'label'=>'Check Patient Symptom History', 
+                  'url'=>array('/user/user/managePatients'),
+                  'visible'=>(Yii::app()->user->usertype==1)
+      ),
+); 
 ?>
 
 <h1>Manage Doctor Requests</h1>
@@ -25,10 +43,11 @@ $this->breadcrumbs=array(
 		),
 		array(
 			'class'=>'CButtonColumn',
-			'template'=>'{Accept},{Reject}',
+			'template'=>'{Accept} {Reject}',
 			'buttons'=>array(
 						'Accept' => array(
             				      'label'=>'Accept User',
+                                          'imageUrl'=>Yii::app()->request->baseUrl.'/images/acceptUser.png',
             				      //'imageUrl'=>Yii::app()->request->baseUrl.'/images/email.png',
             				      'click'=>"function(){
             				        	$.fn.yiiGridView.update('doctor-requests-grid', {
@@ -44,6 +63,7 @@ $this->breadcrumbs=array(
             			      ),
             			      'Reject' => array(
             				      'label'=>'Reject User',
+                                          'imageUrl'=>Yii::app()->request->baseUrl.'/images/denyUser.png',
             				      //'imageUrl'=>Yii::app()->request->baseUrl.'/images/email.png',
             				      'click'=>"function(){
             				      	$.fn.yiiGridView.update('doctor-requests-grid', {

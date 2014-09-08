@@ -296,3 +296,8 @@ div.search-form
 	position:relative;
 	top:1px;
 }
+
+.imageLinkIcon 
+{
+	padding: 2px 0px;
+}

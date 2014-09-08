@@ -28,3 +28,12 @@ $("#symptomhistory-form").submit(function( event ) {
 	event.preventDefault();
 	}			
 });
+
+
+var updateGridView = function(gridID, value) {   
+	//update gridview
+    $.fn.yiiGridView.update(gridID, {
+    	data: 'r=symptomhistory%2FaddSymptom&Symptoms%5BsymptomCategory%5D='+value
+    });
+    return false;
+};

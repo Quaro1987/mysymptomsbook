@@ -41,7 +41,7 @@ $this->menu=array(
 );
 ?>
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?>, </i><?php echo CHtml::encode(Yii::app()->user->username); ?>!</h1>
-<p>Click on the "Search Symptoms" button to search for diseases based on your symptoms.</p>
-<p>Click on the "Profile" button to see your user page and past symptom search history.</p>
-
+<p>Click on the "Add Symptom" operation to add a Symptom to your Symptom History.</p>
+<p>Click on the "Symptom History" button to see your saved Symptoms.</p>
+<p>Click on the "Find a Doctor" operation to see all available doctors and to send them a request..</p>
 <?php endif ?>

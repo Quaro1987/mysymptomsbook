@@ -56,7 +56,7 @@ return array(
             'loginUrl' => array('/user/login'),
  
             # page after login
-            'returnUrl' => array('/user/profile'),
+            'returnUrl' => array('/site/index'),
  
             # page after logout
             'returnLogoutUrl' => array('/user/login'), 

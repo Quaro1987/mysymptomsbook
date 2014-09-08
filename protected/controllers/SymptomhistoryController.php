@@ -2,11 +2,32 @@
 
 class SymptomhistoryController extends Controller
 {
+	//public variables of controller
+	//array with all symptom categories
+	public $symptomCategories = array(
+		 				'Blood, immune sytem',
+		 				'Circulatory',
+		 				'Digestive',
+		 				'Ear, Hearing',
+		 				'Eye',
+		 				'Female genital',
+		 				'General',
+		 				'Male genital',
+		 				'Metabolic, endocrine',
+		 				'Musculoskeletal',
+		 				'Neurological',
+		 				'Psychological',
+		 				'Respiratory',
+		 				'Skin',
+		 				'Social problems',
+		 				'Urological',
+		 				'Women\'s health, pregnancy'
+		 			  );
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/triplets';
 
 	/**
 	 * @return array action filters
@@ -82,7 +103,7 @@ class SymptomhistoryController extends Controller
 		if(isset($_GET['Symptoms'])) 
 		{
 			$symptomsModel->attributes=$_GET['Symptoms'];
-		}		
+		}	
 		//render search view
 		$this->render('addSymptom',array('model'=>$model,'symptomsModel'=>$symptomsModel));
 		

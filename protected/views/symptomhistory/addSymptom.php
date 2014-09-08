@@ -33,15 +33,9 @@ Yii::app()->clientScript->registerScriptFile(
         Yii::app()->baseUrl . '/assets/addSymptomJS.js',
         CClientScript::POS_END
 	);
-?>
+?> 
 
-
-<h1>Welcome to the search for symptoms page</h1>
-
-
-
-
-	<!-- Select symptom category dropdown menu -->
+<!-- Select symptom category dropdown menu -->
 <div id="searchCategory" class="search-form">
 			
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -49,23 +43,25 @@ Yii::app()->clientScript->registerScriptFile(
 'method'=>'get',
 )); ?>
 
-<?php echo $form->dropDownList($symptomsModel, 'symptomCategory',
+<?php 
+echo $form->dropDownList($symptomsModel, 'symptomCategory',
                                         $this->getSymptomCategories(),
                                         array('submit'=>'',
                                               'id'=>'categorySelectDropDown',
-                                              'prompt'=>"Select Symptom Category")); ?>
+                                              'prompt'=>"Select Symptom Category"));  ?>
 <?php $this->endWidget(); ?>
 </div>
 <div class="row"><br/> <b>Select Symptom:</b> </div>	
 
 <div class="row" id="symptomSelectDiv" >
 
-<?php 
+<?php
+
 
 $this->widget('zii.widgets.grid.CGridView', array(
 		'id'=>'symptoms-grid',
 		'selectableRows'=>1, //ability to select one symptom at a time
-		'dataProvider'=>$symptomsModel->searchCategory(),
+		'dataProvider'=>$symptomsModel->search(),
 		'columns'=>array(
 			'symptomCode',
 			'title',
@@ -73,7 +69,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			'exclusions',
 			'symptomCategory',		
 		)
-)); ?>
+));   ?>
  
 	 
 </div>

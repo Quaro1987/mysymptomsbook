@@ -68,7 +68,7 @@ return array(
 'id' => 'ID',
 'user_id' => 'User',
 'symptomCode' => 'Symptom Code',
-'dateSearched' => 'Date Searched',
+'dateSearched' => 'Date Added',
 'dateSymptomFirstSeen' => 'Date Symptom First Seen',
 'symptomTitle' => 'Symptom',
 );
@@ -116,7 +116,7 @@ return parent::model($className);
 }
 
 
-//function to get search history of logged in user
+//function to get search history of user with id == $usersID
 public function searchByUser($usersID)
 {
 $criteria=new CDbCriteria;

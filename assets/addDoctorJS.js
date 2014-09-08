@@ -13,3 +13,8 @@ $('#specialtySelectDropDown').change(function(){
 	return false;
 	});
 });
+//update on image click
+$('.imageLinkIcon').on('click', function()
+{
+	alert('testing');
+});
