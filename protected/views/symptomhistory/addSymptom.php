@@ -36,7 +36,7 @@ Yii::app()->clientScript->registerScriptFile(
 ?> 
 
 <!-- Select symptom category dropdown menu -->
-<div id="searchCategory" class="search-form">
+<div id="searchCategory" class="row">
 			
 <?php $form=$this->beginWidget('CActiveForm', array(
 'action'=>Yii::app()->createUrl($this->route),
@@ -51,13 +51,13 @@ echo $form->dropDownList($symptomsModel, 'symptomCategory',
                                               'prompt'=>"Select Symptom Category"));  ?>
 <?php $this->endWidget(); ?>
 </div>
-<div class="row"><br/> <b>Select Symptom:</b> </div>	
+
 
 <div class="row" id="symptomSelectDiv" >
-
+<div class="row"><br/> <b>Select Symptom:</b> </div>	
 <?php
 
-
+//widget to pick symptom
 $this->widget('zii.widgets.grid.CGridView', array(
 		'id'=>'symptoms-grid',
 		'selectableRows'=>1, //ability to select one symptom at a time
@@ -69,12 +69,14 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			'exclusions',
 			'symptomCategory',		
 		)
-));   ?>
- 
-	 
+));   ?>	 
 </div>
+<br/>
+<div id="selectedSymptomDiv">
 
-	
+<?php echo CHtml::Button('', array('class'=>'symptomButton', 'id'=>'selectedSymptomButton', 'onclick'=>'resetSymptomPick()')); ?>
+
+</div>
 
 <div class="row buttons">
 <div class="form">
@@ -86,31 +88,30 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		<br/>
 		<?php echo $form->hiddenField($model,'symptomCode', array('id'=>'symptomToBeSearchedCode')); ?>
 		
-		<br/>
 		<?php echo $form->hiddenField($model,'symptomTitle', array('id'=>'symptomToBeSearchedTitle')); ?>
 		
-		<br/>
-		<div class="search-form">
+		<div id="dateDiv" class="row">
 		<?php echo $form->label($model,'dateSymptomFirstSeen'); ?>
+		<div id="datePickingDiv" class="row">
 		<?php $this->widget('zii.widgets.jui.CJuiDatePicker',
 			array(
 				'model'=>$model,
 				'attribute'=>'dateSymptomFirstSeen',
 				'id'=>'dateSymptomSeen',
+    			'flat' => true,
     			'options'=>array(
-       	 						'showAnim'=>'fold',
        	 						'maxDate'=>"+0D", //the latest date the user can pick is the current date
        	 						'dateFormat'=>'yy-mm-dd', //date format set to be compatible with database
     						),
   				'htmlOptions'=>array(	
-       							'style'=>'height:20px;'
+       							'style'=>'height:400px;'
     						),
 		)); ?>
-		
+		</div>
 		</div>
 
 		</br>	
-		<div class="row buttons">
+		<div id="submitButtonDiv" class="row buttons">
 		<?php echo CHtml::submitButton('Add Symptom'); ?>
 		</div>
 </div>
