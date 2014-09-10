@@ -35,12 +35,12 @@ public function rules()
 // will receive user inputs.
 return array(
 array('user_id, symptomCode, dateSearched, dateSymptomFirstSeen, symptomTitle', 'required'),
-array('user_id', 'numerical', 'integerOnly'=>true),
+array('user_id, symptomFlag', 'numerical', 'integerOnly'=>true),
 array('symptomCode', 'length', 'max'=>11),
 array('symptomTitle', 'length', 'max'=>255),
 // The following rule is used by search().
 // @todo Please remove those attributes that should not be searched.
-array('id, user_id, symptomCode, dateSearched, dateSymptomFirstSeen', 'safe', 'on'=>'search'),
+array('id, user_id, symptomCode, dateSearched, dateSymptomFirstSeen, symptomFlag', 'safe', 'on'=>'search'),
 );
 }
 
@@ -71,6 +71,7 @@ return array(
 'dateSearched' => 'Date Added',
 'dateSymptomFirstSeen' => 'Date Symptom First Seen',
 'symptomTitle' => 'Symptom',
+'symptomFlag' => 'Flag'
 );
 }
 
@@ -98,6 +99,7 @@ $criteria->compare('symptomCode',$this->symptomCode,true);
 $criteria->compare('dateSearched',$this->dateSearched,true);
 $criteria->compare('dateSymptomFirstSeen',$this->dateSymptomFirstSeen,true);
 $criteria->compare('symptomTitle',$this->symptomTitle,true);
+$criteria->compare('symptomFlag',$this->symptomFlag, true);
 
 return new CActiveDataProvider($this, array(
 'criteria'=>$criteria,

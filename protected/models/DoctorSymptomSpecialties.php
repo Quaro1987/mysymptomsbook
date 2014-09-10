@@ -1,28 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "{{symptoms}}".
+ * This is the model class for table "{{doctor_symptom_specialties}}".
  *
- * The followings are the available columns in table '{{symptoms}}':
+ * The followings are the available columns in table '{{doctor_symptom_specialties}}':
  * @property integer $id
+ * @property integer $doctorUserID
  * @property string $symptomCode
- * @property string $title
- * @property string $shortTitle
- * @property string $inclusions
- * @property string $exclusions
- * @property string $symptomCategory
  *
  * The followings are the available model relations:
- * @property SymptomDisease[] $symptomDiseases
+ * @property Symptoms $symptomCode0
+ * @property Users $doctorUser
  */
-class Symptoms extends CActiveRecord
+class DoctorSymptomSpecialties extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{symptoms}}';
+		return '{{doctor_symptom_specialties}}';
 	}
 
 	/**
@@ -33,12 +30,12 @@ class Symptoms extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('symptomCode, title, shortTitle, inclusions, exclusions, symptomCategory', 'required'),
+			array('doctorUserID, symptomCode', 'required'),
+			array('doctorUserID', 'numerical', 'integerOnly'=>true),
 			array('symptomCode', 'length', 'max'=>15),
-			array('title, shortTitle, inclusions, exclusions, symptomCategory', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('symptomCode, title, shortTitle, inclusions, exclusions, symptomCategory', 'safe', 'on'=>'search'),
+			array('id, doctorUserID, symptomCode', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,8 +47,8 @@ class Symptoms extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'symptomDiseases' => array(self::HAS_MANY, 'SymptomDisease', 'symptomCode'),
-			'symptomHistory' => array(self::HAS_MANY, 'SymptomHistory', 'symptomCode'),
+			'symptomCode0' => array(self::BELONGS_TO, 'Symptoms', 'symptomCode'),
+			'doctorUser' => array(self::BELONGS_TO, 'Users', 'doctorUserID'),
 		);
 	}
 
@@ -61,12 +58,9 @@ class Symptoms extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'id' => 'ID',
+			'doctorUserID' => 'Doctor User',
 			'symptomCode' => 'Symptom Code',
-			'title' => 'Title',
-			'shortTitle' => 'Short Title',
-			'inclusions' => 'Inclusions',
-			'exclusions' => 'Exclusions',
-			'symptomCategory' => 'Symptom Category',
 		);
 	}
 
@@ -88,60 +82,23 @@ class Symptoms extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-
+		$criteria->compare('id',$this->id);
+		$criteria->compare('doctorUserID',$this->doctorUserID);
 		$criteria->compare('symptomCode',$this->symptomCode,true);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('shortTitle',$this->shortTitle,true);
-		$criteria->compare('inclusions',$this->inclusions,true);
-		$criteria->compare('exclusions',$this->exclusions,true);
-		$criteria->compare('symptomCategory',$this->symptomCategory,true);
-		
-		
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
-
-		
-	}
-
-	public  function searchCategory()
-	{
-		
-		$criteria=new CDbCriteria;
-
-		$criteria->compare('symptomCategory',$this->symptomCategory,false);
-		
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria, 
-		));
-
-		
 	}
 
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Symptoms the static model class
+	 * @return DoctorSymptomSpecialties the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-
-
-	//function to get specific symptom based on symptom code
-	public function searchByCode($symCode)
-	{
-		$criteria=new CDbCriteria;
-
-		$criteria->compare('symptomCode',$symCode);
-
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria, 
-		));
-	}
-
-	
 }
-

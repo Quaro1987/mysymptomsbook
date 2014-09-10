@@ -17962,3 +17962,30 @@ Stack trace:
 REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/usersSymptomHistory
 in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (251)
 in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/11 00:51:54 [error] [exception.CException] exception 'CException' with message 'Property "Symptoms.id" is not defined.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('id')
+#1 C:\xampp\htdocs\mySymptomsBook\protected\models\Symptoms.php(92): CActiveRecord->__get('id')
+#2 C:\xampp\htdocs\mySymptomsBook\protected\views\symptomhistory\addSymptom.php(64): Symptoms->search()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(782): CController->renderPartial('addSymptom', Array, true)
+#7 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php(109): CController->render('addSymptom', Array)
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): SymptomhistoryController->actionAddSymptom()
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('addSymptom')
+#18 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('symptomhistory/...')
+#19 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/addSymptom
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=symptomhistory/usersSymptomHistory
+---
