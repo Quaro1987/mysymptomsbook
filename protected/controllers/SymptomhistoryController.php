@@ -27,8 +27,7 @@ class SymptomhistoryController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/triplets';
-
+	public $layout='//layouts/column2';
 	/**
 	 * @return array action filters
 	 */
@@ -79,6 +78,8 @@ class SymptomhistoryController extends Controller
 	 */
 	public function actionAddSymptom()
 	{
+		//load custom layout for this view
+		$this->layout='//layouts/triplets';
 		$model = new Symptomhistory;
 		$symptomsModel = new Symptoms;
 		// Uncomment the following line if AJAX validation is needed
@@ -96,7 +97,7 @@ class SymptomhistoryController extends Controller
 									 ));
 				//save search history
 				$model->save();
-				$this->redirect(array('successPage'));
+				$this->redirect(array('usersSymptomHistory'));
 				
 		}
 		//used to update symptoms grid with ajax call
@@ -245,8 +246,21 @@ class SymptomhistoryController extends Controller
 	public function actionUsersSymptomHistory()
 	{
 		$model = new Symptomhistory;
-		$dataProvider = $model->searchByUser(Yii::app()->user->id);
-		$this->render('usersSymptomHistory',array('dataProvider'=>$dataProvider,
-		));
+		//empty array to store all the user's symptoms
+		$symptomItems = array();
+		//set the model's user_id to the one of the current user
+		$model->user_id = Yii::app()->user->id;
+		//loop through all the symptomHistory records that belong to the user
+		foreach($model->findAll() as $symptom)
+		{
+			$symptomItem=array('title'=>$symptom->symptomTitle,
+								'start'=>$symptom->dateSymptomFirstSeen,
+								'end'=>$symptom->dateSearched
+			);
+			//copy symptomHistory record into array
+			array_push($symptomItems, $symptomItem);
+		}
+		//pass array with user's symptoms to the view
+		$this->render('usersSymptomHistory',array('symptomHistoryEvents'=>$symptomItems));
 	}
 }

@@ -29,14 +29,30 @@ $this->menu=array(
 );
 
 		
-$this->widget('zii.widgets.grid.CGridView', array(
-		'id'=>'symptoms-grid',
-		'dataProvider'=>$dataProvider,
-		'columns'=>array(
-			'symptomTitle',
-			'dateSearched',
-			'dateSymptomFirstSeen',
-		),
+$this->widget('ext.EFullCalendar.EFullCalendar', array(
+    // remove to use without theme
+    // this is relative path to:
+    // themes/<path>
+    'themeCssFile'=>'cupertino/theme.css',
+    // raw html tags
+    'htmlOptions'=>array(
+        'style'=>'width:100%'
+    ),
+    // FullCalendar's options.
+    // Documentation available at
+    // http://arshaw.com/fullcalendar/docs/
+    'options'=>array(
+        'header'=>array(
+            'left'=>'prev',
+            'center'=>'title',
+            'right'=>'next'
+        ),
+        'lazyFetching'=>true,
+        'events'=>$symptomHistoryEvents // pass array of events directly
+        // event handling
+        // mouseover for example
+        //'eventMouseover'=>new CJavaScriptExpression("js_function_callback"),
+    )
 )); ?>
 		
 	</div>
