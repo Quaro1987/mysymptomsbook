@@ -2,7 +2,8 @@
 
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
-
+//booster path
+Yii::setPathOfAlias('booster', dirname(__FILE__) . DIRECTORY_SEPARATOR . '../extensions/yiibooster');
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
@@ -101,6 +102,12 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
+		'Globals' => array(
+            'class' => 'Globals',
+        ),
+        'bootstrap' => array(
+            'class' => 'booster.components.Booster',
+        ),
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(

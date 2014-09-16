@@ -310,3 +310,18 @@ font-size:20pt;
 }
 
 
+.checkbox-inline 
+{
+	width: 200px;
+	float: left;
+}
+
+.manageSymptomSpecialtiesButtons 
+{
+	clear:both;
+} 
+
+.checkBoxRight
+{
+	float: right;
+}

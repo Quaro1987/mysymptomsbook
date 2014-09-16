@@ -45,7 +45,7 @@ Yii::app()->clientScript->registerScriptFile(
 
 <?php 
 echo $form->dropDownList($symptomsModel, 'symptomCategory',
-                                        $this->getSymptomCategories(),
+                                        Yii::app()->Globals->getSymptomCategories(),
                                         array('submit'=>'',
                                               'id'=>'categorySelectDropDown',
                                               'prompt'=>"Select Symptom Category"));  ?>

@@ -15,4 +15,20 @@ $this->menu=array(
 
 <h1>Create DoctorSymptomSpecialties</h1>
 
+<?php $form=$this->beginWidget('CActiveForm', array(
+'action'=>Yii::app()->createUrl($this->route),
+'method'=>'get',
+)); ?>
+
+<?php 
+echo $form->dropDownList($symptomsModel, 'symptomCategory',
+                                        Yii::app()->Globals->getSymptomCategories(),
+                                        array('submit'=>'',
+                                              'id'=>'categorySelectDropDown',
+                                              'prompt'=>"Select Symptom Category"));  ?>
+<?php $this->endWidget(); ?>
+</div>
+
+
+
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

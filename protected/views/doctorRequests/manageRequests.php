@@ -48,7 +48,6 @@ $this->menu=array(
 						'Accept' => array(
             				      'label'=>'Accept User',
                                           'imageUrl'=>Yii::app()->request->baseUrl.'/images/acceptUser.png',
-            				      //'imageUrl'=>Yii::app()->request->baseUrl.'/images/email.png',
             				      'click'=>"function(){
             				        	$.fn.yiiGridView.update('doctor-requests-grid', {
                         	                        type:'POST',
@@ -64,7 +63,6 @@ $this->menu=array(
             			      'Reject' => array(
             				      'label'=>'Reject User',
                                           'imageUrl'=>Yii::app()->request->baseUrl.'/images/denyUser.png',
-            				      //'imageUrl'=>Yii::app()->request->baseUrl.'/images/email.png',
             				      'click'=>"function(){
             				      	$.fn.yiiGridView.update('doctor-requests-grid', {
                         	                      type:'POST',

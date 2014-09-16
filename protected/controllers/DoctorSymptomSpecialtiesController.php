@@ -16,6 +16,7 @@ class DoctorSymptomSpecialtiesController extends Controller
 		return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
+			array('booster.filters.BoosterFilter - delete') 
 		);
 	}
 
@@ -32,7 +33,7 @@ class DoctorSymptomSpecialtiesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('addSpecialties', 'update', 'manageSpecialties','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -45,45 +46,91 @@ class DoctorSymptomSpecialtiesController extends Controller
 		);
 	}
 
-	/**
+	/*
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
-	 */
+	 
 	public function actionView($id)
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
 		));
 	}
-
+	*/
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionAddSpecialties()
 	{
+		//models used in the action
+		$symptomsModel = new Symptoms;
 		$model=new DoctorSymptomSpecialties;
+
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		//if a psot request is made by the form execute this code
 		if(isset($_POST['DoctorSymptomSpecialties']))
 		{
-			$model->attributes=$_POST['DoctorSymptomSpecialties'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			//loop through all of the selected symptoms
+			foreach($_POST['DoctorSymptomSpecialties']['symptomCode'] as $symptomCode)
+			{
+			//create temporary model
+			$DSSTempModel = new DoctorSymptomSpecialties;
+			//set attributes to temp model
+			$DSSTempModel->setAttributes(array(
+										'doctorUserID' => Yii::app()->user->id,
+										'symptomCode' => $symptomCode
+										)
+			);
+			//save model
+			$DSSTempModel->save();
+			}
+			//after 
+			$this->redirect(array('view','id'=>$DSSTempModel->id));
 		}
 
-		$this->render('create',array(
-			'model'=>$model,
+		//used to update symptoms checkboxlist with ajax call
+		if(isset($_GET['Symptoms'])) 
+		{
+			$symptomsModel->attributes=$_GET['Symptoms'];
+		}
+
+		//query builder to get symptom specialties the user has already added
+		$alreadyAddedSymptomSpecialties = Yii::app()->db->createCommand()
+					->select('symptomCode')
+    				->from('tbl_doctor_symptom_specialties')
+    				->where('doctorUserID=:doctorUserID', array(':doctorUserID'=>Yii::app()->user->id))
+    				->queryAll();
+
+    	//copy query results into alreadyAddedDoctorIDArray
+		foreach ($alreadyAddedSymptomSpecialties as $symSpe) 
+		{
+			$alreadyAddedSymptomSpecialtiesArray[] = $symSpe['symptomCode'];
+		}
+
+		//create search criteria for the symptom codes
+		$criteria = new CDbCriteria();
+		$criteria->addNotInCondition('symptomCode', $alreadyAddedSymptomSpecialtiesArray);
+		
+		//get all symptoms the user hasn't added to his specialties
+		$symptomsModelArray = Symptoms::model()->findAll($criteria);
+		
+		//create data list
+		$symptomsListData = CHtml::listData($symptomsModelArray, 'symptomCode', 'title'); 
+		
+		//render page
+		$this->render('addSpecialties',array(
+			'model'=>$model, 'symptomsModel'=>$symptomsModel, 'symptomsListData'=>$symptomsListData
 		));
 	}
 
-	/**
+	/*
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
-	 */
+	 
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
@@ -102,7 +149,7 @@ class DoctorSymptomSpecialtiesController extends Controller
 			'model'=>$model,
 		));
 	}
-
+	*/
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
@@ -117,9 +164,9 @@ class DoctorSymptomSpecialtiesController extends Controller
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
-	/**
-	 * Lists all models.
-	 */
+	/*
+	  Lists all models.
+	
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('DoctorSymptomSpecialties');
@@ -127,10 +174,10 @@ class DoctorSymptomSpecialtiesController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
-
-	/**
-	 * Manages all models.
 	 */
+	/*
+	Manages all models.
+	 
 	public function actionAdmin()
 	{
 		$model=new DoctorSymptomSpecialties('search');
@@ -141,9 +188,26 @@ class DoctorSymptomSpecialtiesController extends Controller
 		$this->render('admin',array(
 			'model'=>$model,
 		));
+	} */
+
+	//manage user's symptom specialties
+	public function actionManageSpecialties()
+	{
+		$model=new DoctorSymptomSpecialties;
+
+		$dataProvider = new CActiveDataProvider('DoctorSymptomSpecialties', array(
+			'criteria'=>array(
+		        'condition'=>'doctorUserID=:doctorUserID', 
+		        'params'=>array(':doctorUserID'=>Yii::app()->user->id),
+		    )
+		));
+
+		$this->render('manageSpecialties',array(
+			'model'=>$model, 'dataProvider'=>$dataProvider
+		));
 	}
 
-	/**
+	/** 
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
@@ -169,5 +233,15 @@ class DoctorSymptomSpecialtiesController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+
+	//function to get the symptom's title
+	public function getSymptomTitle($data,$row)
+	{
+		$symptom = $data->symptomCode;
+		$symptomData = Symptoms::model()->findByPk($symptom);
+		//get the symptom title
+		$symptomTitle = $symptomData->title;
+		return $symptomTitle;
 	}
 }
