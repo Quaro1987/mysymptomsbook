@@ -19,8 +19,8 @@ class RegistrationForm extends User {
 			array('AMKA', 'length', 'max'=>11, 'min' => 11,'message' => UserModule::t("Incorrect AMKA number. An AMKA number is made up of 11 digits.")),
 			array('AMKA', 'unique', 'message' => UserModule::t("This user's AMKA number already exists.")),
 			array('AMKA', 'match', 'pattern' => '/^[0-9_]+$/u','message' => UserModule::t("Incorrect symbols (0-9).")),
-			array('doctorSpecialty', 'in', 'range'=>array('0','Doctor')),
-			array('doctorSpecialty', 'in', 'range'=>array('Doctor'), 'on'=>'doctor', 'message'=>"You must select a specialty Doctor."),
+			array('doctorSpecialty', 'in', 'range'=>array('0','Cardiologost', 'Dentist', 'Dermatologist', 'Pathologist')),
+			array('doctorSpecialty', 'in', 'range'=>array('Cardiologost', 'Dentist', 'Dermatologist', 'Pathologist'), 'on'=>'doctor', 'message'=>"You must select a specialty Doctor."),
 			//array('verifyPassword', 'compare', 'compareAttribute'=>'password', 'message' => UserModule::t("Retype Password is incorrect.")),
 			array('username', 'match', 'pattern' => '/^[A-Za-z0-9_]+$/u','message' => UserModule::t("Incorrect symbols (A-z0-9).")),
 		);
