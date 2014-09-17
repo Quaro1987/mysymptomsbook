@@ -246,6 +246,7 @@ class SymptomhistoryController extends Controller
 	public function actionUsersSymptomHistory()
 	{
 		$model = new Symptomhistory;
+		$symptomUrl = Yii::app()->createUrl('doctorRequests/findDoctor');
 		//empty array to store all the user's symptoms
 		$symptomItems = array();
 		//set the model's user_id to the one of the current user
@@ -255,12 +256,18 @@ class SymptomhistoryController extends Controller
 		{
 			$symptomItem=array('title'=>$symptom->symptomTitle,
 								'start'=>$symptom->dateSymptomFirstSeen,
-								'end'=>$symptom->dateSearched
+								'end'=>$symptom->dateSearched,
+								'symptomCode'=>$symptom->symptomCode
 			);
 			//copy symptomHistory record into array
 			array_push($symptomItems, $symptomItem);
 		}
+
+		if(isset($_POST['symptomCategory']))
+		{
+
+		}
 		//pass array with user's symptoms to the view
-		$this->render('usersSymptomHistory',array('symptomHistoryEvents'=>$symptomItems));
+		$this->render('usersSymptomHistory',array('symptomHistoryEvents'=>$symptomItems, 'symptomUrl'=>$symptomUrl));
 	}
 }

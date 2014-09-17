@@ -169,7 +169,7 @@ class DoctorRequestsController extends Controller
 		$model = new DoctorRequests;
 		$userModel = new User;
 		$symptomSpecialtyModel = new DoctorSymptomSpecialties;
-		
+		$symptomsModel = Symptoms::model()->findByPk($symptomCode);
 		//query builder to get doctors the user has already made requests for
 		$alreadyAddedDoctorIDs = Yii::app()->db->createCommand()
 					->select('doctorID')
@@ -234,8 +234,8 @@ class DoctorRequestsController extends Controller
 				$this->redirect(array('addDoctor'));
 		}
 
-		$this->render('addDoctor',array(
-			'model'=>$model, 'userModel'=>$userModel, 'dataProvider'=>$dataProvider
+		$this->render('findDoctor',array(
+			'model'=>$model, 'userModel'=>$userModel, 'symptomsModel'=>$symptomsModel, 'dataProvider'=>$dataProvider
 		));
 	}
 

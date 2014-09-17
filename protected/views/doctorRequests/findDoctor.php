@@ -33,8 +33,21 @@ $this->menu=array(
 	),
 ); ?>
 
+<h1>View Symptom <?php echo $symptomsModel->title; ?></h1>
 
-<h1>Find a Doctor</h1>
+<?php $this->widget('zii.widgets.CDetailView', array(
+	'data'=>$symptomsModel,
+	'attributes'=>array(
+		'symptomCode',
+		'title',
+		'shortTitle',
+		'inclusions',
+		'exclusions',
+		'symptomCategory',
+	),
+)); ?>
+<br/>
+<h3>Find a Doctor</h3>
 
 <div class="search-form">
 <!-- start of get doctor specialty form -->	

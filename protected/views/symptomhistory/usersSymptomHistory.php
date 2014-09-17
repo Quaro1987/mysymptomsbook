@@ -36,7 +36,7 @@ $this->widget('ext.EFullCalendar.EFullCalendar', array(
     'themeCssFile'=>'cupertino/theme.css',
     // raw html tags
     'htmlOptions'=>array(
-        'style'=>'width:100%'
+        'style'=>'width:100%',
     ),
     // FullCalendar's options.
     // Documentation available at
@@ -48,11 +48,16 @@ $this->widget('ext.EFullCalendar.EFullCalendar', array(
             'right'=>'next'
         ),
         'lazyFetching'=>true,
-        'events'=>$symptomHistoryEvents // pass array of events directly
+        'events'=>$symptomHistoryEvents, // pass array of events directly
         // event handling
-        // mouseover for example
-        //'eventMouseover'=>new CJavaScriptExpression("js_function_callback"),
-    )
-)); ?>
+        // click on symptom to get redirected to symptom page and find a doctor for the symptom
+        'eventClick'=> ("js:function(calEvent, jsEvent, view) 
+        					{
+        						window.location = ('$symptomUrl' + '&symptomCode=' + calEvent.symptomCode);
+    						}"
+    					)
+        )
+	)
+); ?>
 		
-	</div>
+</div>

@@ -48,13 +48,13 @@ class SymptomsController extends Controller
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
-	 *//*
-	public function actionView($id)
+	 */
+	public function actionView($symptomCode)
 	{
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$this->loadModel($symptomCode),
 		));
-	}*/
+	}
 
 	/**
 	 * Creates a new model.
@@ -149,15 +149,15 @@ class SymptomsController extends Controller
 	 * @param integer $id the ID of the model to be loaded
 	 * @return Symptoms the loaded model
 	 * @throws CHttpException
-	 *//*
-	public function loadModel($id)
+	 */
+	public function loadModel($symptomCode)
 	{
-		$model=Symptoms::model()->findByPk($id);
+		$model=Symptoms::model()->findByPk($symptomCode);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
-	*/
+	
 	/**
 	 * Performs the AJAX validation.
 	 * @param Symptoms $model the model to be validated
@@ -171,3 +171,5 @@ class SymptomsController extends Controller
 		}
 	}
 
+}
+?>
