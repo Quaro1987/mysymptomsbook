@@ -32,7 +32,7 @@ class DoctorRequestsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','addDoctor','update', 'successPage'),
+				'actions'=>array('create','findDoctor','update', 'successPage'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow doctor user to perform 'manageRequests', 'acceptUser', 'rejectUser' actions
@@ -164,15 +164,24 @@ class DoctorRequestsController extends Controller
 	}
 
 	//function to find and add a new doctor
-	public function actionAddDoctor()
+	public function actionFindDoctor($symptomCode)
 	{
 		$model = new DoctorRequests;
 		$userModel = new User;
+		$symptomSpecialtyModel = new DoctorSymptomSpecialties;
+		
 		//query builder to get doctors the user has already made requests for
 		$alreadyAddedDoctorIDs = Yii::app()->db->createCommand()
 					->select('doctorID')
     				->from('tbl_doctor_requests')
     				->where('userID=:userID', array(':userID'=>Yii::app()->user->id))
+    				->queryAll();
+
+    	//query builder to get doctors who have the symptom specialty
+    	$doctorsWithSpecialtyIDs = Yii::app()->db->createCommand()
+    				->select('doctorUserID')
+    				->from('tbl_doctor_symptom_specialties')
+    				->where('symptomCode=:symptomCode', array(':symptomCode'=>$symptomCode))
     				->queryAll();
 
     	//copy query results into alreadyAddedDoctorIDArray
@@ -181,12 +190,26 @@ class DoctorRequestsController extends Controller
 			$alreadyAddedDoctorIDArray[] = $dI['doctorID'];
 		}
 
-		//create search criteria for the doctor ids
-		$criteria = new CDbCriteria();
-		$criteria->addNotInCondition('id', $alreadyAddedDoctorIDArray)
-				 ->addCondition('userType=1');
+		//copy query results into doctorsWithSpecialtyArray
+		foreach ($doctorsWithSpecialtyIDs as $dS) 
+		{
+			$doctorsWithSpecialtyArray[] = $dS['doctorUserID'];
+		}
 
-
+		if(isset($doctorsWithSpecialtyArray))
+		{
+			//create search criteria for the doctor ids
+			$criteria = new CDbCriteria();
+			$criteria->addNotInCondition('id', $alreadyAddedDoctorIDArray)
+					 ->addInCondition('id', $doctorsWithSpecialtyArray)
+					 ->addCondition('userType=1');
+		}
+		else
+		{
+			//create search criteria which will always come false to get an empty dataprovider
+			$criteria = new CDbCriteria();
+			$criteria->addInCondition('id', array('-1'));
+		}
 		//used to update symptoms grid with ajax call
 		if(isset($_GET['User'])) 
 		{

@@ -18990,3 +18990,99 @@ Stack trace:
 #35 {main}
 REQUEST_URI=/mysymptomsbook/index.php?r=doctorSymptomSpecialties/manageSpecialties
 ---
+2014/09/17 01:34:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "addDoctor".' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(270): CController->missingAction('addDoctor')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('addDoctor')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorRequests/...')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorRequests/addDoctor
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=symptomhistory%2FaddSymptom&Symptoms%5BsymptomCategory%5D=Eye
+---
+2014/09/17 01:34:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "addDoctor".' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(270): CController->missingAction('addDoctor')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('addDoctor')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorRequests/...')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorRequests/addDoctor
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=site/index
+---
+2014/09/17 01:34:53 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('findDoctor')
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorRequests/...')
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorRequests/findDoctor
+---
+2014/09/17 01:35:29 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('findDoctor')
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorRequests/...')
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorRequests/findDoctor&A01
+---
+2014/09/17 01:35:39 [error] [exception.CException] exception 'CException' with message 'CDbConnection and its behaviors do not have a method or closure named "createComman".' in C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorRequestsController.php(181): CComponent->__call('createComman', Array)
+#1 C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorRequestsController.php(181): CDbConnection->createComman()
+#2 [internal function]: DoctorRequestsController->actionFindDoctor('A01')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(DoctorRequestsController), Array)
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(DoctorRequestsController), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('findDoctor')
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorRequests/...')
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorRequests/findDoctor&symptomCode=A01
+---
+2014/09/17 01:36:04 [error] [php] Undefined variable: doctorsWithSpecialtyArray (C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorRequestsController.php:203)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): DoctorRequestsController->runAction()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): DoctorRequestsController->filterAccessControl()
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): DoctorRequestsController->runActionWithFilters()
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): DoctorRequestsController->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorRequests/findDoctor&symptomCode=A01
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorRequestsController.php (203)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
