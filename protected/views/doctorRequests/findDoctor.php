@@ -6,8 +6,6 @@ $this->breadcrumbs=array(
 	'Find A Doctor',
 ); 
 
-
-
 //include custom JS scripts
 Yii::app()->clientScript->registerScriptFile(
         Yii::app()->baseUrl . '/assets/addDoctorJS.js',
@@ -102,6 +100,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
                 'autoOpen' => false,
                 'modal' => true,
                 'width' => 350,
+
         ),
 ));
 

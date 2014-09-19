@@ -330,3 +330,13 @@ font-size:20pt;
 {
 	cursor: pointer;
 }
+
+.grid-view tr.odd
+{
+	cursor: pointer;
+}
+
+.grid-view tr.even
+{
+	cursor: pointer;
+}

@@ -31,10 +31,11 @@ class DoctorRequests extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('doctorID', 'required', 'message'=>'Please select a Doctor first.'),
+			array('symptomRequested', 'required'),
 			array('doctorID, userID, doctorAccepted', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, doctorID, userID, doctorAccepted', 'safe', 'on'=>'search'),
+			array('id, doctorID, userID, doctorAccepted symptomRequested', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -84,6 +85,7 @@ class DoctorRequests extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('doctorID',$this->doctorID);
 		$criteria->compare('userID',$this->userID);
+		$criteria->compare('symptomRequested',$this->symptomRequested);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

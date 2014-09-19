@@ -195,7 +195,7 @@ class DoctorRequestsController extends Controller
 		{
 			$doctorsWithSpecialtyArray[] = $dS['doctorUserID'];
 		}
-
+		//if there exist doctors with this specialty
 		if(isset($doctorsWithSpecialtyArray))
 		{
 			//create search criteria for the doctor ids
@@ -228,10 +228,11 @@ class DoctorRequestsController extends Controller
 			$model->setAttributes(array(
 								'doctorID'=>$_POST['DoctorRequests']['doctorID'],
 								'userID'=>Yii::app()->user->id,
-								'doctorAccepted'=>0
+								'doctorAccepted'=>0,
+								'symptomRequested'=>$symptomCode
 			));
 			if($model->save())
-				$this->redirect(array('addDoctor'));
+				$this->redirect(array('findDoctor', 'symptomCode'=>$symptomCode));
 		}
 
 		$this->render('findDoctor',array(
