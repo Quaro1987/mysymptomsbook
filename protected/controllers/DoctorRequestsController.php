@@ -225,11 +225,15 @@ class DoctorRequestsController extends Controller
 		//create add doctor request
 		if(isset($_POST['DoctorRequests']))
 		{
+			$symptomHistoryModel = SymptomHistory::model()->findByAttributes(
+				array('user_id'=>Yii::app()->user->id, 'symptomCode'=>$symptomCode)
+			);
+
 			$model->setAttributes(array(
 								'doctorID'=>$_POST['DoctorRequests']['doctorID'],
 								'userID'=>Yii::app()->user->id,
 								'doctorAccepted'=>0,
-								'symptomRequested'=>$symptomCode
+								'symptomHistoryID'=>$symptomHistoryModel->id
 			));
 			if($model->save())
 				$this->redirect(array('findDoctor', 'symptomCode'=>$symptomCode));

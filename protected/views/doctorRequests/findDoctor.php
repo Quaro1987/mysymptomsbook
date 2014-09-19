@@ -67,7 +67,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		*/
 		array(
 			'name' => 'Last Name',
-			'type'=>'raw', //array("user/user/viewDoctor","id"=>$data->id)
+			'type'=>'raw',
 			'value' => 'CHtml::Ajaxlink(
 				CHtml::encode($data->profile->lastname),
 				Yii::app()->createUrl("user/user/ajaxViewDoctorDialog", array("id"=>$data->id)),

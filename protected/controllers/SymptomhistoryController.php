@@ -48,7 +48,7 @@ class SymptomhistoryController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create', view, and 'update' actions
-				'actions'=>array('addSymptom', 'successPage', 'update', 'index','view', 'userHistory', 'usersSymptomHistory'),
+				'actions'=>array('addSymptom', 'ajaxView', 'successPage', 'update', 'index','view', 'userHistory', 'usersSymptomHistory'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -72,6 +72,13 @@ class SymptomhistoryController extends Controller
 		));
 	}
 
+
+	public function actionAjaxView($id)
+	{
+		echo $this->renderPartial('view',array(
+			'model'=>$this->loadModel($id),
+		));
+	}
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -249,10 +256,10 @@ class SymptomhistoryController extends Controller
 		$symptomUrl = Yii::app()->createUrl('doctorRequests/findDoctor');
 		//empty array to store all the user's symptoms
 		$symptomItems = array();
-		//set the model's user_id to the one of the current user
-		$model->user_id = Yii::app()->user->id;
+		//find all symptomHistory records belonging to the user
+		$symptomHistoryModels = $model->findAllByAttributes(array('user_id'=>Yii::app()->user->id));
 		//loop through all the symptomHistory records that belong to the user
-		foreach($model->findAll() as $symptom)
+		foreach($symptomHistoryModels as $symptom)
 		{
 			$symptomItem=array('title'=>$symptom->symptomTitle,
 								'start'=>$symptom->dateSymptomFirstSeen,
@@ -262,11 +269,7 @@ class SymptomhistoryController extends Controller
 			//copy symptomHistory record into array
 			array_push($symptomItems, $symptomItem);
 		}
-
-		if(isset($_POST['symptomCategory']))
-		{
-
-		}
+		
 		//pass array with user's symptoms to the view
 		$this->render('usersSymptomHistory',array('symptomHistoryEvents'=>$symptomItems, 'symptomUrl'=>$symptomUrl));
 	}

@@ -27,6 +27,21 @@ $this->menu=array(
 ); 
 ?>
 
+
+<!-- pop up window code -->
+<?php $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+        'id' => 'symptomHistoryDetailsDialog',
+        // Additional JavaScript options for the dialog plugin
+        'options'=>array(
+                'autoOpen' => false,
+                'modal' => true,
+                'width' => 350,
+
+        ),
+));
+$this->endWidget('zii.widgets.jui.CJuiDialog');
+?>
+
 <h1>Manage Doctor Requests</h1>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
@@ -41,6 +56,19 @@ $this->menu=array(
 			'header'=>'First Name',
 			'value'=> array($this,'getUserFirstName')
 		),
+            array(
+                  'header'=>'Symptom',
+                  'type'=>'raw',
+                  // gets the symptom history models, with attribute id equel to the symptomHistoryID of the row,
+                  // end then shows the title of that s ymptom
+                  'value' => 'CHtml::Ajaxlink( 
+                        CHtml::encode(Symptomhistory::model()->findByAttributes(array("id"=>$data->symptomHistoryID))->symptomTitle),
+                        Yii::app()->createUrl("symptomhistory/ajaxView", array("id"=>$data->symptomHistoryID)),
+                        array(
+                                "update"=>"#symptomHistoryDetailsDialog"
+                              )
+                  )',
+            ),
 		array(
 			'class'=>'CButtonColumn',
 			'template'=>'{Accept} {Reject}',
