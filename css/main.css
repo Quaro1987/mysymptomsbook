@@ -325,3 +325,8 @@ font-size:20pt;
 {
 	float: right;
 }
+
+.fc-event-inner
+{
+	cursor: pointer;
+}

@@ -1,15 +1,15 @@
-<?php
-$this->breadcrumbs=array(
-	UserModule::t('Users')=>array('index'),
-	$model->username,
-);
-$this->layout='//layouts/column2';
-$this->menu=array(
-    array('label'=>UserModule::t('List User'), 'url'=>array('index')),
-);
-?>
-<h1><?php echo UserModule::t('View User').' "'.$model->username.'"'; ?></h1>
+<!-- small javascript to open this view as a dialog window -->
+<script>
+$(document).ready(function() {
+    $("#dialog").dialog({ width: 500 });
+}); 
+</script>
+ 
+
 <?php 
+echo '<div id="dialog" title="View Doctor User: '.$model->profile->firstname.' '.$model->profile->lastname.'">';
+
+
 
 // For all users
 	$attributes = array(
@@ -40,5 +40,6 @@ $this->menu=array(
 		'attributes'=>$attributes,
 	));
 
-	echo CHtml::Button()
+	
 ?>
+</div>

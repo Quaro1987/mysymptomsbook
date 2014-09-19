@@ -33,38 +33,22 @@ $this->menu=array(
 	),
 ); ?>
 
-<h1>View Symptom <?php echo $symptomsModel->title; ?></h1>
+<h1>Symptom <?php echo $symptomsModel->title; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$symptomsModel,
 	'attributes'=>array(
 		'symptomCode',
 		'title',
-		'shortTitle',
 		'inclusions',
 		'exclusions',
 		'symptomCategory',
 	),
 )); ?>
 <br/>
-<h3>Find a Doctor</h3>
+<br/>
+<h3>Doctors who specialize in <?php echo $symptomsModel->title; ?>:</h3>
 
-<div class="search-form">
-<!-- start of get doctor specialty form -->	
-<?php $form=$this->beginWidget('CActiveForm', array(
-'action'=>Yii::app()->createUrl($this->route),
-'method'=>'get',
-)); 
-
-echo $form->dropDownList($userModel, 'doctorSpecialty',
-                                        $this->getDoctorSpecialties(),
-                                        array('submit'=>'',
-                                              'id'=>'specialtySelectDropDown',
-                                              'prompt'=>"Select Doctor Specialty")); 
-//end of form
-$this->endWidget();?>
-
-</div>
 
 <div id="chooseDoctorDiv">
 <?php 
@@ -85,8 +69,14 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		*/
 		array(
 			'name' => 'Last Name',
-			'type'=>'raw',
-			'value' => 'CHtml::link(CHtml::encode($data->profile->lastname),array("user/user/viewDoctor","id"=>$data->id))',
+			'type'=>'raw', //array("user/user/viewDoctor","id"=>$data->id)
+			'value' => 'CHtml::Ajaxlink(
+				CHtml::encode($data->profile->lastname),
+				Yii::app()->createUrl("user/user/ajaxViewDoctorDialog", array("id"=>$data->id)),
+				array(
+					  "update"=>"#doctorDetailsDialog"
+					)
+			)',
 		),
 		array(
 			'name' => 'First Name',
@@ -97,8 +87,27 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			'value' => '$data->doctorSpecialty',
 		),
 	),
-)); ?>
+));
+
+
+
+ ?>
 </div>
+
+<!-- pop up window code -->
+<?php $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+        'id' => 'doctorDetailsDialog',
+        // Additional JavaScript options for the dialog plugin
+        'options'=>array(
+                'autoOpen' => false,
+                'modal' => true,
+                'width' => 350,
+        ),
+));
+
+
+$this->endWidget('zii.widgets.jui.CJuiDialog');
+?>
 
 <div class="form">
 

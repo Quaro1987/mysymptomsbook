@@ -48,13 +48,13 @@ class SymptomsController extends Controller
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
-	 */
+	 *//*
 	public function actionView($symptomCode)
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($symptomCode),
 		));
-	}
+	} */
 
 	/**
 	 * Creates a new model.

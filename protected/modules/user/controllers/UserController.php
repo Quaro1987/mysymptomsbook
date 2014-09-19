@@ -31,7 +31,7 @@ class UserController extends Controller
 				'users'=>array('admin'),
 			),
 			array('allow',  // allow all users to perform 'view' actions
-				'actions'=>array('view', 'viewDoctor'),
+				'actions'=>array('view', 'viewDoctor', 'ajaxViewDoctorDialog'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow doctor user to perform managePatients and patientSymptomHistory actions
@@ -172,5 +172,12 @@ class UserController extends Controller
 		//get user first name
 		$firstName = $data->profile->firstname;
 		return $firstName;
+	}
+	//function to populate the dialog with ajax with the doctor's data
+	public function actionAjaxViewDoctorDialog($id)
+	{
+		echo $this->renderPartial('viewDoctor',array(
+			'model'=> $this->loadModel($id),
+		));
 	}
 }
