@@ -1,3 +1,5 @@
+<!-- view symptom history -->
+
 <script>
 $(document).ready(function() {
     $("#dialog").dialog({ width: 500 });

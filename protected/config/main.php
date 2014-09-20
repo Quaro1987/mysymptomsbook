@@ -107,6 +107,9 @@ return array(
         ),
         'bootstrap' => array(
             'class' => 'booster.components.Booster',
+            'coreCss'=> true,
+            'yiiCss' => true,
+            'responsiveCss' => true,
         ),
 		'log'=>array(
 			'class'=>'CLogRouter',

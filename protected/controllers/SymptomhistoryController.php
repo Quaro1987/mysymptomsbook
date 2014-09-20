@@ -36,6 +36,7 @@ class SymptomhistoryController extends Controller
 		return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete', // we only allow deletion via POST request
+			array('booster.filters.BoosterFilter - delete') //load yii booster
 		);
 	}
 
@@ -54,6 +55,11 @@ class SymptomhistoryController extends Controller
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
+			),
+			array('allow', // allow doctor user to perform managePatients and patientSymptomHistory actions
+				'actions'=>array('patientSymptomHistory'),
+				'users'=>array('@'),
+				'expression'=>'Yii::app()->user->usertype==1',
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -75,9 +81,9 @@ class SymptomhistoryController extends Controller
 
 	public function actionAjaxView($id)
 	{
-		echo $this->renderPartial('view',array(
-			'model'=>$this->loadModel($id),
-		));
+		echo $this->renderPartial('_symptomHistoryDialogView',array(
+			'model'=>$this->loadModel($id)), false, true 
+		);
 	}
 	/**
 	 * Creates a new model.
@@ -273,4 +279,46 @@ class SymptomhistoryController extends Controller
 		//pass array with user's symptoms to the view
 		$this->render('usersSymptomHistory',array('symptomHistoryEvents'=>$symptomItems, 'symptomUrl'=>$symptomUrl));
 	}
+
+	//action to render the patient's symptom history
+	public function actionPatientSymptomHistory($id)
+	{
+		//create model doctor request and search the database for a doctor request between the doctor user and 
+		//the patient user
+		$doctorRequestModel = new DoctorRequests;
+		$doctorPatientRequest = $doctorRequestModel->findByAttributes(array('doctorID'=>Yii::app()->user->id, 'userID'=>$id, 'doctorAccepted'=>1));
+		//if there is an accepted doctor request between doctor and patient, show the patients's symptom history
+		if(isset($doctorPatientRequest))
+		{	
+			$model = new Symptomhistory;
+	
+	
+			//model for the patients data
+			$patientModel = User::model()->findByPk($id);
+			//empty array to store all the user's symptoms
+			$symptomItems = array();
+			//find all symptomHistory records belonging to the user
+			$symptomHistoryModels = $model->findAllByAttributes(array('user_id'=>$id));
+			//loop through all the symptomHistory records that belong to the user
+			foreach($symptomHistoryModels as $symptom)
+			{
+				$symptomItem=array('title'=>$symptom->symptomTitle,
+									'start'=>$symptom->dateSymptomFirstSeen,
+									'end'=>$symptom->dateSearched,
+									'symptomCode'=>$symptom->symptomCode
+				);
+				//copy symptomHistory record into array
+				array_push($symptomItems, $symptomItem);
+			}
+			//render patient history
+			$this->render('patientSymptomHistory',array(
+				'model'=> $model, 'patientModel'=> $patientModel, 'symptomHistoryEvents'=>$symptomItems
+			));
+		}
+		else //else throw exception
+		{
+			throw new CHttpException(403, 'You are not permitted to check this patient\'s Symptom History');
+		}
+	}
+
 }

@@ -49,10 +49,3 @@ $this->menu=array(
 		
 	</tr>
 </table>
-
-<div class="row">
-	<?php 
-	$model2 = new Symptomhistory;
-	$user_id=Yii::app()->user->id;
-	$this->renderPartial('..\..\..\..\views\symptomhistory\_usersHistory',array('model'=>$model2, 'id'=>$user_id)); ?>
-</div> 

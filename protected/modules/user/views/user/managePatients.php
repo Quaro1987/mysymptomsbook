@@ -29,6 +29,7 @@ $this->menu=array(
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'manage-patients-grid',
 	'dataProvider'=>$dataProvider,
+	'selectableRows'=>0,
 	'columns'=>array(
 		'id',
 		array(
@@ -46,7 +47,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 						'Get Symptoms History' => array(
             				      'label'=>'Get Users Symptoms History',
             				      //'imageUrl'=>Yii::app()->request->baseUrl.'/images/email.png',
-            				        'url'=>'Yii::app()->controller->createUrl("patientSymptomHistory",array("id"=>$data->primaryKey))',
+            				        'url'=>'Yii::app()->createUrl("symptomHistory/patientSymptomHistory",array("id"=>$data->primaryKey))',
             			      ),
 		),
 	),
