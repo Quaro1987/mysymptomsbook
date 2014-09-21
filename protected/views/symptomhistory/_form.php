@@ -16,7 +16,11 @@
 )); ?>
 
 	<?php
+	
+	echo $symptomHistoryModel->id;
 	$this->widget('booster.widgets.TbButtonGroup',array(
+			'context' => 'primary',
+			'toggle' => 'radio',
     		'buttons' => array(
     			array('label' => 'Low Danger', 'url' => '#'),
     			array('label' => 'Mild Danger', 'url' => '#'),
@@ -28,3 +32,4 @@
 	$this->endWidget(); ?>
 
 </div><!-- form -->
+

@@ -57,7 +57,7 @@ class SymptomhistoryController extends Controller
 				'users'=>array('admin'),
 			),
 			array('allow', // allow doctor user to perform managePatients and patientSymptomHistory actions
-				'actions'=>array('patientSymptomHistory'),
+				'actions'=>array('patientSymptomHistory', 'diagnoseSymptom'),
 				'users'=>array('@'),
 				'expression'=>'Yii::app()->user->usertype==1',
 			),
@@ -305,7 +305,9 @@ class SymptomhistoryController extends Controller
 				$symptomItem=array('title'=>$symptom->symptomTitle,
 									'start'=>$symptom->dateSymptomFirstSeen,
 									'end'=>$symptom->dateSearched,
-									'symptomCode'=>$symptom->symptomCode
+									'symptomCode'=>$symptom->symptomCode,
+									'symptomHistoryID'=>$symptom->id,
+									'flag'=>$symptom->symptomFlag
 				);
 				//copy symptomHistory record into array
 				array_push($symptomItems, $symptomItem);
@@ -321,4 +323,11 @@ class SymptomhistoryController extends Controller
 		}
 	}
 
+	//action so a dobot user can diagnose the symptom and contact the patient
+	public function actionDiagnoseSymptom()
+	{
+
+		$symptomHistoryModel = $this->loadModel($_POST['id']);
+		$this->renderPartial('_form', array('symptomHistoryModel'=>$symptomHistoryModel));
+	}
 }

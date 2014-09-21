@@ -56,9 +56,56 @@ $this->widget('ext.EFullCalendar.EFullCalendar', array(
         'events'=>$symptomHistoryEvents, // pass array of events directly
         // event handling
         // click on symptom to get redirected to symptom page and find a doctor for the symptom
-
+        'eventClick'=>'js:function(calEvent, jsEvent, view)
+        				{
+        					$("#myModalHeader").html(calEvent.title);
+        					
+        					$.post("'.Yii::app()->createUrl("symptomhistory/diagnoseSymptom").'", 
+								 	{ id: calEvent.symptomHistoryID },
+								 	function(data)
+								 	{
+								 		$("#myModalBody").html(data);
+								 	}
+							);
+            				$("#myModal").modal();				
+        				}'
         )
 	)
-); ?>
+);
 
-<?php $this->renderPartial('_form');?>
+ ?>
+
+
+
+<?php $this->beginWidget('booster.widgets.TbModal',array('id' => 'myModal')); ?>
+     
+    <div class="modal-header">
+    	<a class="close" data-dismiss="modal">&times;</a>
+    	<h4 id="myModalHeader">Modal header</h4>
+    </div>
+     
+    <div class="modal-body" id="myModalBody">
+    	<p>One fine body...</p>
+    </div>
+     
+    <div class="modal-footer">
+    <?php $this->widget(
+    'booster.widgets.TbButton',
+    array(
+    'context' => 'primary',
+    'label' => 'Save changes',
+    'url' => '#',
+    'htmlOptions' => array('data-dismiss' => 'modal'),
+    )
+    ); ?>
+    <?php $this->widget(
+    'booster.widgets.TbButton',
+    array(
+    'label' => 'Close',
+    'url' => '#',
+    'htmlOptions' => array('data-dismiss' => 'modal'),
+    )
+    ); ?>
+    </div>
+
+<?php $this->endWidget(); ?>
