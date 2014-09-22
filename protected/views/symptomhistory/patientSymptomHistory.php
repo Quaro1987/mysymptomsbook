@@ -5,6 +5,11 @@ $this->breadcrumbs=array(
 	'Patient Symptom History',
 ); 
 
+Yii::app()->clientScript->registerScriptFile(
+        Yii::app()->baseUrl . '/assets/diagnoseSymptom.js',
+        CClientScript::POS_HEAD
+    );
+
 //side menu
 $this->menu=array(
 	array(
@@ -73,13 +78,15 @@ $this->widget('ext.EFullCalendar.EFullCalendar', array(
 	)
 );
 
- ?>
-
+ ?> 
 
 
 <?php $this->beginWidget('booster.widgets.TbModal',array('id' => 'myModal')); ?>
      
     <div class="modal-header">
+       
+
+
     	<a class="close" data-dismiss="modal">&times;</a>
     	<h4 id="myModalHeader">Modal header</h4>
     </div>
@@ -95,7 +102,7 @@ $this->widget('ext.EFullCalendar.EFullCalendar', array(
     'context' => 'primary',
     'label' => 'Save changes',
     'url' => '#',
-    'htmlOptions' => array('data-dismiss' => 'modal'),
+    'htmlOptions' => array('onclick' => '$("#diagnoseSymptomForm").submit()'),
     )
     ); ?>
     <?php $this->widget(
@@ -109,3 +116,4 @@ $this->widget('ext.EFullCalendar.EFullCalendar', array(
     </div>
 
 <?php $this->endWidget(); ?>
+

@@ -326,8 +326,22 @@ class SymptomhistoryController extends Controller
 	//action so a dobot user can diagnose the symptom and contact the patient
 	public function actionDiagnoseSymptom()
 	{
+		if(isset($_POST['id']))
+		{
+			$symptomHistoryModel = $this->loadModel($_POST['id']);
+		}
+			
+		
+		
+		if(isset($_POST['Symptomhistory']))
+		{ 
+			$symptomHistoryModel = $this->loadModel($_POST['Symptomhistory']['id']);
+			$symptomHistoryModel->attributes=$_POST['Symptomhistory'];
+			if($symptomHistoryModel->save())
+				$this->redirect(array('view','id'=>$symptomHistoryModel->id));
+		}
 
-		$symptomHistoryModel = $this->loadModel($_POST['id']);
+
 		$this->renderPartial('_form', array('symptomHistoryModel'=>$symptomHistoryModel));
 	}
 }

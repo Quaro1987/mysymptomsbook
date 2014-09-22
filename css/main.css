@@ -340,3 +340,14 @@ font-size:20pt;
 {
 	cursor: pointer;
 }
+
+#lowDangerButton .selectedFlag
+{
+  background-color: #639acd;
+}
+
+
+.btn-default
+{
+	background-color: red;
+}
