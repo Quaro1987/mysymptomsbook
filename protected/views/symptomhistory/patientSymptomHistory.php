@@ -88,7 +88,7 @@ $this->widget('ext.EFullCalendar.EFullCalendar', array(
 
 
     	<a class="close" data-dismiss="modal">&times;</a>
-    	<h4 id="myModalHeader">Modal header</h4>
+    	<h3 id="myModalHeader">Modal header</h3>
     </div>
      
     <div class="modal-body" id="myModalBody">

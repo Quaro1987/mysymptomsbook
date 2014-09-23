@@ -341,13 +341,37 @@ font-size:20pt;
 	cursor: pointer;
 }
 
-#lowDangerButton .selectedFlag
+#lowDangerButton.selectedFlag
 {
-  background-color: #639acd;
+  background-color: #A1EB86;
 }
 
-
-.btn-default
+#mildDangerButton.selectedFlag
 {
-	background-color: red;
+  background-color: #CCCA52;
+}
+
+#highDangerButton.selectedFlag
+{
+  background-color: #F25138;
+}
+
+.lowDiagnosis
+{
+	color: #A1EB86;
+}
+
+.mildDiagnosis
+{
+	color: #CCCA52;
+}
+
+.highDiagnosis
+{
+	color: #F25138;
+}
+
+.noDiagnosis
+{
+	color: #C5C7BD;
 }

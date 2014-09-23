@@ -302,14 +302,31 @@ class SymptomhistoryController extends Controller
 			//loop through all the symptomHistory records that belong to the user
 			foreach($symptomHistoryModels as $symptom)
 			{
+				//switch case for event color. set color for each flag type
+				switch($symptom->symptomFlag)
+				{
+					case '1':
+						$symptomColor = '#A1EB86';
+						break;
+					case '2':
+						$symptomColor = '#CCCA52';
+						break;
+					case '3':
+						$symptomColor = '#F25138';
+						break;
+					default:
+						$symptomColor = '#36c';
+				}
+				//create event
 				$symptomItem=array('title'=>$symptom->symptomTitle,
 									'start'=>$symptom->dateSymptomFirstSeen,
 									'end'=>$symptom->dateSearched,
 									'symptomCode'=>$symptom->symptomCode,
 									'symptomHistoryID'=>$symptom->id,
-									'flag'=>$symptom->symptomFlag
+									'flag'=>$symptom->symptomFlag,
+									'color'=>$symptomColor
 				);
-				//copy symptomHistory record into array
+				//copy symptomHistory event into array
 				array_push($symptomItems, $symptomItem);
 			}
 			//render patient history
