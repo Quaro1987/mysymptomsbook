@@ -83,7 +83,8 @@
     	        'context' => 'primary',
     	        'label' => 'Send Message',
     	        'url' => '#',
-    	        'htmlOptions' => array('onclick' => 'ajaxSubmitContactForm()'),
+    	        'htmlOptions' => array('onclick' => 
+    	        	'ajaxSubmitContactForm("'.Yii::app()->createUrl('symptomhistory/ajaxContactPatient').'")'),
     	    )
     	);
 

@@ -385,20 +385,18 @@ class SymptomhistoryController extends Controller
 	//contact patient function
 	public function actionAjaxContactPatient()
 	{
-		$sintr = 'success';
-		return $sintr;
 		$model=new ContactPatientForm;
 		//if data is posted
 		if(isset($_POST['ContactPatientForm']))
 		{
 			$doctor = User::model()->findByPk(Yii::app()->user->id);
-
+			
 			$model->setAttributes(array(
 								'subject'=>$_POST['ContactPatientForm']['subject'],
 								'body'=>$_POST['ContactPatientForm']['body'],
 								'doctorEmail'=>Yii::app()->user->email,
-								'name'=>$doctor->profile->lastname,
-								'patientEmail'=>'johnpasma@hotmail.com'
+								'name'=>$doctor->profile->firstname.' '.$doctor->profile->lastname,
+								'patientEmail'=>$_POST['ContactPatientForm']['patientEmail']
 			));
 			if($model->validate())
 			{

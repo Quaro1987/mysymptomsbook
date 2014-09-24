@@ -1,4 +1,4 @@
-function ajaxSubmitContactForm()
+function ajaxSubmitContactForm(ajaxUrl)
 {
 	if(($("#emailSubjectField").val()=='')||($("#emailBodyTextArea").val()==''))
 	{
@@ -10,10 +10,10 @@ function ajaxSubmitContactForm()
 	
 	    $.ajax({
 	   		type: 'POST',
-	    	url: '<?php echo Yii::app()->createAbsoluteUrl(); ?>',
+	    	url: ajaxUrl,
 	   		data:data,
-			success:function(sintr){
-	            alert(sintr); 
+			success:function(){
+	            alert('success'); 
 	        },
 	   		error: function() {
 	            alert("Error occured.please try again");
