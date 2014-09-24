@@ -1,18 +1,26 @@
 function ajaxSubmitContactForm()
 {
-	var data = $("#contactPatientform").serialize();
-    
-    $.ajax({
-   		type: 'POST',
-    	url: '<?php echo Yii::app()->createAbsoluteUrl("person/ajaxContactPatient"); ?>',
-   		data:data,
-		success:function(){
-            alert('Email successfully sent to patient.'); 
-        },
-   		error: function() {
-            alert("Error occured.please try again");
-    	}
-  	});
+	if(($("#emailSubjectField").val()=='')||($("#emailBodyTextArea").val()==''))
+	{
+		alert('You must provide a subject and a main body text for the email.');
+	}
+	else
+	{
+		var data = $("#contactPatientform").serialize();
+	
+	    $.ajax({
+	   		type: 'POST',
+	    	url: '<?php echo Yii::app()->createAbsoluteUrl(); ?>',
+	   		data:data,
+			success:function(sintr){
+	            alert(sintr); 
+	        },
+	   		error: function() {
+	            alert("Error occured.please try again");
+	    	},
+	    	dataType: 'html'
+  		});
+	}
 }
 
 //reveal patient contact form div

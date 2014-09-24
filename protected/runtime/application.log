@@ -22108,3 +22108,100 @@ Stack trace:
 REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/diagnoseSymptom
 HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=symptomHistory/patientSymptomHistory&id=2
 ---
+2014/09/24 23:10:24 [warning] [application] Failed to set unsafe attribute "id" of "Symptomhistory".
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (374)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/24 23:11:42 [warning] [application] Failed to set unsafe attribute "id" of "Symptomhistory".
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (374)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/24 23:28:22 [warning] [application] Failed to set unsafe attribute "id" of "Symptomhistory".
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (374)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/24 23:28:27 [warning] [application] Failed to set unsafe attribute "id" of "Symptomhistory".
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (374)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/25 00:13:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "addDoctor".' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(270): CController->missingAction('addDoctor')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('addDoctor')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorRequests/...')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorRequests/addDoctor
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=symptomhistory/patientSymptomHistory&id=2
+---
+2014/09/25 00:13:14 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php:336
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('findDoctor')
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorRequests/...')
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorRequests/findDoctor
+---
+2014/09/25 00:24:54 [error] [php] Undefined variable: symptomHistoryModel (C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php:381)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): SymptomhistoryController->runAction()
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): BoosterFilter->filter()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): SymptomhistoryController->filterAccessControl()
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): SymptomhistoryController->runActionWithFilters()
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): SymptomhistoryController->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/diagnoseSymptom
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (381)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/25 00:38:11 [error] [php] Undefined variable: symptomHistoryModel (C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php:381)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): SymptomhistoryController->runAction()
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): BoosterFilter->filter()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): SymptomhistoryController->filterAccessControl()
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): SymptomhistoryController->runActionWithFilters()
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): SymptomhistoryController->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/diagnoseSymptom
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (381)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/25 00:41:51 [error] [php] Undefined variable: patientModel (C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php:383)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): SymptomhistoryController->runAction()
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): BoosterFilter->filter()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): SymptomhistoryController->filterAccessControl()
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): SymptomhistoryController->runActionWithFilters()
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): SymptomhistoryController->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/diagnoseSymptom
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (383)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/25 00:44:43 [warning] [application] Failed to set unsafe attribute "id" of "Symptomhistory".
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (374)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)

@@ -47,7 +47,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 						'Get Symptoms History' => array(
             				      'label'=>'Get Users Symptoms History',
             				      //'imageUrl'=>Yii::app()->request->baseUrl.'/images/email.png',
-            				        'url'=>'Yii::app()->createUrl("symptomHistory/patientSymptomHistory",array("id"=>$data->primaryKey))',
+            				        'url'=>'Yii::app()->createUrl("symptomhistory/patientSymptomHistory",array("id"=>$data->primaryKey))',
             			      ),
 		),
 	),

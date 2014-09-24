@@ -373,7 +373,7 @@ class SymptomhistoryController extends Controller
 			$patientModel = User::model()->findByPk($symptomHistoryModel->user_id);
 			$symptomHistoryModel->attributes=$_POST['Symptomhistory'];
 			if($symptomHistoryModel->save())
-				$this->redirect(array('view','id'=>$symptomHistoryModel->id));
+				$this->redirect(array('patientSymptomHistory','id'=>$symptomHistoryModel->user_id));
 		}
 
 
@@ -385,6 +385,8 @@ class SymptomhistoryController extends Controller
 	//contact patient function
 	public function actionAjaxContactPatient()
 	{
+		$sintr = 'success';
+		return $sintr;
 		$model=new ContactPatientForm;
 		//if data is posted
 		if(isset($_POST['ContactPatientForm']))
@@ -400,6 +402,7 @@ class SymptomhistoryController extends Controller
 			));
 			if($model->validate())
 			{
+
 				$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
 				$subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
 				$headers="From: $name <{$model->doctorEmail}>\r\n".
@@ -407,7 +410,7 @@ class SymptomhistoryController extends Controller
 					"MIME-Version: 1.0\r\n".
 					"Content-Type: text/plain; charset=UTF-8";
 
-				mail(Yii::app()->params['patientEmail'],$subject,$model->body,$headers);
+				mail($model->patientEmail,$subject,$model->body,$headers);
 				return;
 			}
 		}

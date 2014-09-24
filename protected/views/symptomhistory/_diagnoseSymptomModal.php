@@ -65,13 +65,13 @@
 		//input subject
 		echo '<div class="row">';
 			echo $form->labelEx($contactFormModel,'subject');
-			echo $form->textField($contactFormModel,'subject',array('size'=>60,'maxlength'=>128));
+			echo $form->textField($contactFormModel,'subject',array('id'=>'emailSubjectField', 'size'=>60,'maxlength'=>128));
 			echo $form->error($contactFormModel,'subject');
 		echo '</div>';
 		//input message body
 		echo '<div class="row">';
 			echo $form->labelEx($contactFormModel,'body');
-			echo $form->textArea($contactFormModel,'body',array('rows'=>6, 'cols'=>57));
+			echo $form->textArea($contactFormModel,'body',array('id'=>'emailBodyTextArea', 'rows'=>6, 'cols'=>57));
 			echo $form->error($contactFormModel,'body');
 		echo '</div>';
 
@@ -83,7 +83,7 @@
     	        'context' => 'primary',
     	        'label' => 'Send Message',
     	        'url' => '#',
-    	        'htmlOptions' => array('onclick' => '$("#contactPatientform").submit()'),
+    	        'htmlOptions' => array('onclick' => 'ajaxSubmitContactForm()'),
     	    )
     	);
 
