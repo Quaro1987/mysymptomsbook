@@ -39,7 +39,20 @@ class SymptomhistoryController extends Controller
 			array('booster.filters.BoosterFilter - delete') //load yii booster
 		);
 	}
-
+	
+	public function actions()
+	{
+		return array(
+			// captcha action renders the CAPTCHA image displayed on the contact page
+			'captcha'=>array(
+				'class'=>'CCaptchaAction',
+				'backColor'=>0xFFFFFF,
+			),
+			'page'=>array(
+				'class'=>'CViewAction',
+			)
+		);
+	}
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
@@ -48,16 +61,17 @@ class SymptomhistoryController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow', // allow authenticated user to perform 'create', view, and 'update' actions
-				'actions'=>array('addSymptom', 'ajaxView', 'successPage', 'update', 'index','view', 'userHistory', 'usersSymptomHistory'),
+			array('allow', // allow authenticated user to perform various actions
+				'actions'=>array('addSymptom', 'ajaxView', 'successPage', 'update', 
+						'index','view', 'userHistory', 'usersSymptomHistory'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
-			array('allow', // allow doctor user to perform managePatients and patientSymptomHistory actions
-				'actions'=>array('patientSymptomHistory', 'diagnoseSymptom'),
+			array('allow', // allow doctor user to perform diagnoseSymptom, ajaxContactPatient and patientSymptomHistory actions
+				'actions'=>array('patientSymptomHistory', 'diagnoseSymptom', 'ajaxContactPatient'),
 				'users'=>array('@'),
 				'expression'=>'Yii::app()->user->usertype==1',
 			),
@@ -343,9 +357,12 @@ class SymptomhistoryController extends Controller
 	//action so a dobot user can diagnose the symptom and contact the patient
 	public function actionDiagnoseSymptom()
 	{
+		$contactFormModel = new ContactPatientForm;
+		//set up models for initial load
 		if(isset($_POST['id']))
 		{
 			$symptomHistoryModel = $this->loadModel($_POST['id']);
+			$patientModel = User::model()->findByPk($symptomHistoryModel->user_id);
 		}
 			
 		
@@ -353,12 +370,46 @@ class SymptomhistoryController extends Controller
 		if(isset($_POST['Symptomhistory']))
 		{ 
 			$symptomHistoryModel = $this->loadModel($_POST['Symptomhistory']['id']);
+			$patientModel = User::model()->findByPk($symptomHistoryModel->user_id);
 			$symptomHistoryModel->attributes=$_POST['Symptomhistory'];
 			if($symptomHistoryModel->save())
 				$this->redirect(array('view','id'=>$symptomHistoryModel->id));
 		}
 
 
-		$this->renderPartial('_form', array('symptomHistoryModel'=>$symptomHistoryModel));
+		$this->renderPartial('_diagnoseSymptomModal', 
+			array('symptomHistoryModel'=>$symptomHistoryModel,
+				  'contactFormModel'=>$contactFormModel, 'patientModel'=>$patientModel));
+	}
+
+	//contact patient function
+	public function actionAjaxContactPatient()
+	{
+		$model=new ContactPatientForm;
+		//if data is posted
+		if(isset($_POST['ContactPatientForm']))
+		{
+			$doctor = User::model()->findByPk(Yii::app()->user->id);
+
+			$model->setAttributes(array(
+								'subject'=>$_POST['ContactPatientForm']['subject'],
+								'body'=>$_POST['ContactPatientForm']['body'],
+								'doctorEmail'=>Yii::app()->user->email,
+								'name'=>$doctor->profile->lastname,
+								'patientEmail'=>'johnpasma@hotmail.com'
+			));
+			if($model->validate())
+			{
+				$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
+				$subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
+				$headers="From: $name <{$model->doctorEmail}>\r\n".
+					"Reply-To: {$model->doctorEmail}\r\n".
+					"MIME-Version: 1.0\r\n".
+					"Content-Type: text/plain; charset=UTF-8";
+
+				mail(Yii::app()->params['patientEmail'],$subject,$model->body,$headers);
+				return;
+			}
+		}
 	}
 }

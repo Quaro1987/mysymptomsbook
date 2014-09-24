@@ -4,7 +4,7 @@ $this->pageTitle=Yii::app()->name . ' - Patient Symptom History';
 $this->breadcrumbs=array(
 	'Patient Symptom History',
 ); 
-
+//include custom JS scripts
 Yii::app()->clientScript->registerScriptFile(
         Yii::app()->baseUrl . '/assets/diagnoseSymptom.js',
         CClientScript::POS_HEAD
@@ -92,26 +92,41 @@ $this->widget('ext.EFullCalendar.EFullCalendar', array(
     </div>
      
     <div class="modal-body" id="myModalBody">
-    	<p>One fine body...</p>
+    	<p>One fine body...yeah this is a placeholder</p>
     </div>
-     
+    
+
     <div class="modal-footer">
-    <?php $this->widget(
+    <?php
+    //open contact patient form button
+    echo '<div class="buttonLeft">';
+    $this->widget(
     'booster.widgets.TbButton',
-    array(
-    'context' => 'primary',
-    'label' => 'Save changes',
-    'url' => '#',
-    'htmlOptions' => array('onclick' => '$("#diagnoseSymptomForm").submit()'),
-    )
-    ); ?>
-    <?php $this->widget(
+        array(
+            'label'=>'Contact Patient',
+            'url'=>'#',
+            'htmlOptions'=>array('onclick'=>'revealPatientContactForm()')
+        )
+    );
+    echo '</div>';
+    //save changes and close modal button
+    $this->widget(
     'booster.widgets.TbButton',
-    array(
-    'label' => 'Close',
-    'url' => '#',
-    'htmlOptions' => array('data-dismiss' => 'modal'),
-    )
+        array(
+            'context' => 'primary',
+            'label' => 'Save changes',
+            'url' => '#',
+            'htmlOptions' => array('onclick' => '$("#diagnoseSymptomForm").submit()'),
+        )
+    );
+    // close modal button
+    $this->widget(
+    'booster.widgets.TbButton',
+        array(
+            'label' => 'Close',
+            'url' => '#',
+            'htmlOptions' => array('data-dismiss' => 'modal'),
+        )
     ); ?>
     </div>
 

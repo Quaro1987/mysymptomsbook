@@ -375,3 +375,13 @@ font-size:20pt;
 {
 	color: #C5C7BD;
 }
+
+.buttonLeft
+{
+	float: left;
+}
+
+.hiddenDiv
+{
+	display: none;
+}

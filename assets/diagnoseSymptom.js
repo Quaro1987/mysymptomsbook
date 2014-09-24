@@ -1,6 +1,27 @@
+function ajaxSubmitContactForm()
+{
+	var data = $("#contactPatientform").serialize();
+    
+    $.ajax({
+   		type: 'POST',
+    	url: '<?php echo Yii::app()->createAbsoluteUrl("person/ajaxContactPatient"); ?>',
+   		data:data,
+		success:function(){
+            alert('Email successfully sent to patient.'); 
+        },
+   		error: function() {
+            alert("Error occured.please try again");
+    	}
+  	});
+}
+
+//reveal patient contact form div
+function revealPatientContactForm()
+{
+	$('#contactPatientDiv').show(500, "swing");
+}
+
 //function to set the class of the button for a selected symptom
-
-
 function setSelectedFlagButton(flagValue)
 {
 	switch(flagValue)

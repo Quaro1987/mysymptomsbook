@@ -110,49 +110,6 @@ class SiteController extends Controller
 		$this->redirect(Yii::app()->homeUrl);
 	}
 
-	//Displays the Search Symptoms page
-	
-	public function actionSearch()
-	{
-		
-
-		//actoin search version 2
-		$model=new Symptoms('search');
-
-		$model->unsetAttributes();  // clear any default values
-
-		if(isset($_GET['Symptoms']))
-			$model->attributes=$_GET['Symptoms'];
-
-			$this->render('search',array(
-			'model'=>$model,
-		));
-	} 
-
-	//returns symptom categories that the user can choose to pick a symptom
-	public static function getSymptomCategories()
-	{
-		 return array(
-		 				'Blood, immune sytem' => 'Blood, immune sytem',
-		 				'Circulatory' => 'Circulatory',
-		 				'Digestive' => 'Digestive',
-		 				'Ear, Hearing' => 'Ear, Hearing',
-		 				'Eye' => 'Eye',
-		 				'Female genital' => 'Female genital',
-		 				'General' => 'General',
-		 				'Male genital' => 'Male genital',
-		 				'Metabolic, endocrine' => 'Metabolic, endocrine',
-		 				'Musculoskeletal' => 'Musculoskeletal',
-		 				'Neurological' => 'Neurological',
-		 				'Psychological' => 'Psychological',
-		 				'Respiratory' => 'Respiratory',
-		 				'Skin' => 'Skin',
-		 				'Social problems' => 'Social problems',
-		 				'Urological' => 'Urological',
-		 				'Women\'s health, pregnancy' => 'Women\'s health, pregnancy'
-		 			  );
-	}
-
 	public function actionLoadSymptoms()
 	{
 		$model = new Symptoms;
