@@ -407,6 +407,17 @@ class SymptomhistoryController extends Controller
 					"Reply-To: {$model->doctorEmail}\r\n".
 					"MIME-Version: 1.0\r\n".
 					"Content-Type: text/plain; charset=UTF-8";
+				
+				require_once(dirname(__FILE__) . '/../extensions/twilio/Services/Twilio.php');
+				$sid = "AC19ba95d4d26bb91015ae1596d6041fe1"; // Your Account SID from www.twilio.com/user/account
+				$token = "9009a259b57ef66b3748dd3eb46850d4"; // Your Auth Token from www.twilio.com/user/account
+				 
+				$client = new Services_Twilio($sid, $token);
+				$message = $client->account->sms_messages->create(
+				  '+19082064960', // From a valid Twilio number
+				  '+306993953048', // Text this number
+				  $model->body
+				);
 
 				mail($model->patientEmail,$subject,$model->body,$headers);
 				return;

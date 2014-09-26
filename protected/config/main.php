@@ -90,21 +90,29 @@ return array(
 			'charset' => 'utf8',
 			'tablePrefix' => 'tbl_',
 		),
-		
+		//user module for user log in/registration
 		'user'=>array(
             // enable cookie-based authentication
             'class' => 'WebUser',
             'allowAutoLogin'=>true,
             'loginUrl' => array('/user/login'),
         ),
-
+		'smsSend'=>array(
+            'class' => 'application.components.SendSmsComponent',
+            'api_user'  => 'Quaro1987',
+            'api_pass'  => 'VREBDWBFPXNGHW',
+            'api_from'  => 'FromName',
+            'api_id'    => 3500907
+        ),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
+		//global functions
 		'Globals' => array(
             'class' => 'Globals',
         ),
+        //booster for yii 
         'booster' => array(
             'class' => 'booster.components.Booster'
         ),
