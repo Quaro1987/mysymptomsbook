@@ -385,3 +385,14 @@ font-size:20pt;
 {
 	display: none;
 }
+
+#manageRequestsLink.notification a
+{
+	color:red;
+}
+
+#alertImg
+{
+	display: inline;
+	display: none;
+}

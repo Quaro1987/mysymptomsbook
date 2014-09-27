@@ -88,21 +88,17 @@
     	    )
     	);
 
-		/* captch removed
-		//captcha input
-		if(CCaptcha::checkRequirements()):
-			echo '<div class="row">';
-			echo $form->labelEx($contactFormModel,'verifyCode');
-			echo '<div>';
-			$this->widget('CCaptcha');
-			echo $form->textField($contactFormModel,'verifyCode');
-			echo '</div>';
-			echo '<div class="hint">Please enter the letters as they are shown in the image above.';
-			echo '<br/>Letters are not case-sensitive.</div>';
-			echo $form->error($contactFormModel,'verifyCode');
-			echo '</div>';
-		endif;
-		*/
+		$this->widget(
+    		'booster.widgets.TbSwitch',
+    			array(
+    			'name' => 'testToggleButtonB',
+    			'options' => array(
+    				'size' => 'large', //null, 'mini', 'small', 'normal', 'large
+    				'onColor' => 'success', // 'primary', 'info', 'success', 'warning', 'danger', 'default'
+    				'offColor' => 'danger', // 'primary', 'info', 'success', 'warning', 'danger', 'default'
+    				),
+    			)
+    	); 
 	$this->endWidget(); 
 
 	echo '</div>';

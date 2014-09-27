@@ -36,7 +36,7 @@ class DoctorRequestsController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow doctor user to perform 'manageRequests', 'acceptUser', 'rejectUser' actions
-				'actions'=>array('manageRequests', 'acceptUser', 'rejectUser'),
+				'actions'=>array('manageRequests', 'acceptUser', 'rejectUser', 'getNotifications'),
 				'users'=>array('@'),
 				'expression'=>'Yii::app()->user->usertype==1',
 			),
@@ -326,5 +326,27 @@ class DoctorRequestsController extends Controller
 	public function actionSuccessPage()
 	{
 		$this->render('successPage');
+	}
+
+	//action to notify doctor of new requests
+
+	public function actionGetNotifications()
+	{
+
+		if(isset($_POST))
+		{
+			$model = DoctorRequests::model()->findByAttributes(array('doctorID'=>Yii::app()->user->id,
+																	 'doctorAccepted'=>0));
+			$count = count($model);
+
+			if(!($count==0))
+			{
+				echo 1;
+			}
+			else
+			{
+				echo 0;
+			}
+		}
 	}
 }

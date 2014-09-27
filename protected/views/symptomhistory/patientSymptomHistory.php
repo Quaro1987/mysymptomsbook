@@ -10,6 +10,12 @@ Yii::app()->clientScript->registerScriptFile(
         CClientScript::POS_HEAD
     );
 
+//get notifications js script
+Yii::app()->clientScript->registerScriptFile(
+        Yii::app()->baseUrl . '/assets/notifications.js',
+        CClientScript::POS_HEAD
+    );
+echo '<audio id="notificationSound"> <source src="assets/NotificationSound.mp3" type="audio/mp3"> </audio>';
 //side menu
 $this->menu=array(
 	array(
@@ -23,9 +29,10 @@ $this->menu=array(
 			'visible'=>!Yii::app()->user->isGuest
 	),
 	array(
-			'label'=>'Manage User Requests', 
+			'label'=>'Manage User Requests ', 
 			'url'=>array('doctorRequests/manageRequests'),
-			'visible'=>(Yii::app()->user->usertype==1)
+			'visible'=>(Yii::app()->user->usertype==1),
+            'itemOptions'=>array('id'=>'manageRequestsLink')
 	),
 	array(
 			'label'=>'Check Patient Symptom History', 
