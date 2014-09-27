@@ -1,3 +1,10 @@
+<?php 
+
+$this->pageTitle=Yii::app()->name . ' - Your Symptom History';
+$this->breadcrumbs=array(
+    'Your Symptom History',
+);  ?>
+
 <!--get user history view -->
 <div> <h2><?php echo CHtml::encode(Yii::app()->user->username); ?>'s Symptom History.</h2> </div>
 <div class="row">

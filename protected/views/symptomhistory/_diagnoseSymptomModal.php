@@ -58,7 +58,10 @@
 	$form=$this->beginWidget('CActiveForm', array(
 		'id'=>'contactPatientform',
 		'enableClientValidation'=>true,
-		'clientOptions'=>array('validateOnSubmit'=>true)
+		'enableAjaxValidation'=>true,
+		'clientOptions'=>array('validateOnSubmit'=>true,
+								'validateOnChange'=>true,
+      							'validateOnType'=>false,)
 	)); 
 		echo '<p class="note">Fields with <span class="required">*</span> are required.</p>';
 			echo $form->errorSummary($contactFormModel); 
@@ -77,6 +80,12 @@
 
 		//hidden input fields
 		echo $form->hiddenfield($contactFormModel, 'patientEmail', array('value'=>$patientModel->email));
+		//contact patient input buttons
+		echo '<div class="row rememberMe">';
+		echo $form->label($contactFormModel,'sendSMS');
+		echo $form->checkBox($contactFormModel, 'sendSMS');
+    	echo '</div>';
+    	echo '<div class="row">';
 		$this->widget(
     	'booster.widgets.TbButton',
     	    array(
@@ -87,18 +96,11 @@
     	        	'ajaxSubmitContactForm("'.Yii::app()->createUrl('symptomhistory/ajaxContactPatient').'")'),
     	    )
     	);
+    	echo '</div>';
 
-		$this->widget(
-    		'booster.widgets.TbSwitch',
-    			array(
-    			'name' => 'testToggleButtonB',
-    			'options' => array(
-    				'size' => 'large', //null, 'mini', 'small', 'normal', 'large
-    				'onColor' => 'success', // 'primary', 'info', 'success', 'warning', 'danger', 'default'
-    				'offColor' => 'danger', // 'primary', 'info', 'success', 'warning', 'danger', 'default'
-    				),
-    			)
-    	); 
+    	
+		
+		
 	$this->endWidget(); 
 
 	echo '</div>';

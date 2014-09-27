@@ -396,3 +396,43 @@ font-size:20pt;
 	display: inline;
 	display: none;
 }
+
+
+.fc-header .fc-header-left 
+{
+	width: 10%;
+	text-align: center; 
+}
+
+.fc-header .fc-header-right 
+{
+	width: 10%;
+	text-align: center; 
+}
+
+.fc-button.fc-button-prev.ui-state-default.ui-corner-left.ui-corner-right
+{
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+
+.fc-button.fc-button-next.ui-state-default.ui-corner-left.ui-corner-right
+{
+	margin-top: 7px;
+	margin-bottom: 7px;
+}
+
+html body
+{
+	background: none repeat scroll 0 0 #efefef;
+    color: #555;
+    font: 10pt Arial,Helvetica,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body #page.container 
+{
+	width:1050px;
+	margin:0 auto;
+}

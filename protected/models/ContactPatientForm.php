@@ -12,6 +12,7 @@ class ContactPatientForm extends CFormModel
 	public $patientEmail;
 	public $subject;
 	public $body;
+	public $sendSMS;
 
 	/**
 	 * Declares the validation rules.
@@ -23,7 +24,16 @@ class ContactPatientForm extends CFormModel
 			array('name, doctorEmail, , patientEmail, subject, body', 'required'),
 			// email has to be a valid email address
 			array('doctorEmail, patientEmail', 'email'),
+			//send sms checkbox value
+			array('sendSMS', 'boolean')
 		);
+	}
+
+	public function attributeLabels()
+	{
+		return array(
+				'sendSMS'=>'Also send as SMS '
+			);
 	}
 
 }

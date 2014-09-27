@@ -13,10 +13,10 @@ function ajaxSubmitContactForm(ajaxUrl)
 	    	url: ajaxUrl,
 	   		data:data,
 			success:function(){
-	            alert('success'); 
+	            alert('Message successfully sent.'); 
 	        },
 	   		error: function() {
-	            alert("Error occured.please try again");
+	            alert("Error occured. Please try again.");
 	    	},
 	    	dataType: 'html'
   		});

@@ -41,8 +41,8 @@ html .fc,
 	}
 
 .fc-header-left {
-	width: 25%;
-	text-align: left;
+	width: 5%;
+	text-align: center;
 	}
 	
 .fc-header-center {
@@ -50,8 +50,8 @@ html .fc,
 	}
 	
 .fc-header-right {
-	width: 25%;
-	text-align: right;
+	width: 5%;
+	text-align: center;
 	}
 	
 .fc-header-title {

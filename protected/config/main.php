@@ -115,7 +115,7 @@ return array(
         ),
         //booster for yii 
         'booster' => array(
-            'class' => 'booster.components.Booster'
+            'class' => 'booster.components.Booster',
         ),
 		'log'=>array(
 			'class'=>'CLogRouter',
