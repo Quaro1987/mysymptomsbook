@@ -66,7 +66,7 @@ class DoctorSymptomSpecialtiesController extends Controller
 		//models used in the action
 		$symptomsModel = new Symptoms;
 		$model=new DoctorSymptomSpecialties;
-
+		$renderPartialTrigger = 0;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -88,15 +88,27 @@ class DoctorSymptomSpecialtiesController extends Controller
 			$DSSTempModel->save();
 			}
 			//after 
-			$this->redirect(array('view','id'=>$DSSTempModel->id));
+			$this->redirect(array('manageSpecialties'));
 		}
 
 		//used to update symptoms checkboxlist with ajax call
 		if(isset($_GET['Symptoms'])) 
 		{
 			$symptomsModel->attributes=$_GET['Symptoms'];
+			$renderPartialTrigger = 1;
 		}
-
+		//get symptoms with selected category
+		$symptomsWithSelectedCategory = Yii::app()->db->createCommand()
+					->select('symptomCode')
+    				->from('tbl_symptoms')
+    				->where('symptomCategory=:symptomCategory', 
+    					array(':symptomCategory'=>$symptomsModel->symptomCategory))
+    				->queryAll();
+    	//pass the returned symptoms to an array
+    	foreach ($symptomsWithSelectedCategory as $symCat) 
+		{
+			$symptomsWithSelectedCategoryArray[] = $symCat['symptomCode'];
+		}
 		//query builder to get symptom specialties the user has already added
 		$alreadyAddedSymptomSpecialties = Yii::app()->db->createCommand()
 					->select('symptomCode')
@@ -114,10 +126,13 @@ class DoctorSymptomSpecialtiesController extends Controller
 		$criteria = new CDbCriteria();
 		if(isset($alreadyAddedSymptomSpecialtiesArray))
 		{
-			//only get symptom codes for symptoms not already added to specialties of the user
-			$criteria->addCondition('symptomCategory=:symptomCategory', 
-									array(':symptomCategory'=>$symptomsModel->symptomCategory))
-					 ->addNotInCondition('symptomCode', $alreadyAddedSymptomSpecialtiesArray);
+			//only get symptom codes for symptoms not already added to specialties of the user, and of sellected cateogry
+			$criteria->addNotInCondition('symptomCode', $alreadyAddedSymptomSpecialtiesArray);
+			//if a symptom category has been selected
+			if(isset($symptomsWithSelectedCategoryArray))
+			{
+				$criteria->addInCondition('symptomCode', $symptomsWithSelectedCategoryArray);
+			}
 		}
 		//get all symptoms the user hasn't added to his specialties
 		$symptomsModelArray = Symptoms::model()->findAll($criteria);
@@ -127,7 +142,8 @@ class DoctorSymptomSpecialtiesController extends Controller
 		
 		//render page
 		$this->render('addSpecialties',array(
-			'model'=>$model, 'symptomsModel'=>$symptomsModel, 'symptomsListData'=>$symptomsListData
+			'model'=>$model, 'symptomsModel'=>$symptomsModel, 
+			'symptomsListData'=>$symptomsListData, 'renderPartialTrigger' => $renderPartialTrigger 
 		));
 	}
 
@@ -201,6 +217,9 @@ class DoctorSymptomSpecialtiesController extends Controller
 		$model=new DoctorSymptomSpecialties;
 
 		$dataProvider = new CActiveDataProvider('DoctorSymptomSpecialties', array(
+			'Pagination' => array (
+                  'PageSize' => 20
+             ),
 			'criteria'=>array(
 		        'condition'=>'doctorUserID=:doctorUserID', 
 		        'params'=>array(':doctorUserID'=>Yii::app()->user->id),

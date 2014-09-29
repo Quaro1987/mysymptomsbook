@@ -22884,3 +22884,179 @@ Stack trace:
 REQUEST_URI=/mysymptomsbook/index.php?r=doctorSymptomSpecialties%2FaddSpecialties&Symptoms%5BsymptomCategory%5D=General
 HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=doctorSymptomSpecialties%2FaddSpecialties&Symptoms%5BsymptomCategory%5D=Blood%2C+immune+sytem
 ---
+2014/09/29 12:35:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "doctorSymptomsSpecialties/addSpecialties".' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorSymptomsS...')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorSymptomsSpecialties/addSpecialties
+---
+2014/09/29 12:35:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT * FROM `tbl_symptoms` `t` WHERE (symptomCategory=:symptomCategory) AND (symptomCode NOT IN (:ycp0, :ycp1, :ycp2, :ycp3, :ycp4)).
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorSymptomSpecialtiesController.php (123)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/29 12:35:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens. The SQL statement executed was: SELECT * FROM `tbl_symptoms` `t` WHERE (symptomCategory=:symptomCategory) AND (symptomCode NOT IN (:ycp0, :ycp1, :ycp2, :ycp3, :ycp4))' in C:\xampp\htdocs\mySymptomsBook\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(1351): CDbCommand->queryAll()
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(1470): CActiveRecord->query(Object(CDbCriteria), true)
+#3 C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorSymptomSpecialtiesController.php(123): CActiveRecord->findAll(Object(CDbCriteria))
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): DoctorSymptomSpecialtiesController->actionAddSpecialties()
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('addSpecialties')
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorSymptomSp...')
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorSymptomSpecialties/addSpecialties
+---
+2014/09/29 12:40:56 [error] [php] Undefined variable: symptomsWithSelectedCategoryArray (C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorSymptomSpecialtiesController.php:129)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): DoctorSymptomSpecialtiesController->runAction()
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): BoosterFilter->filter()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): DoctorSymptomSpecialtiesController->filterAccessControl()
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): DoctorSymptomSpecialtiesController->runActionWithFilters()
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): DoctorSymptomSpecialtiesController->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorSymptomSpecialties/addSpecialties
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorSymptomSpecialtiesController.php (129)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/29 12:42:53 [error] [php] Undefined variable: symptomsWithSelectedCategoryArray (C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorSymptomSpecialtiesController.php:133)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): DoctorSymptomSpecialtiesController->runAction()
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): BoosterFilter->filter()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): DoctorSymptomSpecialtiesController->filterAccessControl()
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): DoctorSymptomSpecialtiesController->runActionWithFilters()
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): DoctorSymptomSpecialtiesController->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorSymptomSpecialties/addSpecialties
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorSymptomSpecialtiesController.php (133)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/29 22:54:23 [error] [exception.CException] exception 'CException' with message 'Property "DoctorSymptomSpecialties.Select Symptoms you specialize in:" is not defined.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('Select Symptoms...')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(2529): CActiveRecord->__get('Select Symptoms...')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(1905): CHtml::resolveValue(Object(DoctorSymptomSpecialties), 'Select Symptoms...')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\widgets\CActiveForm.php(879): CHtml::activeCheckBoxList(Object(DoctorSymptomSpecialties), 'Select Symptoms...', Array, Array)
+#4 [internal function]: CActiveForm->checkBoxList(Object(DoctorSymptomSpecialties), 'Select Symptoms...', Array, Array)
+#5 C:\xampp\htdocs\mySymptomsBook\protected\extensions\yiibooster\widgets\TbActiveForm.php(1239): call_user_func_array(Array, Array)
+#6 C:\xampp\htdocs\mySymptomsBook\protected\extensions\yiibooster\widgets\TbActiveForm.php(1148): TbActiveForm->horizontalGroup(Array, Object(DoctorSymptomSpecialties), 'Select Symptoms...', Array)
+#7 C:\xampp\htdocs\mySymptomsBook\protected\extensions\yiibooster\widgets\TbActiveForm.php(702): TbActiveForm->customFieldGroupInternal(Array, Object(DoctorSymptomSpecialties), 'Select Symptoms...', Array)
+#8 C:\xampp\htdocs\mySymptomsBook\protected\views\doctorSymptomSpecialties\_symptomSpecialtiesCheckboxListGroupView.php(17): TbActiveForm->checkboxListGroup(Object(DoctorSymptomSpecialties), 'Select Symptoms...', Array)
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#12 C:\xampp\htdocs\mySymptomsBook\protected\views\doctorSymptomSpecialties\addSpecialties.php(35): CController->renderPartial('_symptomSpecial...', Array)
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(782): CController->renderPartial('addSpecialties', Array, true)
+#17 C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorSymptomSpecialtiesController.php(147): CController->render('addSpecialties', Array)
+#18 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): DoctorSymptomSpecialtiesController->actionAddSpecialties()
+#19 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#20 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#21 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#22 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CFilter->filter(Object(CFilterChain))
+#23 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#24 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#25 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#26 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#27 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#28 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('addSpecialties')
+#30 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorSymptomSp...')
+#31 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#32 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#33 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorSymptomSpecialties%2FaddSpecialties&Symptoms%5BsymptomCategory%5D=Circulatory
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=doctorSymptomSpecialties/addSpecialties
+---
+2014/09/29 23:10:04 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorSymptomSpecialtiesController.php:77)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): DoctorSymptomSpecialtiesController->runAction()
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): BoosterFilter->filter()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): DoctorSymptomSpecialtiesController->filterAccessControl()
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): DoctorSymptomSpecialtiesController->runActionWithFilters()
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): DoctorSymptomSpecialtiesController->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorSymptomSpecialties%2FaddSpecialties&Symptoms%5BsymptomCategory%5D=Circulatory
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorSymptomSpecialtiesController.php (77)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/29 23:18:47 [error] [php] Invalid argument supplied for foreach() (C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorSymptomSpecialtiesController.php:77)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): DoctorSymptomSpecialtiesController->runAction()
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): BoosterFilter->filter()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): DoctorSymptomSpecialtiesController->filterAccessControl()
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): DoctorSymptomSpecialtiesController->runActionWithFilters()
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): DoctorSymptomSpecialtiesController->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorSymptomSpecialties%2FaddSpecialties&Symptoms%5BsymptomCategory%5D=Digestive
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\DoctorSymptomSpecialtiesController.php (77)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/09/29 23:51:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "mangaSymptomSpecialties".' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(270): CController->missingAction('mangaSymptomSpe...')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('mangaSymptomSpe...')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorSymptomSp...')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorSymptomSpecialties/mangaSymptomSpecialties
+---
+2014/09/29 23:51:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "manageSymptomSpecialties".' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(270): CController->missingAction('manageSymptomSp...')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('manageSymptomSp...')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorSymptomSp...')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorSymptomSpecialties/manageSymptomSpecialties
+---
+2014/09/29 23:53:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "mangaSymptomSpecialties".' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(270): CController->missingAction('mangaSymptomSpe...')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('mangaSymptomSpe...')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorSymptomSp...')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorSymptomSpecialties/mangaSymptomSpecialties
+---

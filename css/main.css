@@ -319,6 +319,7 @@ font-size:20pt;
 .manageSymptomSpecialtiesButtons 
 {
 	clear:both;
+	padding-top: 30px;
 } 
 
 .checkBoxRight
@@ -455,4 +456,29 @@ body #page.container
 #datePickingDiv
 {
 	height:200px;
+}
+
+#addSpecialtiesLabel
+{
+	width: 50%;
+}
+
+#symptomSpecialtiesCategoryDiv
+{
+	width:50%;
+}
+
+#DoctorSymptomSpecialties_symptomCode label
+{
+    border-bottom: 1px solid black;
+}
+
+.floatLeftDiv
+{
+	float:left;
+}
+
+.floatRightDiv
+{
+	float:right;
 }

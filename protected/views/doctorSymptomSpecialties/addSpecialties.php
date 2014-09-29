@@ -8,50 +8,33 @@ $this->breadcrumbs=array(
 );
 
 
-?>
+?> 
 
-<h1>Create DoctorSymptomSpecialties</h1>
-
+<h3>Add Symptom Specilaties</h3>
+<div id='symptomSpecialtiesCategoryDiv'>
 <?php $form=$this->beginWidget('CActiveForm', array(
 'action'=>Yii::app()->createUrl($this->route),
 'method'=>'get',
-)); ?>
-
-<?php 
-echo $form->dropDownList($symptomsModel, 'symptomCategory',
+));
+	echo $form->dropDownList($symptomsModel, 'symptomCategory',
                                         Yii::app()->Globals->getSymptomCategories(),
                                         array('submit'=>'',
                                               'id'=>'categorySelectDropDown',
-                                              'prompt'=>"Select Symptom Category"));  ?>
-<?php $this->endWidget(); ?>
+                                              'prompt'=>"Select Symptom Category")
+	); 
+$this->endWidget(); ?>
 </div>
+<br/>
 
+<div id='symptomSpecialtiesForm' class="form">
+	<?php 
+		if($renderPartialTrigger==1)
+		{
+			$this->renderPartial('_symptomSpecialtiesCheckboxListGroupView', 
+									array('model'=>$model, 'symptomsListData' => $symptomsListData)
+			);
+		}
 
-<div class="form">
-<?php
-
-$form = $this->beginWidget('booster.widgets.TbActiveForm', array(
-    'id'=>'horizontalForm',
-    'type'=>'horizontal',
-));  ?>
-
-
-<?php
-
-
-	
-
-echo $form->checkboxListGroup($model, 'symptomCode', 
-	array(
-		'widgetOptions' => array(
-			'data' => $symptomsListData,			
-		),
-	)
-);
-//echo '</div>';
-echo "<div class='manageSymptomSpecialtiesButtons'>";
-echo CHtml::submitButton('Add Symptom Specialties'); 
-echo "</div>";
-$this->endWidget();
-?></div>
+	?>
+</div>
 

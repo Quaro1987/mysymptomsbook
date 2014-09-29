@@ -60,7 +60,7 @@ class DoctorSymptomSpecialties extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'doctorUserID' => 'Doctor User',
-			'symptomCode' => 'Symptom Code',
+			'symptomCode' => 'Symptom Specialty',
 		);
 	}
 
