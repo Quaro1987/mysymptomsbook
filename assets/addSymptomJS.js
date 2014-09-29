@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	$('#symptomSelectDiv').hide();
 	$('#selectedSymptomDiv').hide();
 	$('#dateDiv').hide();
 	$('#submitButtonDiv').hide();
@@ -12,6 +13,7 @@ $('#categorySelectDropDown').change(function(){
 		});
 	return false;
 	});
+	$('#symptomSelectDiv').show();
 });
 //select symptoms from gridview
 $('#symptomSelectDiv').on('click', 'table tbody tr', function() 
@@ -27,6 +29,7 @@ $('#symptomSelectDiv').on('click', 'table tbody tr', function()
   	$('#selectedSymptomDiv').toggle();
   	$('#dateDiv').slideToggle("slow", "linear");
   	$('#submitButtonDiv').toggle();
+  	$('#addSymptomLabel').text("Input the date the Symptom was first seen.");
   	//change button's label
   	document.getElementById("selectedSymptomButton").value=secondColVal;
 });
@@ -39,26 +42,28 @@ $("#symptomhistory-form").submit(function( event ) {
 	}
 	else if($('#dateSymptomSeen').val()=="")
 	{
-	alert('You need to select the date the symptom was first seen on.');
+	alert('You need to select the date the symptom was first seen on');
 	event.preventDefault();
 	}			
 });
 //update gridview with side column pick
-var updateGridView = function(gridID, value) 
+function updateGridView(gridID, value) 
 {   
 	//update gridview
     $.fn.yiiGridView.update(gridID, {
     	data: 'r=symptomhistory%2FaddSymptom&Symptoms%5BsymptomCategory%5D='+value
     });
+    $('#symptomSelectDiv').show("slow", "linear");
     return false;
 };
 //reset symptom pick
-var resetSymptomPick = function()
+function resetSymptomPick()
 {
 	$('#submitButtonDiv').toggle();
 	$('#dateDiv').slideToggle("slow", "linear");
 	$('#symptomSelectDiv').slideToggle("slow", "linear");
   	$('#selectedSymptomDiv').toggle();
+  	$('#addSymptomLabel').text("Choose a Symptom Category");
   	//change button's label
   	document.getElementById("selectedSymptomButton").value='';
   	$('#symptomToBeSearchedCode').val('');

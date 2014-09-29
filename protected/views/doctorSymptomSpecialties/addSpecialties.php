@@ -44,17 +44,13 @@ $form = $this->beginWidget('booster.widgets.TbActiveForm', array(
 echo $form->checkboxListGroup($model, 'symptomCode', 
 	array(
 		'widgetOptions' => array(
-			'data' => $symptomsListData,
-			'htmlOptions'=> array(
-			'template' => '{beginLabel} {labelTitle} <div class="checkBoxRight">{input}</div>{endLabel}',
-			)
+			'data' => $symptomsListData,			
 		),
-	'inline'=>true
 	)
 );
 //echo '</div>';
 echo "<div class='manageSymptomSpecialtiesButtons'>";
-echo CHtml::submitButton('Add Symptom'); 
+echo CHtml::submitButton('Add Symptom Specialties'); 
 echo "</div>";
 $this->endWidget();
 ?></div>

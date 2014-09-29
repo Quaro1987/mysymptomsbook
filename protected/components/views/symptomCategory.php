@@ -11,7 +11,7 @@ foreach($categoriesArray as $categoryImage)
 	//echo the html content
 	echo '<div class="imageLinkIcon">';
 	//echo the buttons that pick a category
-	echo  CHtml::imageButton($imagePathString, array('onclick'=>
+	echo  CHtml::imageButton($imagePathString, array('title'=>$categoryImage, 'onclick'=>
 													'updateGridView("symptoms-grid", "'.$categoryImage.'");'));
 	echo '</div>';
 }

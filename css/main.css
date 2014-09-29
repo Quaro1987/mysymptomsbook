@@ -280,7 +280,7 @@ div.search-form
 	font-style:normal;
 	height:29px;
 	line-height:29px;
-	width:200px;
+	width:300px;
 	text-decoration:none;
 	text-align:center;
 	text-shadow:1px 1px 0px #639acd;
@@ -435,4 +435,24 @@ body #page.container
 {
 	width:1050px;
 	margin:0 auto;
+}
+
+#addSymptomLabel
+{
+	text-align: center;
+}
+
+#symptomSelectDiv
+{
+	margin-left: 5px;
+}
+
+#selectedSymptomDiv
+{
+	text-align: center;
+}
+
+#datePickingDiv
+{
+	height:200px;
 }

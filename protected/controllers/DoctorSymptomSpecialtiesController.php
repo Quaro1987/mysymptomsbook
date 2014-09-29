@@ -114,8 +114,10 @@ class DoctorSymptomSpecialtiesController extends Controller
 		$criteria = new CDbCriteria();
 		if(isset($alreadyAddedSymptomSpecialtiesArray))
 		{
-		//only get symptom codes for symptoms not already added to specialties of the user
-		$criteria->addNotInCondition('symptomCode', $alreadyAddedSymptomSpecialtiesArray);
+			//only get symptom codes for symptoms not already added to specialties of the user
+			$criteria->addCondition('symptomCategory=:symptomCategory', 
+									array(':symptomCategory'=>$symptomsModel->symptomCategory))
+					 ->addNotInCondition('symptomCode', $alreadyAddedSymptomSpecialtiesArray);
 		}
 		//get all symptoms the user hasn't added to his specialties
 		$symptomsModelArray = Symptoms::model()->findAll($criteria);

@@ -13,7 +13,8 @@ function ajaxSubmitContactForm(ajaxUrl)
 	    	url: ajaxUrl,
 	   		data:data,
 			success:function(){
-	            alert('Message successfully sent.'); 
+				alert("Message succesfully sent.");
+	            $('#contactPatientDiv').hide(50, "swing");
 	        },
 	   		error: function() {
 	            alert("Error occured. Please try again.");
@@ -26,7 +27,7 @@ function ajaxSubmitContactForm(ajaxUrl)
 //reveal patient contact form div
 function revealPatientContactForm()
 {
-	$('#contactPatientDiv').show(500, "swing");
+	$('#contactPatientDiv').toggle(500, "swing");
 }
 
 //function to set the class of the button for a selected symptom

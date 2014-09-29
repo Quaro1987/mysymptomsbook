@@ -36,25 +36,12 @@ Yii::app()->clientScript->registerScriptFile(
 ?> 
 
 <!-- Select symptom category dropdown menu -->
-<div id="searchCategory" class="row">
-			
-<?php $form=$this->beginWidget('CActiveForm', array(
-'action'=>Yii::app()->createUrl($this->route),
-'method'=>'get',
-)); ?>
-
-<?php 
-echo $form->dropDownList($symptomsModel, 'symptomCategory',
-                                        Yii::app()->Globals->getSymptomCategories(),
-                                        array('submit'=>'',
-                                              'id'=>'categorySelectDropDown',
-                                              'prompt'=>"Select Symptom Category"));  ?>
-<?php $this->endWidget(); ?>
+<div id="addSymptomLabelDiv" class="row">
+<h3 id="addSymptomLabel">Choose a Symptom Category</h3>
 </div>
 
 
-<div class="row" id="symptomSelectDiv" >
-<div class="row"><br/> <b>Select Symptom:</b> </div>	
+<div id="symptomSelectDiv">
 <?php
 
 //widget to pick symptom
@@ -62,12 +49,13 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'id'=>'symptoms-grid',
 		'selectableRows'=>1, //ability to select one symptom at a time
 		'dataProvider'=>$symptomsModel->search(),
+		'filter'=>$symptomsModel,
 		'columns'=>array(
 			'symptomCode',
 			'title',
 			'inclusions',
 			'exclusions',
-			'symptomCategory',		
+			array('name'=>'symptomCategory', 'filter'=>'')		
 		)
 ));   ?>	 
 </div>
@@ -91,7 +79,6 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		<?php echo $form->hiddenField($model,'symptomTitle', array('id'=>'symptomToBeSearchedTitle')); ?>
 		
 		<div id="dateDiv" class="row">
-		<?php echo $form->label($model,'dateSymptomFirstSeen'); ?>
 		<div id="datePickingDiv" class="row">
 		<?php $this->widget('zii.widgets.jui.CJuiDatePicker',
 			array(

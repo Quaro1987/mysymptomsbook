@@ -236,30 +236,6 @@ class SymptomhistoryController extends Controller
 		}
 	}
 
-	//returns symptom categories that the user can choose to pick a symptom
-	public static function getSymptomCategories()
-	{
-		 return array(
-		 				'Blood, immune sytem' => 'Blood, immune sytem',
-		 				'Circulatory' => 'Circulatory',
-		 				'Digestive' => 'Digestive',
-		 				'Ear, Hearing' => 'Ear, Hearing',
-		 				'Eye' => 'Eye',
-		 				'Female genital' => 'Female genital',
-		 				'General' => 'General',
-		 				'Male genital' => 'Male genital',
-		 				'Metabolic, endocrine' => 'Metabolic, endocrine',
-		 				'Musculoskeletal' => 'Musculoskeletal',
-		 				'Neurological' => 'Neurological',
-		 				'Psychological' => 'Psychological',
-		 				'Respiratory' => 'Respiratory',
-		 				'Skin' => 'Skin',
-		 				'Social problems' => 'Social problems',
-		 				'Urological' => 'Urological',
-		 				'Women\'s health, pregnancy' => 'Women\'s health, pregnancy'
-		 			  );
-	}
-	
 	//return user symptom history (based on id)
 	public function actionUserHistory($id)
 	{
@@ -411,19 +387,21 @@ class SymptomhistoryController extends Controller
 				//if checkbox is checked, also send as sms
 				if($model->sendSMS)
 				{
-					require_once(dirname(__FILE__) . '/../extensions/twilio/Services/Twilio.php');
+					require(Yii::getPathOfAlias('twilioPath').'/Services/Twilio.php');
 					$sid = "AC19ba95d4d26bb91015ae1596d6041fe1"; // Your Account SID from www.twilio.com/user/account
 					$token = "9009a259b57ef66b3748dd3eb46850d4"; // Your Auth Token from www.twilio.com/user/account
 					 
 					$client = new Services_Twilio($sid, $token);
-					$message = $client->account->sms_messages->create(
-					  '+19082064960', // From a valid Twilio number
-					  '+306993953048', // Text this number
-					  $model->body
+					$message = $client->account->messages->sendMessage(
+					  '+19082064960', 
+					  '+306993953048', 
+					  $model->body,
+					  ''
 					);
 				}
 				mail($model->patientEmail,$subject,$model->body,$headers);
 				return;
+				
 			}
 		}
 	}

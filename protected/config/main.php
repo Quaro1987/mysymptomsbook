@@ -4,7 +4,7 @@
 // Yii::setPathOfAlias('local','path/to/local-folder');
 //booster path
 Yii::setPathOfAlias('booster', dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/yiibooster');
-
+Yii::setPathOfAlias('twilioPath', dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/twilio-php');
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
@@ -97,13 +97,6 @@ return array(
             'class' => 'WebUser',
             'allowAutoLogin'=>true,
             'loginUrl' => array('/user/login'),
-        ),
-		'smsSend'=>array(
-            'class' => 'application.components.SendSmsComponent',
-            'api_user'  => 'Quaro1987',
-            'api_pass'  => 'VREBDWBFPXNGHW',
-            'api_from'  => 'FromName',
-            'api_id'    => 3500907
         ),
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
