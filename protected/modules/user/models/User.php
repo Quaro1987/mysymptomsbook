@@ -22,6 +22,7 @@ class User extends CActiveRecord
 	 * @var integer $status
      * @var string $AMKA
      * @var integer $userType
+     * @var string doctorSpecialty
 	 */
 
 	/**
@@ -115,7 +116,7 @@ class User extends CActiveRecord
 			'status' => UserModule::t("Status"),
 			'AMKA'=>UserModule::t("AMKA"),
 			'userType' => UserModule::t("Type of User"),
-			'doctorSpecialty' => UserModule::t("Your Specialty")
+			'doctorSpecialty' => UserModule::t("Specialty")
 		);
 	}
 	
@@ -191,7 +192,8 @@ class User extends CActiveRecord
         $criteria->compare('status',$this->status);
         $criteria->compare('AMKA',$this->AMKA);
 		$criteria->compare('userType',$this->userType);
-        
+        $criteria->compare('doctorSpecialty',$this->doctorSpecialty);
+
         return new CActiveDataProvider(get_class($this), array(
             'criteria'=>$criteria,
         	'pagination'=>array(

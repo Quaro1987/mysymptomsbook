@@ -6,12 +6,8 @@ $this->breadcrumbs=array(
 	'Doctor Symptom Specialties'=>array('index'),
 	'Manage Symptom Specialties',
 );
-
-$this->menu=array(
-	array('label'=>'List DoctorSymptomSpecialties', 'url'=>array('index')),
-	array('label'=>'Create DoctorSymptomSpecialties', 'url'=>array('create')),
-);
-
+//side menu
+$this->menu= Yii::app()->Globals->getSidePortletMenu();
 ?>
 
 <h1>Manage Symptom Specialties</h1>
@@ -22,7 +18,11 @@ $this->menu=array(
 	'id'=>'doctor-symptom-specialties-grid',
 	'dataProvider'=>$dataProvider,
 	'columns'=>array(
-		'symptomCode',
+		array(
+       		'header'=>'Symptom Code',
+       		'value'=>'$data->symptomCode',
+       		'name'=>'symptomCode'
+        ),
 		array(
 			'name'=>'Symptom Title',
             'value'=>array($this, 'getSymptomTitle')

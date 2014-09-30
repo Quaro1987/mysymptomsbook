@@ -27,14 +27,10 @@ echo '<div id="dialog" title="View Doctor User: '.$model->profile->firstname.' '
 				));
 		}
 	}
-	array_push($attributes,
-		'create_at',
-		array(
-			'name' => 'lastvisit_at',
-			'value' => (($model->lastvisit_at!='0000-00-00 00:00:00')?$model->lastvisit_at:UserModule::t('Not visited')),
-		)
-	);
-			
+	//pas the rest of the desired column attributes
+	array_push($attributes, 'doctorSpecialty');
+	array_push($attributes, 'profile.birthday');
+
 	$this->widget('zii.widgets.CDetailView', array(
 		'data'=>$model,
 		'attributes'=>$attributes,
@@ -42,4 +38,5 @@ echo '<div id="dialog" title="View Doctor User: '.$model->profile->firstname.' '
 
 	
 ?>
+
 </div>

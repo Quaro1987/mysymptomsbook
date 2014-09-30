@@ -170,6 +170,7 @@ class DoctorRequestsController extends Controller
 		$userModel = new User;
 		$symptomSpecialtyModel = new DoctorSymptomSpecialties;
 		$symptomsModel = Symptoms::model()->findByPk($symptomCode);
+		$doctorAdded = 0;
 		//query builder to get doctors the user has already made requests for
 		$alreadyAddedDoctorIDs = Yii::app()->db->createCommand()
 					->select('doctorID')
@@ -235,8 +236,12 @@ class DoctorRequestsController extends Controller
 								'doctorAccepted'=>0,
 								'symptomHistoryID'=>$symptomHistoryModel->id
 			));
+			//save model, and if successful, refresh page and notify user
 			if($model->save())
-				$this->redirect(array('findDoctor', 'symptomCode'=>$symptomCode));
+			{
+				$doctorAdded = 1;
+				$this->redirect(array('findDoctor', 'symptomCode'=>$symptomCode, 'doctorAdded'=>$doctorAdded));
+			}
 		}
 
 		$this->render('findDoctor',array(

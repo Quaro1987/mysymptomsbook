@@ -392,11 +392,10 @@ class SymptomhistoryController extends Controller
 					$token = "9009a259b57ef66b3748dd3eb46850d4"; // Your Auth Token from www.twilio.com/user/account
 					 
 					$client = new Services_Twilio($sid, $token);
-					$message = $client->account->messages->sendMessage(
+					$message = $client->account->sms_messages->create(
 					  '+19082064960', 
 					  '+306993953048', 
-					  $model->body,
-					  ''
+					  $model->body
 					);
 				}
 				mail($model->patientEmail,$subject,$model->body,$headers);

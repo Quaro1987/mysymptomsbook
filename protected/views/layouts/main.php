@@ -16,9 +16,21 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+	<?php //notifications code if the user is a doctor
+		if(Yii::app()->user->usertype==1)
+		{
+			Yii::app()->clientScript->registerScriptFile(
+		        Yii::app()->baseUrl . '/assets/notifications.js',
+		        CClientScript::POS_HEAD
+		    );
+			echo '<audio id="notificationSound"> <source src="assets/NotificationSound.mp3" type="audio/mp3"> </audio>';
+		}
+	?>
 </head>
 
 <body>
+
+
 
 <div class="container" id="page">
 

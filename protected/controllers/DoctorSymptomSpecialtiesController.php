@@ -227,7 +227,7 @@ class DoctorSymptomSpecialtiesController extends Controller
 		));
 
 		$this->render('manageSpecialties',array(
-			'model'=>$model, 'dataProvider'=>$dataProvider
+			'dataProvider'=>$dataProvider
 		));
 	}
 

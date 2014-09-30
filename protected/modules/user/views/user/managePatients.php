@@ -6,23 +6,7 @@ $this->breadcrumbs=array(
 ); 
 
 //side menu
-$this->menu=array(
-	array(
-			'label'=>'Add Symptom', 
-			'url'=>array('/symptomhistory/addSymptom'),
-			'visible'=>!Yii::app()->user->isGuest
-	),
-	array(
-			'label'=>'Find a Doctor', 
-			'url'=>array('/doctorRequests/addDoctor'),
-			'visible'=>!Yii::app()->user->isGuest
-	),
-	array(
-			'label'=>'Manage User Requests', 
-			'url'=>array('/doctorRequests/manageRequests'),
-			'visible'=>(Yii::app()->user->usertype==1)
-	),
-);
+$this->menu= Yii::app()->Globals->getSidePortletMenu();
 
 
 //patients who are connected with the doctor are presented in this grid view
@@ -46,8 +30,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			'buttons'=>array(
 						'Get Symptoms History' => array(
             				      'label'=>'Get Users Symptoms History',
-            				      //'imageUrl'=>Yii::app()->request->baseUrl.'/images/email.png',
-            				        'url'=>'Yii::app()->createUrl("symptomhistory/patientSymptomHistory",array("id"=>$data->primaryKey))',
+            				      'imageUrl'=>Yii::app()->request->baseUrl.'/images/Magnifying_glass.png',
+            				       'url'=>'Yii::app()->createUrl("symptomhistory/patientSymptomHistory",array("id"=>$data->primaryKey))',
             			      ),
 		),
 	),

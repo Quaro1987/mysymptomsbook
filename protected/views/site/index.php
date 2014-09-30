@@ -2,7 +2,14 @@
 /* @var $this SiteController */
 
 $this->pageTitle=Yii::app()->name;
+
+//include jquery
+Yii::app()->clientScript->registerScriptFile(
+	        Yii::app()->baseUrl . '/assets/961fed56/jquery.js',
+	        CClientScript::POS_HEAD
+	    );
 ?>
+
 
 <?php 
 if(Yii::app()->user->isGuest): ?>
@@ -14,32 +21,12 @@ your User account.</p>
 
 <p>If you already have an account, click the Login button to start using My Symptoms Book services.</p>
 <?php
-else: ?>
-<?php 
-//side menu
-$this->menu=array(
-	array(
-			'label'=>'Add Symptom', 
-			'url'=>array('/symptomhistory/addSymptom'),
-			'visible'=>!Yii::app()->user->isGuest
-	),
-	array(
-			'label'=>'Find a Doctor', 
-			'url'=>array('/doctorRequests/addDoctor'),
-			'visible'=>!Yii::app()->user->isGuest
-	),
-	array(
-			'label'=>'Manage User Requests', 
-			'url'=>array('doctorRequests/manageRequests'),
-			'visible'=>(Yii::app()->user->usertype==1)
-	),
-	array(
-			'label'=>'Check Patient Symptom History', 
-			'url'=>array('/user/user/managePatients'),
-			'visible'=>(Yii::app()->user->usertype==1)
-	),
-);
-?>
+else: 
+	 
+	//side menu
+	$this->menu= Yii::app()->Globals->getSidePortletMenu();
+?>	
+
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?>, </i><?php echo CHtml::encode(Yii::app()->user->username); ?>!</h1>
 <p>Click on the "Add Symptom" operation to add a Symptom to your Symptom History.</p>
 <p>Click on the "Symptom History" button to see your saved Symptoms.</p>

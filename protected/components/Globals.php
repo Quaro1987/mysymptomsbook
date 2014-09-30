@@ -25,5 +25,42 @@ class Globals extends CApplicationComponent
 		 				'Women\'s health, pregnancy' => 'Women\'s health, pregnancy'
 		 			  );
 	}
+	//function to return the portlet menu
+	public function getSidePortletMenu()
+	{
+		return array(
+			array(
+					'label'=>'Add Symptom', 
+					'url'=>array('/symptomhistory/addSymptom'),
+					'visible'=>!Yii::app()->user->isGuest
+			),
+			array(
+					'label'=>'Find a Doctor', 
+					'url'=>array('/symptomhistory/usersSymptomHistory'),
+					'visible'=>!Yii::app()->user->isGuest
+			),
+			array(
+					'label'=>'Manage User Requests ', 
+					'url'=>array('doctorRequests/manageRequests'),
+					'visible'=>(Yii::app()->user->usertype==1),
+					'itemOptions'=>array('id'=>'manageRequestsLink')
+			),
+			array(
+					'label'=>'Manage Patients\' Symptom History', 
+					'url'=>array('/user/user/managePatients'),
+					'visible'=>(Yii::app()->user->usertype==1),
+			),
+			array(
+					'label'=>'Add Specialties', 
+					'url'=>array('/doctorSymptomSpecialties/addSpecialties'),
+					'visible'=>(Yii::app()->user->usertype==1)
+			),
+			array(
+					'label'=>'Manage Specialties', 
+					'url'=>array('/doctorSymptomSpecialties/manageSpecialties'),
+					'visible'=>(Yii::app()->user->usertype==1)
+			),
+		);
+	}
 }
 ?>

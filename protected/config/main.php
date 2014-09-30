@@ -4,7 +4,7 @@
 // Yii::setPathOfAlias('local','path/to/local-folder');
 //booster path
 Yii::setPathOfAlias('booster', dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/yiibooster');
-Yii::setPathOfAlias('twilioPath', dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/twilio-php');
+Yii::setPathOfAlias('twilioPath', dirname(__FILE__).DIRECTORY_SEPARATOR.'../extensions/twilio');
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(

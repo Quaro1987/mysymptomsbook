@@ -10,36 +10,9 @@ Yii::app()->clientScript->registerScriptFile(
         CClientScript::POS_HEAD
     );
 
-//get notifications js script
-Yii::app()->clientScript->registerScriptFile(
-        Yii::app()->baseUrl . '/assets/notifications.js',
-        CClientScript::POS_HEAD
-    );
-echo '<audio id="notificationSound"> <source src="assets/NotificationSound.mp3" type="audio/mp3"> </audio>';
+
 //side menu
-$this->menu=array(
-	array(
-			'label'=>'Add Symptom', 
-			'url'=>array('/symptomhistory/addSymptom'),
-			'visible'=>!Yii::app()->user->isGuest
-	),
-	array(
-			'label'=>'Find a Doctor', 
-			'url'=>array('/doctorRequests/addDoctor'),
-			'visible'=>!Yii::app()->user->isGuest
-	),
-	array(
-			'label'=>'Manage User Requests ', 
-			'url'=>array('doctorRequests/manageRequests'),
-			'visible'=>(Yii::app()->user->usertype==1),
-            'itemOptions'=>array('id'=>'manageRequestsLink')
-	),
-	array(
-			'label'=>'Check Patient Symptom History', 
-			'url'=>array('/user/user/managePatients'),
-			'visible'=>(Yii::app()->user->usertype==1)
-	),
-);
+$this->menu= Yii::app()->Globals->getSidePortletMenu();
 ?>
 
 <h2> <?php echo $patientModel->profile->firstname." ".$patientModel->profile->lastname."'s Symptom History"; ?> </h2>

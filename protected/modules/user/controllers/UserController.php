@@ -177,7 +177,17 @@ class UserController extends Controller
 	public function actionAjaxViewDoctorDialog($id)
 	{
 		echo $this->renderPartial('viewDoctor',array(
-			'model'=> $this->loadModel($id),
+			'model'=> $this->loadModel($id)
 		));
+	}
+
+	//function to get the symptom's title
+	public function getSymptomTitle($data,$row)
+	{
+		$symptom = $data->symptomCode;
+		$symptomData = Symptoms::model()->findByPk($symptom);
+		//get the symptom title
+		$symptomTitle = $symptomData->title;
+		return $symptomTitle;
 	}
 }

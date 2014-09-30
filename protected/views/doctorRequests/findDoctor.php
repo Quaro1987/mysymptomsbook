@@ -11,25 +11,17 @@ Yii::app()->clientScript->registerScriptFile(
         Yii::app()->baseUrl . '/assets/addDoctorJS.js',
         CClientScript::POS_END
 	);
+//alert user if a doctor has been added succesfully
+if(isset($_GET['doctorAdded'])&&$_GET['doctorAdded']==1)
+{
+	Yii::app()->clientScript->registerScript('alert',
+		"$(document).ready(function(){
+			alert('Doctor Added');
+		});");
+}
 
 //side menu
-$this->menu=array(
-	array(
-			'label'=>'Add Symptom', 
-			'url'=>array('/symptomhistory/addSymptom'),
-			'visible'=>!Yii::app()->user->isGuest
-	),
-	array(
-			'label'=>'Manage User Requests', 
-			'url'=>array('doctorRequests/manageRequests'),
-			'visible'=>(Yii::app()->user->usertype==1)
-	),
-	array(
-			'label'=>'Check Patient Symptom History', 
-			'url'=>array('/user/user/managePatients'),
-			'visible'=>(Yii::app()->user->usertype==1)
-	),
-); ?>
+$this->menu= Yii::app()->Globals->getSidePortletMenu(); ?>
 
 <h1>Symptom <?php echo $symptomsModel->title; ?></h1>
 
@@ -57,14 +49,6 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'dataProvider'=>$dataProvider,
 	'rowHtmlOptionsExpression'=>'array("data-id"=>$data->id)',
 	'columns'=>array(
-		/*  code linking to a doctor's profile, for use if we need to add a link to
-		each doctor's profile from the search function in the future 
-		array(
-			'name' => 'username',
-			'type'=>'raw',
-			'value' => 'CHtml::link(CHtml::encode($data->username),array("user/view","id"=>$data->id))',
-		),
-		*/
 		array(
 			'name' => 'Last Name',
 			'type'=>'raw',
@@ -133,3 +117,4 @@ $this->endWidget('zii.widgets.jui.CJuiDialog');
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+

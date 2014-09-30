@@ -6,8 +6,8 @@ $this->breadcrumbs=array(
 	'Doctor Symptom Specialties'=>array('index'),
 	'Add Specialties',
 );
-
-
+	//side menu
+	$this->menu= Yii::app()->Globals->getSidePortletMenu();
 ?> 
 
 <h3>Add Symptom Specilaties</h3>
