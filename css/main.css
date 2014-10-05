@@ -482,3 +482,45 @@ body #page.container
 {
 	float:right;
 }
+
+#sideSymptomInstructions
+{
+	border:hidden;
+}
+
+#sideSymptomInstructions tr td
+{
+	 border:hidden;
+}
+
+
+#noDiagnosisCell
+{
+	background-color: #36c;
+	color: #36c;
+}
+
+#lowDiagnosisCell
+{
+	background-color: #A1EB86;
+	color: #A1EB86;
+}
+
+#mildDiagnosisCell
+{
+	background-color: #CCCA52;
+	color: #CCCA52;
+}
+
+#highDiagnosisCell
+{
+	background-color: #F25138;
+	color: #F25138;
+}
+
+div.colorCell
+{
+	width: 100%;
+	height: 70%;
+	border-radius: 25px;
+}

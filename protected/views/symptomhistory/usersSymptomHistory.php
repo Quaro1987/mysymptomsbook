@@ -15,7 +15,7 @@ $this->breadcrumbs=array(
 
 //side menu
 $this->menu= Yii::app()->Globals->getSidePortletMenu();
-
+$this->showSideInstrctions = 1;
 		
 $this->widget('ext.EFullCalendar.EFullCalendar', array(
     // remove to use without theme

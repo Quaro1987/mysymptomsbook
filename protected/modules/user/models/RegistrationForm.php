@@ -10,15 +10,15 @@ class RegistrationForm extends User {
 	
 	public function rules() {
 		$rules = array(
-			array('username, password, verifyPassword, email, AMKA, userType', 'required'),
+			array('username, password, verifyPassword, email, phoneNumber, userType', 'required'),
 			array('username', 'length', 'max'=>20, 'min' => 3,'message' => UserModule::t("Incorrect username (length between 3 and 20 characters).")),
 			array('password', 'length', 'max'=>128, 'min' => 4,'message' => UserModule::t("Incorrect password (minimal length 4 symbols).")),
 			array('email', 'email'),
 			array('username', 'unique', 'message' => UserModule::t("This user's name already exists.")),
 			array('email', 'unique', 'message' => UserModule::t("This user's email address already exists.")),
-			array('AMKA', 'length', 'max'=>11, 'min' => 11,'message' => UserModule::t("Incorrect AMKA number. An AMKA number is made up of 11 digits.")),
-			array('AMKA', 'unique', 'message' => UserModule::t("This user's AMKA number already exists.")),
-			array('AMKA', 'match', 'pattern' => '/^[0-9_]+$/u','message' => UserModule::t("Incorrect symbols (0-9).")),
+			array('phoneNumber', 'length', 'max'=>18, 'min' => 7,'message' => UserModule::t("A phone number must be between 7 and 18 digits.")),
+			array('phoneNumber', 'unique', 'message' => UserModule::t("This phone number already belongs to another user.")),
+			array('phoneNumber', 'match', 'pattern' => '/^[0-9_]+$/u','message' => UserModule::t("Incorrect symbols (0-9).")),
 			array('doctorSpecialty', 'in', 'range'=>array('0','Cardiologost', 'Dentist', 'Dermatologist', 'Pathologist')),
 			array('doctorSpecialty', 'in', 'range'=>array('Cardiologost', 'Dentist', 'Dermatologist', 'Pathologist'), 'on'=>'doctor', 'message'=>"You must select a specialty Doctor."),
 			//array('verifyPassword', 'compare', 'compareAttribute'=>'password', 'message' => UserModule::t("Retype Password is incorrect.")),

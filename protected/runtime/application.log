@@ -23288,3 +23288,321 @@ REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/ajaxContactPatient
 in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (393)
 in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (393)
 in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/05 19:06:45 [error] [exception.Services_Twilio_RestException] exception 'Services_Twilio_RestException' with message 'The 'To' number 306993953048 is not a valid phone number.' in C:\xampp\htdocs\mySymptomsBook\protected\vendor\twilio\Services\Twilio.php:305
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\vendor\twilio\Services\Twilio.php(229): Services_Twilio->_processResponse(Array)
+#1 C:\xampp\htdocs\mySymptomsBook\protected\vendor\twilio\Services\Twilio\ListResource.php(92): Services_Twilio->createData('/2010-04-01/Acc...', Array)
+#2 C:\xampp\htdocs\mySymptomsBook\protected\vendor\twilio\Services\Twilio\Rest\SmsMessages.php(16): Services_Twilio_ListResource->_create(Array)
+#3 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php(404): Services_Twilio_Rest_SmsMessages->create('+19082064960', '306993953048', 'Hi yannis, test...')
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): SymptomhistoryController->actionAjaxContactPatient()
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('ajaxContactPati...')
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('symptomhistory/...')
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/ajaxContactPatient
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=symptomhistory/patientSymptomHistory&id=2
+---
+2014/10/05 19:14:31 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "user.phoneNumber". Note, the column must exist in the table or be an expression with alias.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveFinder.php:960
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveFinder.php(1261): CJoinElement->getColumnSelect('user.id, user.u...')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveFinder.php(433): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), false)
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(1519): CActiveRecord->query(Object(CDbCriteria))
+#5 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\components\WebUser.php(72): CActiveRecord->findByAttributes(Array)
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php(111): WebUser->getUserType()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\auth\CWebUser.php(146): CComponent->__get('usertype')
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php(612) : eval()'d code(1): CWebUser->__get('usertype')
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php(612): eval()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\auth\CAccessControlFilter.php(392): CComponent->evaluateExpression('Yii::app()->use...', Array)
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\auth\CAccessControlFilter.php(288): CAccessRule->isExpressionMatched(Object(WebUser))
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\auth\CAccessControlFilter.php(138): CAccessRule->isUserAllowed(Object(WebUser), Object(DoctorRequestsController), Object(CInlineAction), '127.0.0.1', 'POST')
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('getNotification...')
+#20 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorRequests/...')
+#21 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorRequests/getNotifications
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=symptomhistory/patientSymptomHistory&id=2
+---
+2014/10/05 19:17:43 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "User" is trying to select an invalid column "user.phoneNumber". Note, the column must exist in the table or be an expression with alias.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveFinder.php:960
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveFinder.php(1261): CJoinElement->getColumnSelect('user.id, user.u...')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveFinder.php(433): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(1356): CActiveFinder->query(Object(CDbCriteria), false)
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(1519): CActiveRecord->query(Object(CDbCriteria))
+#5 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\components\WebUser.php(72): CActiveRecord->findByAttributes(Array)
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php(111): WebUser->getUserType()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\auth\CWebUser.php(146): CComponent->__get('usertype')
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php(612) : eval()'d code(1): CWebUser->__get('usertype')
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php(612): eval()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\auth\CAccessControlFilter.php(392): CComponent->evaluateExpression('Yii::app()->use...', Array)
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\auth\CAccessControlFilter.php(288): CAccessRule->isExpressionMatched(Object(WebUser))
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\auth\CAccessControlFilter.php(138): CAccessRule->isUserAllowed(Object(WebUser), Object(DoctorRequestsController), Object(CInlineAction), '127.0.0.1', 'POST')
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter(Object(CFilterChain))
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#18 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('getNotification...')
+#20 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('doctorRequests/...')
+#21 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#22 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=doctorRequests/getNotifications
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=symptomhistory/patientSymptomHistory&id=2
+---
+2014/10/05 19:17:52 [error] [exception.CException] exception 'CException' with message 'Property "RegistrationForm.phoneNumber" is not defined.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('phoneNumber')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(2529): CActiveRecord->__get('phoneNumber')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(2252): CHtml::resolveValue(Object(RegistrationForm), 'phoneNumber')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(1434): CHtml::activeInputField('text', Object(RegistrationForm), 'phoneNumber', Array)
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\widgets\CActiveForm.php(725): CHtml::activeTextField(Object(RegistrationForm), 'phoneNumber', Array)
+#5 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\views\user\registration.php(79): CActiveForm->textField(Object(RegistrationForm), 'phoneNumber')
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(782): CController->renderPartial('/user/registrat...', Array, true)
+#10 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php(81): CController->render('/user/registrat...', Array)
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): RegistrationController->actionRegistration()
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('')
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/registrati...')
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/registration
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/login
+---
+2014/10/05 19:18:17 [error] [exception.CException] exception 'CException' with message 'Property "RegistrationForm.phoneNumber" is not defined.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('phoneNumber')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(2529): CActiveRecord->__get('phoneNumber')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(2252): CHtml::resolveValue(Object(RegistrationForm), 'phoneNumber')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(1434): CHtml::activeInputField('text', Object(RegistrationForm), 'phoneNumber', Array)
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\widgets\CActiveForm.php(725): CHtml::activeTextField(Object(RegistrationForm), 'phoneNumber', Array)
+#5 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\views\user\registration.php(79): CActiveForm->textField(Object(RegistrationForm), 'phoneNumber')
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(782): CController->renderPartial('/user/registrat...', Array, true)
+#10 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php(81): CController->render('/user/registrat...', Array)
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): RegistrationController->actionRegistration()
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('')
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/registrati...')
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/registration
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/login
+---
+2014/10/05 19:18:18 [error] [exception.CException] exception 'CException' with message 'Property "RegistrationForm.phoneNumber" is not defined.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('phoneNumber')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(2529): CActiveRecord->__get('phoneNumber')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(2252): CHtml::resolveValue(Object(RegistrationForm), 'phoneNumber')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(1434): CHtml::activeInputField('text', Object(RegistrationForm), 'phoneNumber', Array)
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\widgets\CActiveForm.php(725): CHtml::activeTextField(Object(RegistrationForm), 'phoneNumber', Array)
+#5 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\views\user\registration.php(79): CActiveForm->textField(Object(RegistrationForm), 'phoneNumber')
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(782): CController->renderPartial('/user/registrat...', Array, true)
+#10 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php(81): CController->render('/user/registrat...', Array)
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): RegistrationController->actionRegistration()
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('')
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/registrati...')
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/registration
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/login
+---
+2014/10/05 19:18:20 [error] [exception.CException] exception 'CException' with message 'Property "RegistrationForm.phoneNumber" is not defined.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('phoneNumber')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(2529): CActiveRecord->__get('phoneNumber')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(2252): CHtml::resolveValue(Object(RegistrationForm), 'phoneNumber')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(1434): CHtml::activeInputField('text', Object(RegistrationForm), 'phoneNumber', Array)
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\widgets\CActiveForm.php(725): CHtml::activeTextField(Object(RegistrationForm), 'phoneNumber', Array)
+#5 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\views\user\registration.php(79): CActiveForm->textField(Object(RegistrationForm), 'phoneNumber')
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(782): CController->renderPartial('/user/registrat...', Array, true)
+#10 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php(81): CController->render('/user/registrat...', Array)
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): RegistrationController->actionRegistration()
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('')
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/registrati...')
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/registration
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/login
+---
+2014/10/05 19:18:22 [error] [exception.CException] exception 'CException' with message 'Property "RegistrationForm.phoneNumber" is not defined.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\db\ar\CActiveRecord.php(145): CComponent->__get('phoneNumber')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(2529): CActiveRecord->__get('phoneNumber')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(2252): CHtml::resolveValue(Object(RegistrationForm), 'phoneNumber')
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\helpers\CHtml.php(1434): CHtml::activeInputField('text', Object(RegistrationForm), 'phoneNumber', Array)
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\widgets\CActiveForm.php(725): CHtml::activeTextField(Object(RegistrationForm), 'phoneNumber', Array)
+#5 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\views\user\registration.php(79): CActiveForm->textField(Object(RegistrationForm), 'phoneNumber')
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(782): CController->renderPartial('/user/registrat...', Array, true)
+#10 C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php(81): CController->render('/user/registrat...', Array)
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): RegistrationController->actionRegistration()
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('')
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/registrati...')
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/registration
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/login
+---
+2014/10/05 19:20:21 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/05 19:21:11 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/06 00:27:11 [error] [exception.CException] exception 'CException' with message 'Property "SymptomhistoryController.1" is not defined.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\symptomhistory\usersSymptomHistory.php(18): CComponent->__set('1', 1)
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(782): CController->renderPartial('usersSymptomHis...', Array, true)
+#5 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php(270): CController->render('usersSymptomHis...', Array)
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): SymptomhistoryController->actionUsersSymptomHistory()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('usersSymptomHis...')
+#18 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('symptomhistory/...')
+#19 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/usersSymptomHistory
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/user/managePatients
+---
+2014/10/06 00:27:45 [error] [exception.CException] exception 'CException' with message 'Property "SymptomhistoryController.1" is not defined.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\symptomhistory\usersSymptomHistory.php(18): CComponent->__set('1', 'this')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(782): CController->renderPartial('usersSymptomHis...', Array, true)
+#5 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php(270): CController->render('usersSymptomHis...', Array)
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): SymptomhistoryController->actionUsersSymptomHistory()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('usersSymptomHis...')
+#18 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('symptomhistory/...')
+#19 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/usersSymptomHistory
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/user/managePatients
+---
+2014/10/06 00:30:25 [error] [exception.CException] exception 'CException' with message 'Property "SymptomhistoryController.showSideInstrctions" is not defined.' in C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\protected\views\symptomhistory\usersSymptomHistory.php(18): CComponent->__set('showSideInstrct...', 1)
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(126): require('C:\xampp\htdocs...')
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(782): CController->renderPartial('usersSymptomHis...', Array, true)
+#5 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php(271): CController->render('usersSymptomHis...', Array)
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): SymptomhistoryController->actionUsersSymptomHistory()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): CController->run('usersSymptomHis...')
+#18 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('symptomhistory/...')
+#19 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#20 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/usersSymptomHistory
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/user/managePatients
+---
+2014/10/06 00:30:47 [error] [php] Undefined variable: showSideInstrctions (C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column2.php:20)
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(784): SymptomhistoryController->renderFile()
+#1 C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php(271): SymptomhistoryController->render()
+#2 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\actions\CInlineAction.php(49): SymptomhistoryController->actionUsersSymptomHistory()
+#3 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(133): SymptomhistoryController->runAction()
+#5 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): BoosterFilter->filter()
+#7 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#9 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CInlineFilter.php(58): SymptomhistoryController->filterAccessControl()
+#10 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#11 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CController.php(265): SymptomhistoryController->runActionWithFilters()
+#13 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(282): SymptomhistoryController->run()
+#14 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#16 C:\xampp\htdocs\mySymptomsBook\index.php(13): CWebApplication->run()
+REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/usersSymptomHistory
+in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column2.php (20)
+in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (271)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)

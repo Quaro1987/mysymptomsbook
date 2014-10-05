@@ -1,7 +1,7 @@
 //global variables
 var alertTrigger = 0;
 //ajax url
-var ajaxNotificationsUrl = 'http://localhost/mysymptomsbook/index.php?r=doctorRequests/getNotifications';
+var ajaxNotificationsUrl = "http://localhost/mysymptomsbook/index.php?r=doctorRequests/getNotifications";
 //placeholder data
 var data = 'something';
 //function to check for notifications when the pages load
@@ -17,7 +17,6 @@ function checkForNotificationsOnLoad()
 					if (dataReturn==1)
 					{	
 						$('#manageRequestsLink').addClass('notification');
-						$('#alertImg').show()
 		            	alertTrigger = 1;
 		            }
 		        },
@@ -57,7 +56,6 @@ function pollForNotifications()
 };
 //function that will start the polling process
 $(document).ready(function(){
-	$('#manageRequestsLink a').append('<img id="alertImg" src="images/alert.png" />');
 	//check for notifications when loading the page
 	checkForNotificationsOnLoad();	
 	//if there are no prio notifications, start polling

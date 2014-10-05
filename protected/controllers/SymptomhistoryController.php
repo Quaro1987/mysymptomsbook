@@ -23,6 +23,7 @@ class SymptomhistoryController extends Controller
 		 				'Urological',
 		 				'Women\'s health, pregnancy'
 		 			  );
+	public $showSideInstrctions = 0;
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -249,6 +250,8 @@ class SymptomhistoryController extends Controller
 	public function actionUsersSymptomHistory()
 	{
 		$model = new Symptomhistory;
+		//load specific layout with side instructions
+		$this->layout='//layouts/column2SideInstructions';
 		$symptomUrl = Yii::app()->createUrl('doctorRequests/findDoctor');
 		//empty array to store all the user's symptoms
 		$symptomItems = array();
@@ -273,6 +276,8 @@ class SymptomhistoryController extends Controller
 	//action to render the patient's symptom history
 	public function actionPatientSymptomHistory($id)
 	{
+		//load side menu instructions laytout
+		$this->layout='//layouts/column2SideInstructions';
 		//create model doctor request and search the database for a doctor request between the doctor user and 
 		//the patient user
 		$doctorRequestModel = new DoctorRequests;

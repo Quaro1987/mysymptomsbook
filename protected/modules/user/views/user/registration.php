@@ -75,9 +75,9 @@ Yii::app()->clientScript->registerScriptFile(
 	</div>
 
 	<div class="row">
-	<?php echo $form->labelEx($model,'AMKA'); ?>
-	<?php echo $form->textField($model,'AMKA'); ?>
-	<?php echo $form->error($model,'AMKA'); ?>
+	<?php echo $form->labelEx($model,'phoneNumber'); ?>
+	<?php echo $form->textField($model,'phoneNumber'); ?>
+	<?php echo $form->error($model,'phoneNumber'); ?>
 	</div>
 	
 <?php 

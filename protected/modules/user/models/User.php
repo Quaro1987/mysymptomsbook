@@ -20,7 +20,7 @@ class User extends CActiveRecord
 	 * @var integer $lastvisit_at
 	 * @var integer $superuser
 	 * @var integer $status
-     * @var string $AMKA
+     * @var string $phoneNumber
      * @var integer $userType
      * @var string doctorSpecialty
 	 */
@@ -60,26 +60,26 @@ class User extends CActiveRecord
 			array('superuser', 'in', 'range'=>array(0,1)),
             array('create_at', 'default', 'value' => date('Y-m-d H:i:s'), 'setOnEmpty' => true, 'on' => 'insert'),
             array('lastvisit_at', 'default', 'value' => '0000-00-00 00:00:00', 'setOnEmpty' => true, 'on' => 'insert'),
-			array('username, email, superuser, status, AMKA', 'required'),
+			array('username, email, superuser, status, phoneNumber', 'required'),
 			array('superuser, status', 'numerical', 'integerOnly'=>true),
 			//userType 0 if patient 1 if doctor
 			array('userType', 'in', 'range'=>array(0,1)),
 			//doctor specialty for doctor users
-			array('doctorSpecialty', 'in', 'range'=>array(null,'Doctor')),
-			// AMKA code
-			array('AMKA', 'length', 'max'=>11, 'min' => 11,'message' => UserModule::t("Incorrect AMKA number. An AMKA number is made up of 11 digits.")),
-			array('AMKA', 'unique', 'message' => UserModule::t("This user's AMKA number already exists.")),
-			array('AMKA', 'match', 'pattern' => '/^[0-9_]+$/u','message' => UserModule::t("Incorrect symbols (0-9).")),
-			array('id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, AMKA, userType, doctorSpecialty', 'safe', 'on'=>'search'),
+			array('doctorSpecialty', 'in', 'range'=>array('0','Cardiologost', 'Dentist', 'Dermatologist', 'Pathologist')),
+			// phoneNumber
+			array('phoneNumber', 'length', 'max'=>18, 'min' => 7,'message' => UserModule::t("A phone number must be between 7 and 18 digits.")),
+			array('phoneNumber', 'unique', 'message' => UserModule::t("This phone number already belongs to another user.")),
+			array('phoneNumber', 'match', 'pattern' => '/^[0-9_]+$/u','message' => UserModule::t("Incorrect symbols (0-9).")),
+			array('id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, phoneNumber, userType, doctorSpecialty', 'safe', 'on'=>'search'),
 		):((Yii::app()->user->id==$this->id)?array(
-			array('username, email, AMKA', 'required'),
+			array('username, email, phoneNumber', 'required'),
 			array('username', 'length', 'max'=>20, 'min' => 3,'message' => UserModule::t("Incorrect username (length between 3 and 20 characters).")),
 			array('email', 'email'),
-			array('AMKA', 'length', 'max'=>11, 'min' => 11,'message' => UserModule::t("Incorrect AMKA number. An AMKA number is made up of 11 digits.")),
+			array('phoneNumber', 'length', 'max'=>18, 'min' => 7,'message' => UserModule::t("A phone number must be between 7 and 18 digits.")),
 			array('username', 'unique', 'message' => UserModule::t("This user's name already exists.")),
 			array('username', 'match', 'pattern' => '/^[A-Za-z0-9_]+$/u','message' => UserModule::t("Incorrect symbols (A-z0-9).")),
-			array('AMKA', 'unique', 'message' => UserModule::t("This user's AMKA number already exists.")),
-			array('AMKA', 'match', 'pattern' => '/^[0-9_]+$/u','message' => UserModule::t("Incorrect symbols (0-9).")),
+			array('phoneNumber', 'unique', 'message' => UserModule::t("This phone number already belongs to another user.")),
+			array('phoneNumber', 'match', 'pattern' => '/^[0-9_]+$/u','message' => UserModule::t("Incorrect symbols (0-9).")),
 			array('email', 'unique', 'message' => UserModule::t("This user's email address already exists.")),
 		):array()));
 	}
@@ -114,7 +114,7 @@ class User extends CActiveRecord
 			'lastvisit_at' => UserModule::t("Last visit"),
 			'superuser' => UserModule::t("Superuser"),
 			'status' => UserModule::t("Status"),
-			'AMKA'=>UserModule::t("AMKA"),
+			'phoneNumber'=>UserModule::t("Cell Phone Number (with country code)"),
 			'userType' => UserModule::t("Type of User"),
 			'doctorSpecialty' => UserModule::t("Specialty")
 		);
@@ -140,7 +140,7 @@ class User extends CActiveRecord
             	'condition' => 'userType=1',
             ),
             'notsafe'=>array(
-            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, AMKA, userType, doctorSpecialty',
+            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, phoneNumber, userType, doctorSpecialty',
             ),
         );
     }
@@ -149,7 +149,7 @@ class User extends CActiveRecord
     {
         return CMap::mergeArray(Yii::app()->getModule('user')->defaultScope,array(
             'alias'=>'user',
-            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status, user.AMKA, user.userType, user.doctorSpecialty',
+            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status, user.phoneNumber, user.userType, user.doctorSpecialty',
         ));
     }
 	
@@ -190,7 +190,7 @@ class User extends CActiveRecord
         $criteria->compare('lastvisit_at',$this->lastvisit_at);
         $criteria->compare('superuser',$this->superuser);
         $criteria->compare('status',$this->status);
-        $criteria->compare('AMKA',$this->AMKA);
+        $criteria->compare('phoneNumber',$this->phoneNumber);
 		$criteria->compare('userType',$this->userType);
         $criteria->compare('doctorSpecialty',$this->doctorSpecialty);
 
