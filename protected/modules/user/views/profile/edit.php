@@ -68,9 +68,9 @@ $this->menu=array(
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'AMKA'); ?>
-		<?php echo $form->textField($model,'AMKA',array('size'=>11,'maxlength'=>11)); ?>
-		<?php echo $form->error($model,'AMKA'); ?>
+		<?php echo $form->labelEx($model,'phoneNumber'); ?>
+		<?php echo $form->textField($model,'phoneNumber',array('size'=>18,'minlength'=>7, 'maxlength'=>18)); ?>
+		<?php echo $form->error($model,'phoneNumber'); ?>
 	</div>
 
 	<div class="row buttons">

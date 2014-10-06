@@ -23606,3 +23606,30 @@ REQUEST_URI=/mysymptomsbook/index.php?r=symptomhistory/usersSymptomHistory
 in C:\xampp\htdocs\mySymptomsBook\protected\views\layouts\column2.php (20)
 in C:\xampp\htdocs\mySymptomsBook\protected\controllers\SymptomhistoryController.php (271)
 in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/06 09:28:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/doctorRequests/manageRequests".' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/doctorRequ...')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/doctorRequests/manageRequests
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/user/managePatients
+---
+2014/10/06 09:28:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/doctorRequests/manageRequests".' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/doctorRequ...')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/doctorRequests/manageRequests
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/user/managePatients
+---
+2014/10/06 09:30:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/doctorRequests/manageRequests".' in C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\mySymptomsBook\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/doctorRequ...')
+#1 C:\xampp\htdocs\mySymptomsBook\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\mySymptomsBook\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/mysymptomsbook/index.php?r=user/doctorRequests/manageRequests
+HTTP_REFERER=http://localhost/mysymptomsbook/index.php?r=user/user/managePatients
+---
