@@ -27,13 +27,14 @@ class DoctorRequestsController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','findDoctor','update', 'successPage'),
+			array('allow', // allow authenticated user to perform 'manageUserRelations'  actions
+				'actions'=>array('manageUserRelations'),
 				'users'=>array('@'),
+			),
+			array('allow', // allow normal user to perform findDoctor actions
+				'actions'=>array('findDoctor'),
+				'users'=>array('@'),
+				'expression'=>'Yii::app()->user->usertype==0',
 			),
 			array('allow', // allow doctor user to perform 'manageRequests', 'acceptUser', 'rejectUser' actions
 				'actions'=>array('manageRequests', 'acceptUser', 'rejectUser', 'getNotifications'),
@@ -89,6 +90,7 @@ class DoctorRequestsController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
+	/*
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
@@ -107,7 +109,7 @@ class DoctorRequestsController extends Controller
 			'model'=>$model,
 		));
 	}
-
+	*/
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
@@ -124,7 +126,7 @@ class DoctorRequestsController extends Controller
 
 	/**
 	 * Lists all models.
-	 */
+	 *//*
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('DoctorRequests');
@@ -132,10 +134,10 @@ class DoctorRequestsController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
-
+	*/
 	/**
 	 * Manages all models.
-	 */
+	 *//*
 	public function actionAdmin()
 	{
 		$model=new DoctorRequests('search');
@@ -147,7 +149,7 @@ class DoctorRequestsController extends Controller
 			'model'=>$model,
 		));
 	}
-
+	*/
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
@@ -226,7 +228,7 @@ class DoctorRequestsController extends Controller
 		//create add doctor request
 		if(isset($_POST['DoctorRequests']))
 		{
-			$symptomHistoryModel = SymptomHistory::model()->findByAttributes(
+			$symptomHistoryModel = Symptomhistory::model()->findByAttributes(
 				array('user_id'=>Yii::app()->user->id, 'symptomCode'=>$symptomCode)
 			);
 
@@ -327,12 +329,6 @@ class DoctorRequestsController extends Controller
 		 			  );
 	}
 
-	/* action that renders the symptom successfully added paged */
-	public function actionSuccessPage()
-	{
-		$this->render('successPage');
-	}
-
 	//action to notify doctor of new requests
 
 	public function actionGetNotifications()
@@ -353,5 +349,39 @@ class DoctorRequestsController extends Controller
 				echo 0;
 			}
 		}
+	}
+
+	//manage user relations for doctor and normal users
+	public function actionManageUserRelations()
+	{
+		$model=new DoctorRequests;
+		//if the user is a doctor get all doctorRequests with his user id as the doctor's id
+		if(Yii::app()->user->usertype==1)
+		{
+			$dataProvider = new CActiveDataProvider('DoctorRequests', array(
+				'Pagination' => array (
+        	          'PageSize' => 20
+        	     ),
+				'criteria'=>array(
+			        'condition'=>'doctorID=:doctorID AND doctorAccepted=:doctorAccepted', 
+			        'params'=>array(':doctorID'=>Yii::app()->user->id, 'doctorAccepted'=>1),
+			    )
+			));
+		}
+		else //if the user is a normal user get all doctorRequests with his user id as the user's id
+		{
+			$dataProvider = new CActiveDataProvider('DoctorRequests', array(
+				'Pagination' => array (
+        	          'PageSize' => 20
+        	     ),
+				'criteria'=>array(
+			        'condition'=>'userID=:userID AND doctorAccepted=:doctorAccepted', 
+			        'params'=>array(':userID'=>Yii::app()->user->id, 'doctorAccepted'=>1),
+			    )
+			));
+		}
+		$this->render('manageUserRelations',array(
+			'dataProvider'=>$dataProvider
+		));
 	}
 }

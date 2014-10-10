@@ -32,7 +32,6 @@ class DoctorSymptomSpecialties extends CActiveRecord
 		return array(
 			array('doctorUserID, symptomCode', 'required'),
 			array('doctorUserID', 'numerical', 'integerOnly'=>true),
-			array('symptomCode', 'length', 'max'=>15),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, doctorUserID, symptomCode', 'safe', 'on'=>'search'),

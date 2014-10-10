@@ -22,8 +22,8 @@
 				<b>Color Chart:</b>
 			</th>
 			<tr>
-				<td>No Diagnosis:</td>
-				<td><div id='noDiagnosisCell' class='colorCell'>No diag</div></td>
+				<td>No Characterization:</td>
+				<td><div id='noDiagnosisCell' class='colorCell'>No char</div></td>
 			</tr>
 			<tr>
 				<td>Low Danger:</td>

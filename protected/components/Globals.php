@@ -32,18 +32,23 @@ class Globals extends CApplicationComponent
 			array(
 					'label'=>'Add Symptom', 
 					'url'=>array('/symptomhistory/addSymptom'),
-					'visible'=>!Yii::app()->user->isGuest
+					'visible'=>(Yii::app()->user->usertype==0),
 			),
 			array(
 					'label'=>'Find a Doctor', 
 					'url'=>array('/symptomhistory/usersSymptomHistory'),
-					'visible'=>!Yii::app()->user->isGuest
+					'visible'=>(Yii::app()->user->usertype==0),
 			),
 			array(
 					'label'=>'Manage User Requests ', 
 					'url'=>array('/doctorRequests/manageRequests'),
 					'visible'=>(Yii::app()->user->usertype==1),
 					'itemOptions'=>array('id'=>'manageRequestsLink')
+			),
+			array(
+					'label'=>'Manage User Relations', 
+					'url'=>array('/doctorRequests/manageUserRelations'),
+					'visible'=>!(Yii::app()->user->isGuest),
 			),
 			array(
 					'label'=>'Manage Patients\' Symptom History', 

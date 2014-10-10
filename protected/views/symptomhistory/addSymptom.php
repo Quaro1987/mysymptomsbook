@@ -12,7 +12,11 @@ Yii::app()->clientScript->registerScriptFile(
         Yii::app()->baseUrl . '/assets/addSymptomJS.js',
         CClientScript::POS_END
 	);
+//include css file
+Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/addSymptom.css');
+
 ?> 
+
 
 <!-- Select symptom category dropdown menu -->
 <div id="addSymptomLabelDiv" class="row">

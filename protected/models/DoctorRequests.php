@@ -31,10 +31,10 @@ class DoctorRequests extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('doctorID', 'required', 'message'=>'Please select a Doctor first.'),
-			array('doctorID, userID, doctorAccepted, symptomHistoryID', 'numerical', 'integerOnly'=>true),
+			array('doctorID, userID, doctorAccepted, symptomHistoryID, newSymptomAdded', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, doctorID, userID, doctorAccepted, symptomHistoryID', 'safe', 'on'=>'search'),
+			array('id, doctorID, userID, doctorAccepted, symptomHistoryID, newSymptomAdded', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,7 +60,8 @@ class DoctorRequests extends CActiveRecord
 			'id' => 'ID',
 			'doctorID' => 'Doctor',
 			'userID' => 'User',
-			'symptomHistoryID' => 'Symptom'
+			'symptomHistoryID' => 'Symptom',
+			'newSymptomAdded' => 'New Symptom Added'
 		);
 	}
 
@@ -86,6 +87,7 @@ class DoctorRequests extends CActiveRecord
 		$criteria->compare('doctorID',$this->doctorID);
 		$criteria->compare('userID',$this->userID);
 		$criteria->compare('symptomHistoryID',$this->symptomHistoryID);
+		$criteria->compare('newSymptomAdded',$this->newSymptomAdded);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

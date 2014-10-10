@@ -35,6 +35,7 @@ class DoctorSymptomSpecialtiesController extends Controller
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('addSpecialties', 'update', 'manageSpecialties','delete'),
 				'users'=>array('@'),
+				'expression'=>'Yii::app()->user->usertype==1',
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),

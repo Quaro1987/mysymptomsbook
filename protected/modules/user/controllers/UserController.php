@@ -31,8 +31,13 @@ class UserController extends Controller
 				'users'=>array('admin'),
 			),
 			array('allow',  // allow all users to perform 'view' actions
-				'actions'=>array('view', 'viewDoctor', 'ajaxViewDoctorDialog'),
+				'actions'=>array('view'),
 				'users'=>array('@'),
+			),
+			array('allow', // allow normal user to perform viewDoctor and ajaxViewDoctorDialog actions
+				'actions'=>array('viewDoctor', 'ajaxViewDoctorDialog'),
+				'users'=>array('@'),
+				'expression'=>'Yii::app()->user->usertype==0',
 			),
 			array('allow', // allow doctor user to perform managePatients and patientSymptomHistory actions
 				'actions'=>array('managePatients', 'patientSymptomHistory'),

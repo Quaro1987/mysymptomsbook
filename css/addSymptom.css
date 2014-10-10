@@ -1,0 +1,9 @@
+.grid-view tr.odd
+{
+	cursor: pointer;
+}
+
+.grid-view tr.even
+{
+	cursor: pointer;
+}

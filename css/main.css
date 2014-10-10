@@ -332,16 +332,6 @@ font-size:20pt;
 	cursor: pointer;
 }
 
-.grid-view tr.odd
-{
-	cursor: pointer;
-}
-
-.grid-view tr.even
-{
-	cursor: pointer;
-}
-
 #lowDangerButton.selectedFlag
 {
   background-color: #A1EB86;
@@ -523,4 +513,9 @@ div.colorCell
 	width: 100%;
 	height: 70%;
 	border-radius: 25px;
+}
+
+.checkAllBoxLabel
+{
+	color:black;
 }

@@ -11,6 +11,8 @@ Yii::app()->clientScript->registerScriptFile(
         Yii::app()->baseUrl . '/assets/addDoctorJS.js',
         CClientScript::POS_END
 	);
+//include css file
+Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/addSymptom.css');
 //alert user if a doctor has been added succesfully
 if(isset($_GET['doctorAdded'])&&$_GET['doctorAdded']==1)
 {

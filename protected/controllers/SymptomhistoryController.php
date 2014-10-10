@@ -63,9 +63,14 @@ class SymptomhistoryController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform various actions
-				'actions'=>array('addSymptom', 'ajaxView', 'successPage', 'update', 
-						'index','view', 'userHistory', 'usersSymptomHistory'),
+				'actions'=>array('ajaxView', 'update', 
+						'index','view'),
 				'users'=>array('@'),
+			),
+			array('allow', // allow normal user to perform addSymptom, and usersSymptomHistory actions
+				'actions'=>array('addSymptom', 'usersSymptomHistory', 'ajaxContactPatient'),
+				'users'=>array('@'),
+				'expression'=>'Yii::app()->user->usertype==0',
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
@@ -110,6 +115,7 @@ class SymptomhistoryController extends Controller
 		$this->layout='//layouts/triplets';
 		$model = new Symptomhistory;
 		$symptomsModel = new Symptoms;
+		$doctorRequestModel = new DoctorRequests;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -125,6 +131,14 @@ class SymptomhistoryController extends Controller
 									 ));
 				//save search history
 				$model->save();
+				//notify doctors of new symptom
+				$usersDoctorsArray = $doctorRequestModel->findAllByAttributes(array('userID'=>Yii::app()->user->id, 'doctorAccepted'=>1));
+				foreach ($usersDoctorsArray as $usersDoctorRequest) 
+				{
+					$usersDoctorRequest->newSymptomAdded = 1;
+					$usersDoctorRequest->save();
+				}
+
 				$this->redirect(array('usersSymptomHistory'));
 				
 		}
@@ -138,13 +152,6 @@ class SymptomhistoryController extends Controller
 		
 
 	}
-
-	/* action that renders the symptom successfully added paged */
-	public function actionSuccessPage()
-	{
-		$this->render('successPage');
-	}
-
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -237,15 +244,6 @@ class SymptomhistoryController extends Controller
 		}
 	}
 
-	//return user symptom history (based on id)
-	public function actionUserHistory($id)
-	{
-		$model = new Symptomhistory;
-		$dataProvider = $model->searchByUser($id);
-		$this->render('userHistory',array('dataProvider'=>$dataProvider,
-		));
-	}
-
 	//return current user's symptom history
 	public function actionUsersSymptomHistory()
 	{
@@ -260,10 +258,27 @@ class SymptomhistoryController extends Controller
 		//loop through all the symptomHistory records that belong to the user
 		foreach($symptomHistoryModels as $symptom)
 		{
+			//switch case for event color. set color for each flag type
+			switch($symptom->symptomFlag)
+			{
+				case '1':
+					$symptomColor = '#A1EB86';
+					break;
+				case '2':
+					$symptomColor = '#CCCA52';
+					break;
+				case '3':
+					$symptomColor = '#F25138';
+					break;
+				default:
+					$symptomColor = '#36c';
+			}
+			//create symptom event
 			$symptomItem=array('title'=>$symptom->symptomTitle,
 								'start'=>$symptom->dateSymptomFirstSeen,
 								'end'=>$symptom->dateSearched,
-								'symptomCode'=>$symptom->symptomCode
+								'symptomCode'=>$symptom->symptomCode,
+								'color'=>$symptomColor
 			);
 			//copy symptomHistory record into array
 			array_push($symptomItems, $symptomItem);
@@ -335,7 +350,7 @@ class SymptomhistoryController extends Controller
 		}
 	}
 
-	//action so a dobot user can diagnose the symptom and contact the patient
+	//action so a doctor user can diagnose the symptom and contact the patient
 	public function actionDiagnoseSymptom()
 	{
 		$contactFormModel = new ContactPatientForm;

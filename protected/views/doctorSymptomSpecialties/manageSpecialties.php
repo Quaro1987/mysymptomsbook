@@ -17,6 +17,7 @@ $this->menu= Yii::app()->Globals->getSidePortletMenu();
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'doctor-symptom-specialties-grid',
 	'dataProvider'=>$dataProvider,
+	'selectableRows'=>0,
 	'columns'=>array(
 		array(
        		'header'=>'Symptom Code',
