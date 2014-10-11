@@ -44,7 +44,7 @@ $this->menu=array(
     	<td><?php echo CHtml::encode($model->email); ?></td>
 	</tr>
 		<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('phoneNumber')); ?></th>
-    	<td><?php echo CHtml::encode($model->AMKA); ?></td>
+    	<td><?php echo CHtml::encode($model->phoneNumber); ?></td>
 	<tr>
 		
 	</tr>

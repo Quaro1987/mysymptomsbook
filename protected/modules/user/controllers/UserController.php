@@ -195,4 +195,6 @@ class UserController extends Controller
 		$symptomTitle = $symptomData->title;
 		return $symptomTitle;
 	}
+
+	
 }

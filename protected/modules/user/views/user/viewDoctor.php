@@ -29,7 +29,7 @@ echo '<div id="dialog" title="View Doctor User: '.$model->profile->firstname.' '
 	}
 	//pas the rest of the desired column attributes
 	array_push($attributes, 'doctorSpecialty');
-	array_push($attributes, 'profile.birthday');
+	array_push($attributes, 'aboutDoctor');
 
 	$this->widget('zii.widgets.CDetailView', array(
 		'data'=>$model,
@@ -38,5 +38,5 @@ echo '<div id="dialog" title="View Doctor User: '.$model->profile->firstname.' '
 
 	
 ?>
-
 </div>
+

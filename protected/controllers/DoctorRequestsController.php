@@ -28,7 +28,7 @@ class DoctorRequestsController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'manageUserRelations'  actions
-				'actions'=>array('manageUserRelations'),
+				'actions'=>array('manageUserRelations', 'delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow normal user to perform findDoctor actions
@@ -271,7 +271,14 @@ class DoctorRequestsController extends Controller
 	//function to get the user's who made the request last name
 	public function getUserLastName($data,$row)
 	{
-		$user = $data->userID;
+		if(Yii::app()->user->userType==1)
+		{
+			$user = $data->userID;
+		}
+		else if(Yii::app()->user->userType==0)
+		{
+			$user = $data->doctorID;
+		}
 		$userData = User::model()->findByPk($user);
 		//get user lastname
 		$lastName = $userData->profile->lastname;
@@ -280,8 +287,15 @@ class DoctorRequestsController extends Controller
 
 	//function to get the user's who made the request first name
 	public function getUserFirstName($data,$row)
-	{
-		$user = $data->userID;
+	{	
+		if(Yii::app()->user->userType==1)
+		{
+			$user = $data->userID;
+		}
+		else if(Yii::app()->user->userType==0)
+		{
+			$user = $data->doctorID;
+		}
 		$userData = User::model()->findByPk($user);
 		//get user first name
 		$firstName = $userData->profile->firstname;
@@ -340,11 +354,23 @@ class DoctorRequestsController extends Controller
 																	 'doctorAccepted'=>0));
 			$count = count($model);
 
-			if(!($count==0))
+			$model2 = DoctorRequests::model()->findByAttributes(array('doctorID'=>Yii::app()->user->id,
+																	'doctorAccepted'=>1 ,'newSymptomAdded'=>1));
+			$count2 = count($model2);
+			//if there are both new symptoms by patients and new requests show notifications for both
+			if(!($count==0)&&!($count2==0))
+			{
+				echo 3;
+			}
+			else if(!($count2==0)) //else if there are only new symptoms then only notify about new symptoms
+			{
+				echo 2;
+			}
+			else if(!($count==0)) //else if there are only new doctor requests then only notify about new requests
 			{
 				echo 1;
 			}
-			else
+			else //do nothing
 			{
 				echo 0;
 			}

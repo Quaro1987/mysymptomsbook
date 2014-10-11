@@ -300,6 +300,10 @@ class SymptomhistoryController extends Controller
 		//if there is an accepted doctor request between doctor and patient, show the patients's symptom history
 		if(isset($doctorPatientRequest))
 		{	
+			//remove notification for new symptoms
+			$doctorPatientRequest->newSymptomAdded = 0;
+			$doctorPatientRequest->save();
+			
 			$model = new Symptomhistory;
 	
 	

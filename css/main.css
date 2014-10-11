@@ -382,6 +382,11 @@ font-size:20pt;
 	color:red;
 }
 
+#managePatientSymptomsLink.notification a
+{
+	color:red;
+}
+
 #alertImg
 {
 	display: inline;
@@ -518,4 +523,9 @@ div.colorCell
 .checkAllBoxLabel
 {
 	color:black;
+}
+
+tr.red
+{
+	color:red;
 }

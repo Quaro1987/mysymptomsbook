@@ -116,7 +116,8 @@ class User extends CActiveRecord
 			'status' => UserModule::t("Status"),
 			'phoneNumber'=>UserModule::t("Cell Phone Number (with country code)"),
 			'userType' => UserModule::t("Type of User"),
-			'doctorSpecialty' => UserModule::t("Specialty")
+			'doctorSpecialty' => UserModule::t("Specialty"),
+			'aboutDoctor' => UserModule::t("Doctor CV")
 		);
 	}
 	
@@ -140,7 +141,7 @@ class User extends CActiveRecord
             	'condition' => 'userType=1',
             ),
             'notsafe'=>array(
-            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, phoneNumber, userType, doctorSpecialty',
+            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, phoneNumber, userType, doctorSpecialty, aboutDoctor',
             ),
         );
     }
@@ -149,7 +150,7 @@ class User extends CActiveRecord
     {
         return CMap::mergeArray(Yii::app()->getModule('user')->defaultScope,array(
             'alias'=>'user',
-            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status, user.phoneNumber, user.userType, user.doctorSpecialty',
+            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status, user.phoneNumber, user.userType, user.doctorSpecialty, user.aboutDoctor',
         ));
     }
 	
@@ -193,6 +194,7 @@ class User extends CActiveRecord
         $criteria->compare('phoneNumber',$this->phoneNumber);
 		$criteria->compare('userType',$this->userType);
         $criteria->compare('doctorSpecialty',$this->doctorSpecialty);
+        $criteria->compare('aboutDoctor',$this->aboutDoctor);
 
         return new CActiveDataProvider(get_class($this), array(
             'criteria'=>$criteria,
@@ -218,5 +220,19 @@ class User extends CActiveRecord
         $this->lastvisit_at=date('Y-m-d H:i:s',$value);
     }
 
-    
+    //get color for the letters in the manage patients page
+	public function getColor() {
+        $doctorRequestsModel =  DoctorRequests::model()->findByAttributes(array('doctorID'=>Yii::app()->user->id,
+																	'userID'=>$this->id));
+
+        if($doctorRequestsModel->newSymptomAdded==1)
+        {
+        $statuscolor='red';          
+        return $statuscolor;
+        }
+        else
+        {
+        	return;
+        }       
+    }
 }

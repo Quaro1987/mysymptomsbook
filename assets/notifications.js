@@ -1,5 +1,6 @@
 //global variables
 var alertTrigger = 0;
+var startPolling = 1;
 //ajax url
 var ajaxNotificationsUrl = "http://localhost/mysymptomsbook/index.php?r=doctorRequests/getNotifications";
 //placeholder data
@@ -14,10 +15,21 @@ function checkForNotificationsOnLoad()
 		   		data:data,
 				success:function(dataReturn){
 					//if there is a notification run commands to notify the user
-					if (dataReturn==1)
-					{	
-						$('#manageRequestsLink').addClass('notification');
-		            	alertTrigger = 1;
+					switch(dataReturn)
+					{
+						case '3':
+							$('#manageRequestsLink').addClass('notification');
+							$('#managePatientSymptomsLink').addClass('notification');
+							startPolling = 0;		
+		            		break;
+		            	case '2':	
+							$('#managePatientSymptomsLink').addClass('notification');	
+		            		break;
+						case '1':	
+							$('#manageRequestsLink').addClass('notification');	  	
+		            		break;
+		            	default:
+		            		break;
 		            }
 		        },
 		   		error: function() {
@@ -38,13 +50,22 @@ function pollForNotifications()
 		   		data:data,
 				success:function(dataReturn){
 					//if there is a notification run commands to notify the user
-					if (dataReturn==1&&alertTrigger==0)
-					{	
-						$('#manageRequestsLink').addClass('notification');	
-		            	$('#notificationSound').trigger('play');
-		            	$('#alertImg').show();
-		            	alertTrigger = 1;
+					switch(dataReturn)
+					{
+						case '3':	
+							$('#manageRequestsLink').addClass('notification');
+							$('#managePatientSymptomsLink').addClass('notification');		
+		            		break;
+		            	case '2':
+							$('#managePatientSymptomsLink').addClass('notification');	
+		            		break;
+						case '1':	
+							$('#manageRequestsLink').addClass('notification');	  	
+		            		break;
+		            	default:
+		            		break;
 		            }
+		            playNotificationSound();
 		        },
 		   		error: function() {
 		            alert("Error occured.please try again");
@@ -59,8 +80,14 @@ $(document).ready(function(){
 	//check for notifications when loading the page
 	checkForNotificationsOnLoad();	
 	//if there are no prio notifications, start polling
-	if(alertTrigger==0)
+	if(0==1)
 	{
 		pollForNotifications();
 	}
 });
+
+//alert sound function
+function playNotificationSound()
+{
+	$('#notificationSound').trigger('play');
+}

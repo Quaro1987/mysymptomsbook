@@ -53,6 +53,7 @@ class Globals extends CApplicationComponent
 			array(
 					'label'=>'Manage Patients\' Symptom History', 
 					'url'=>array('/user/user/managePatients'),
+					'itemOptions'=>array('id'=>'managePatientSymptomsLink'),
 					'visible'=>(Yii::app()->user->usertype==1),
 			),
 			array(

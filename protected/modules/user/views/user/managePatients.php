@@ -14,6 +14,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'manage-patients-grid',
 	'dataProvider'=>$dataProvider,
 	'selectableRows'=>0,
+	'rowCssClassExpression'=>'$data->color',
 	'columns'=>array(
 		'id',
 		array(

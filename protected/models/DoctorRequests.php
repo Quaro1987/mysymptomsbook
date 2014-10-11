@@ -104,4 +104,5 @@ class DoctorRequests extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
 }
