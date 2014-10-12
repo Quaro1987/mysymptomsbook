@@ -5,6 +5,19 @@ var startPolling = 1;
 var ajaxNotificationsUrl = "http://localhost/mysymptomsbook/index.php?r=doctorRequests/getNotifications";
 //placeholder data
 var data = 'something';
+//alert sound function
+function playNotificationSound()
+{
+	$('#notificationSound').trigger('play');
+}
+//check if polling should continue
+function continuePolling(alertTriggerValue)
+{
+	if(alertTriggerValue!=3)
+	{
+		pollForNotifications();
+	}
+}
 //function to check for notifications when the pages load
 function checkForNotificationsOnLoad()
 {
@@ -23,14 +36,21 @@ function checkForNotificationsOnLoad()
 							startPolling = 0;		
 		            		break;
 		            	case '2':	
-							$('#managePatientSymptomsLink').addClass('notification');	
+							$('#managePatientSymptomsLink').addClass('notification');
+							alertTrigger = 2;		
 		            		break;
 						case '1':	
-							$('#manageRequestsLink').addClass('notification');	  	
+							$('#manageRequestsLink').addClass('notification');
+							alertTrigger = 1;	  	
 		            		break;
 		            	default:
 		            		break;
 		            }
+		            //if there are no prior notifications, start polling
+					if(startPolling==1)
+					{
+						pollForNotifications();
+					}
 		        },
 		   		error: function() {
 		            alert("Error occured.please try again");
@@ -54,24 +74,39 @@ function pollForNotifications()
 					{
 						case '3':	
 							$('#manageRequestsLink').addClass('notification');
-							$('#managePatientSymptomsLink').addClass('notification');		
+							$('#managePatientSymptomsLink').addClass('notification');
+							//play notification sound
+							if(alertTrigger!=3)
+							{
+								playNotificationSound();
+								alertTrigger=3;
+							}		
 		            		break;
 		            	case '2':
-							$('#managePatientSymptomsLink').addClass('notification');	
+							$('#managePatientSymptomsLink').addClass('notification');
+							if(alertTrigger!=2)
+							{
+								playNotificationSound();
+								alertTrigger=2;
+							}	
 		            		break;
 						case '1':	
-							$('#manageRequestsLink').addClass('notification');	  	
+							$('#manageRequestsLink').addClass('notification');
+							if(alertTrigger!=1)
+							{
+								playNotificationSound();
+								alertTrigger=1;
+							}	  	
 		            		break;
 		            	default:
 		            		break;
 		            }
-		            playNotificationSound();
 		        },
 		   		error: function() {
 		            alert("Error occured.please try again");
 		    	},
 		    	dataType: 'html',
-		    	complete: pollForNotifications()
+		    	complete: continuePolling(alertTrigger)
   		});
   	}, 5000);
 };
@@ -79,15 +114,4 @@ function pollForNotifications()
 $(document).ready(function(){
 	//check for notifications when loading the page
 	checkForNotificationsOnLoad();	
-	//if there are no prio notifications, start polling
-	if(0==1)
-	{
-		pollForNotifications();
-	}
 });
-
-//alert sound function
-function playNotificationSound()
-{
-	$('#notificationSound').trigger('play');
-}

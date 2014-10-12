@@ -529,3 +529,13 @@ tr.red
 {
 	color:red;
 }
+
+.grid-view tr.odd
+{
+	cursor: default;
+}
+
+.grid-view tr.even
+{
+	cursor: default;
+}

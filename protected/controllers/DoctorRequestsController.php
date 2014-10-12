@@ -169,6 +169,25 @@ class DoctorRequestsController extends Controller
 	public function actionFindDoctor($symptomCode)
 	{
 		$model = new DoctorRequests;
+
+		//create add doctor request
+		if(isset($_POST['DoctorRequests']))
+		{
+			$symptomHistoryModel = Symptomhistory::model()->findByAttributes(
+				array('user_id'=>Yii::app()->user->id, 'symptomCode'=>$symptomCode)
+			);
+
+			$model->setAttributes(array(
+								'doctorID'=>$_POST['DoctorRequests']['doctorID'],
+								'userID'=>Yii::app()->user->id,
+								'doctorAccepted'=>0,
+								'symptomHistoryID'=>$symptomHistoryModel->id
+			));
+			//save model, and if successful, refresh page and notify user
+			$model->save();
+		}
+		//reset model
+		$model = new DoctorRequests;
 		$userModel = new User;
 		$symptomSpecialtyModel = new DoctorSymptomSpecialties;
 		$symptomsModel = Symptoms::model()->findByPk($symptomCode);
@@ -225,27 +244,7 @@ class DoctorRequestsController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-		//create add doctor request
-		if(isset($_POST['DoctorRequests']))
-		{
-			$symptomHistoryModel = Symptomhistory::model()->findByAttributes(
-				array('user_id'=>Yii::app()->user->id, 'symptomCode'=>$symptomCode)
-			);
-
-			$model->setAttributes(array(
-								'doctorID'=>$_POST['DoctorRequests']['doctorID'],
-								'userID'=>Yii::app()->user->id,
-								'doctorAccepted'=>0,
-								'symptomHistoryID'=>$symptomHistoryModel->id
-			));
-			//save model, and if successful, refresh page and notify user
-			if($model->save())
-			{
-				$doctorAdded = 1;
-				$this->redirect(array('findDoctor', 'symptomCode'=>$symptomCode, 'doctorAdded'=>$doctorAdded));
-			}
-		}
-
+		
 		$this->render('findDoctor',array(
 			'model'=>$model, 'userModel'=>$userModel, 'symptomsModel'=>$symptomsModel, 'dataProvider'=>$dataProvider
 		));

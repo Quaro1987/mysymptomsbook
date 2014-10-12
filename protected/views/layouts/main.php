@@ -44,7 +44,7 @@
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Symptom History', 'url'=>array('/symptomhistory/usersSymptomHistory'), 'visible'=>!Yii::app()->user->isGuest), //user symptom history page
+				array('label'=>'Symptom History', 'url'=>array('/symptomhistory/usersSymptomHistory'), 'visible'=>(!(Yii::app()->user->isGuest)&&(Yii::app()->user->usertype==0))), //user symptom history page
 				array('label'=>'Patient Symptom History', 'url'=>array('/user/user/managePatients'), 'visible'=>(Yii::app()->user->usertype==1)),//doctor user gets patient history
 				//array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				//array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)

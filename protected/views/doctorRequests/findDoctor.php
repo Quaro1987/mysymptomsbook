@@ -11,8 +11,6 @@ Yii::app()->clientScript->registerScriptFile(
         Yii::app()->baseUrl . '/assets/addDoctorJS.js',
         CClientScript::POS_END
 	);
-//include css file
-Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/addSymptom.css');
 //alert user if a doctor has been added succesfully
 if(isset($_GET['doctorAdded'])&&$_GET['doctorAdded']==1)
 {
@@ -70,8 +68,17 @@ $this->widget('zii.widgets.grid.CGridView', array(
 			'name' => 'Specialty',
 			'value' => '$data->doctorSpecialty',
 		),
+		array(
+			'class'=>'CButtonColumn',
+			'template'=>'{AddDoctor}',
+			'buttons'=>array(
+						'AddDoctor' => array(
+            				      'label'=>'Add Doctor',
+                                  'imageUrl'=>Yii::app()->request->baseUrl.'/images/addDoctor.png',
+          	),
+		),
 	),
-));
+)));
 
 
 
@@ -109,13 +116,8 @@ $this->endWidget('zii.widgets.jui.CJuiDialog');
 
 	<div class="row">
 		<?php echo $form->hiddenField($model,'doctorID', array('id'=>'doctorIDTextfield')); ?>
+		<?php echo $form->hiddenField($model,'symptomCode', array('id'=>'symptomCodeTextField', 'value'=>$symptomsModel->symptomCode)); ?>
 	</div>
-
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Add Doctor'); ?>
-	</div>
-
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
