@@ -298,6 +298,8 @@ div.search-form
 .imageLinkIcon 
 {
 	padding: 2px 0px;
+	float: left;
+	display: inline;
 }
 
 #datePickingDiv {
@@ -362,7 +364,7 @@ font-size:20pt;
 	color: #F25138;
 }
 
-.noDiagnosis
+.noCharacterization
 {
 	color: #C5C7BD;
 }
@@ -489,7 +491,7 @@ body #page.container
 }
 
 
-#noDiagnosisCell
+#noCharacterizationCell
 {
 	background-color: #36c;
 	color: #36c;

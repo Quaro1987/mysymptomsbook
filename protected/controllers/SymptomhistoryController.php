@@ -112,7 +112,6 @@ class SymptomhistoryController extends Controller
 	public function actionAddSymptom()
 	{
 		//load custom layout for this view
-		$this->layout='//layouts/triplets';
 		$model = new Symptomhistory;
 		$symptomsModel = new Symptoms;
 		$doctorRequestModel = new DoctorRequests;

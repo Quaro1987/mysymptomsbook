@@ -1,17 +1,12 @@
 <?php 
 //array with categories
-$categoriesArray = $this->symptomCategoryArray;
+$categoriesArray = $symptomCategoryArray;
 //string to copy paths into
 $imagePathString = '';
-$counter = 0;
+$counter = 0; 
 echo '<div class="row">';
 foreach($categoriesArray as $categoryImage)
 {
-	if($counter==9)
-	{
-		echo '</div>';
-		echo '<div class="row">';
-	}
 	//copy image name into image path
 	$imagePathString = Yii::app()->request->baseUrl.'/images/'.$categoryImage.'.jpg'; 
 	//echo the html content

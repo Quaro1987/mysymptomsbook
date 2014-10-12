@@ -9,7 +9,6 @@ class SymptomCategory extends CPortlet
 
     public function init()
     {
-        $this->title="Pick Category";
         parent::init();
     }
  

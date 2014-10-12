@@ -49,11 +49,22 @@ $("#symptomhistory-form").submit(function( event ) {
 //update gridview with side column pick
 function updateGridView(gridID, value) 
 {   
+	//reset symptom pick if the user picks a new category
+	$('#submitButtonDiv').hide();
+	$('#dateDiv').hide();
+	$('#selectedSymptomDiv').hide();
+	$('#addSymptomLabel').text("Choose a Symptom Category");
+  	//change button's label
+  	document.getElementById("selectedSymptomButton").value='';
+  	$('#symptomToBeSearchedCode').val('');
+  	$('#symptomToBeSearchedTitle').val('');
+	
 	//update gridview
     $.fn.yiiGridView.update(gridID, {
     	data: 'r=symptomhistory%2FaddSymptom&Symptoms%5BsymptomCategory%5D='+value
     });
     $('#symptomSelectDiv').show("slow", "linear");
+
     return false;
 };
 //reset symptom pick

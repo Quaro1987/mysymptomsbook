@@ -21,7 +21,7 @@
 			echo '<span  class="highDiagnosis">High Danger</span></h4>';
 			break;
 		default:
-			echo '<span class="noDiagnosis">No diagnosis yet</span></h4>';
+			echo '<span class="noCharacterization">No Characterization</span></h4>';
 	}
 	echo '<div class="row">';
 	echo '<br/>';

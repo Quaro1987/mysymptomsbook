@@ -23,19 +23,19 @@
 			</th>
 			<tr>
 				<td>No Characterization:</td>
-				<td><div id='noDiagnosisCell' class='colorCell'>No char</div></td>
+				<td><div id='noCharacterizationCell' class='colorCell'>&nbsp&nbsp</div></td>
 			</tr>
 			<tr>
 				<td>Low Danger:</td>
-				<td><div id='lowDiagnosisCell' class='colorCell'>lowdiag</div></td>
+				<td><div id='lowDiagnosisCell' class='colorCell'>&nbsp&nbsp</div></td>
 			</tr>
 			<tr>
 				<td>Mild Danger:</td>
-				<td><div id='mildDiagnosisCell' class='colorCell'>mildiag</div></td>
+				<td><div id='mildDiagnosisCell' class='colorCell'>&nbsp&nbsp</div></td>
 			</tr>
 			<tr>
 				<td>High Danger:</td>
-				<td><div id='highDiagnosisCell' class='colorCell'>higdiag</div></td>
+				<td><div id='highDiagnosisCell' class='colorCell'>&nbsp&nbsp</div></td>
 			</tr>
 		</table>
 	</div><!-- sidebar -->
