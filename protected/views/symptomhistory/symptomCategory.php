@@ -5,8 +5,14 @@ $categoriesArray = $symptomCategoryArray;
 $imagePathString = '';
 $counter = 0; 
 echo '<div class="row">';
+echo '<div class="symptomsCategoryRow">';
 foreach($categoriesArray as $categoryImage)
 {
+	if($counter==9)
+	{
+		echo '</div>';
+		echo '<div class="symptomsCategoryRow">';
+	}
 	//copy image name into image path
 	$imagePathString = Yii::app()->request->baseUrl.'/images/'.$categoryImage.'.jpg'; 
 	//echo the html content
@@ -18,5 +24,5 @@ foreach($categoriesArray as $categoryImage)
 	$counter++;
 }
 echo '</div>';
-
+echo '</div>';
 ?>

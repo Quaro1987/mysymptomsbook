@@ -541,3 +541,28 @@ tr.red
 {
 	cursor: default;
 }
+
+.symptomsCategoryRow
+{
+	float:left;
+	margin-left: 11.5em;
+}
+
+#datePickingDiv
+{
+	margin-left: 9.5em;
+}
+
+.cDetailDoctorView
+{
+	float:left;
+	width: 100%;
+}
+
+.cvViewDoctor
+{
+	width: 455px;
+	word-wrap: break-word;
+	background-color: #e5f1f4;
+	padding: 0.5em;
+}

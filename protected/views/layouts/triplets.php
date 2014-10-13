@@ -1,10 +1,5 @@
 <?php $this->beginContent('//layouts/main'); ?>
 <div class="container">
-	<div class="span-2">
-		<p>
-			<?php $this->widget('SymptomCategory', array('symptomCategoryArray'=>$this->symptomCategories)); ?>
-		</p>
-	</div>
 	<div id="content" class="span-14">
 		<?php echo $content; ?>
 	</div><!-- content -->

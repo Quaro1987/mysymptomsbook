@@ -84,7 +84,16 @@ $this->widget('zii.widgets.grid.CGridView', array(
 
 		</br>	
 		<div id="submitButtonDiv" class="row buttons">
-		<?php echo CHtml::submitButton('Add Symptom'); ?>
+		<?php $this->widget(
+    		'booster.widgets.TbButton',
+    		    array(
+    		        'context' => 'primary',
+    		        'label' => 'Add Symptom',
+    		        'url' => '#',
+    		        'htmlOptions' => array('onclick' => '$("#symptomhistory-form").submit()'),
+    		    )
+    		); 
+    	?>
 		</div>
 </div>
 

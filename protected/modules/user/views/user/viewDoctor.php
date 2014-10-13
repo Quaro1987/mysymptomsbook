@@ -1,7 +1,7 @@
 <!-- small javascript to open this view as a dialog window -->
 <script>
 $(document).ready(function() {
-    $("#dialog").dialog({ width: 500 });
+    $("#dialog").dialog({ width: 500});
 }); 
 </script>
  
@@ -29,14 +29,19 @@ echo '<div id="dialog" title="View Doctor User: '.$model->profile->firstname.' '
 	}
 	//pas the rest of the desired column attributes
 	array_push($attributes, 'doctorSpecialty');
-	array_push($attributes, 'aboutDoctor');
 
+	echo '<div class="cDetailDoctorView">';
 	$this->widget('zii.widgets.CDetailView', array(
 		'data'=>$model,
 		'attributes'=>$attributes,
 	));
+	echo '</div>';
 
-	
+	echo '<br/>';
+	echo '<h4>Short CV of '.$model->profile->firstname.' '.$model->profile->lastname.'</h4>';
+	echo '<div class="cvViewDoctor">';
+	echo $model->aboutDoctor;
+	echo '</div>';
 ?>
 </div>
 

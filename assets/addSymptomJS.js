@@ -53,7 +53,7 @@ function updateGridView(gridID, value)
 	$('#submitButtonDiv').hide();
 	$('#dateDiv').hide();
 	$('#selectedSymptomDiv').hide();
-	$('#addSymptomLabel').text("Choose a Symptom Category");
+	$('#addSymptomLabel').text("Click on a Symptom to select it");
   	//change button's label
   	document.getElementById("selectedSymptomButton").value='';
   	$('#symptomToBeSearchedCode').val('');

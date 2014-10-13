@@ -24,7 +24,14 @@ echo $form->checkboxListGroup($model, 'symptomCode',
 );
 
 echo "<div class='manageSymptomSpecialtiesButtons'>";
-echo CHtml::submitButton('Add Symptom Specialties'); 
+$this->widget(
+    		'booster.widgets.TbButton',
+    		    array(
+    		    	'buttonType' => 'submit',
+    		        'context' => 'primary',
+    		        'label' => 'Add Symptom'
+    		    )
+); 
 echo "</div>";
 $this->endWidget();
 ?>
