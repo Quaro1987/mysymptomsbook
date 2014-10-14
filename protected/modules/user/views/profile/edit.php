@@ -73,6 +73,12 @@ $this->menu=array(
 		<?php echo $form->error($model,'phoneNumber'); ?>
 	</div>
 
+	<div class="row">
+	<?php echo $form->labelEx($model,'aboutDoctor'); ?>
+	<?php echo $form->textArea($model,'aboutDoctor', array('rows'=>6, 'cols'=>50)); ?>
+	<?php echo $form->error($model,'aboutDoctor'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? UserModule::t('Create') : UserModule::t('Save')); ?>
 	</div>

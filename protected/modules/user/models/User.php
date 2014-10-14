@@ -55,6 +55,7 @@ class User extends CActiveRecord
 			array('password', 'length', 'max'=>128, 'min' => 4,'message' => UserModule::t("Incorrect password (minimal length 4 symbols).")),
 			array('email', 'email'),
 			array('aboutDoctor, doctorSpecialty', 'required','on'=>'doctor'),
+			array('aboutDoctor, doctorSpecialty', 'safe'),
 			array('username', 'unique', 'message' => UserModule::t("This user's name already exists.")),
 			array('email', 'unique', 'message' => UserModule::t("This user's email address already exists.")),
 			array('username', 'match', 'pattern' => '/^[A-Za-z0-9_]+$/u','message' => UserModule::t("Incorrect symbols (A-z0-9).")),
@@ -77,13 +78,14 @@ class User extends CActiveRecord
 			array('username, email, phoneNumber', 'required'),
 			array('username', 'length', 'max'=>20, 'min' => 3,'message' => UserModule::t("Incorrect username (length between 3 and 20 characters).")),
 			array('email', 'email'),
+			array('aboutDoctor, doctorSpecialty', 'safe'),
 			array('phoneNumber', 'length', 'max'=>18, 'min' => 7,'message' => UserModule::t("A phone number must be between 7 and 18 digits.")),
 			array('username', 'unique', 'message' => UserModule::t("This user's name already exists.")),
 			array('username', 'match', 'pattern' => '/^[A-Za-z0-9_]+$/u','message' => UserModule::t("Incorrect symbols (A-z0-9).")),
 			array('phoneNumber', 'unique', 'message' => UserModule::t("This phone number already belongs to another user.")),
 			array('phoneNumber', 'match', 'pattern' => '/^[0-9_]+$/u','message' => UserModule::t("Incorrect symbols (0-9).")),
 			array('email', 'unique', 'message' => UserModule::t("This user's email address already exists.")),
-			array('aboutDoctor', 'length', 'min'=>1, 'on'=>'doctor', 'message'=>"You must write a small document/CV about yourself."),
+			array('aboutDoctor', 'length', 'max'=> 4096, 'min'=>1, 'on'=>'doctor', 'message'=> UserModule::t("You must write a small document/CV about yourself.")),
 		):array()));
 	}
 

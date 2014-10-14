@@ -566,3 +566,10 @@ tr.red
 	background-color: #e5f1f4;
 	padding: 0.5em;
 }
+
+.doctorCVtD
+{
+	width: 10%;
+	height: 1%;
+	overflow: scroll;
+}

@@ -46,6 +46,25 @@ $this->menu=array(
 		<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('phoneNumber')); ?></th>
     	<td><?php echo CHtml::encode($model->phoneNumber); ?></td>
 	<tr>
-		
+		<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('aboutDoctor')); ?></th>
+    	<td><?php echo CHtml::link('Check your CV', '#', array(
+	    'onclick'=>'$("#doctorCVDialog").dialog("open"); return false;',)); ?></td>
 	</tr>
 </table>
+
+<!-- pop up window code -->
+<?php $this->beginWidget('zii.widgets.jui.CJuiDialog', array(
+        'id' => 'doctorCVDialog',
+        // Additional JavaScript options for the dialog plugin
+        'options'=>array(
+        		'title' => 'Your CV',
+                'autoOpen' => false,
+                'modal' => true,
+                'width' => 350,
+
+        ),
+));
+	echo $model->aboutDoctor;
+
+$this->endWidget('zii.widgets.jui.CJuiDialog');
+?>

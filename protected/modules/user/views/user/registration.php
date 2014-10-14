@@ -75,9 +75,8 @@ Yii::app()->clientScript->registerScriptFile(
 
 	<div class="row">
 	<?php echo $form->labelEx($model,'aboutDoctor'); ?>
-	<?php echo $form->textArea($model,'aboutDoctor',array('rows'=>6, 'cols'=>50)); ?>
+	<?php echo $form->textArea($model,'aboutDoctor', array('rows'=>6, 'cols'=>50)); ?>
 	<?php echo $form->error($model,'aboutDoctor'); ?>
-	</div>
 	</div>
 
 	<div class="row">

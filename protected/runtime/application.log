@@ -24901,3 +24901,156 @@ in C:\xampp\htdocs\mySymptomsBook\index.php (13)
 2014/10/14 00:32:12 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "User".
 in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\ProfileController.php (37)
 in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:19:45 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:19:45 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:19:48 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:19:48 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:19:50 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:19:50 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:19:57 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:19:57 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:01 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:01 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:06 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:06 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:16 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:16 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:18 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:18 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:19 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:19 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:25 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:25 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:30 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:30 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:30 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (38)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:38 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:38 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:20:39 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (38)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:25:29 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:25:29 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:25:30 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (38)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:25:35 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:25:35 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:25:38 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:25:38 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:25:39 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (38)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:28:47 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:28:47 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:28:47 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (38)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:28:51 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:28:51 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:28:51 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (38)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:29:30 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:29:34 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:29:38 [warning] [application] Failed to set unsafe attribute "verifyCode" of "RegistrationForm".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\RegistrationController.php (30)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:32:46 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "User".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\ProfileController.php (43)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:32:46 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "User".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\ProfileController.php (37)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:35:22 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "User".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\ProfileController.php (43)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:35:23 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "User".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\ProfileController.php (37)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:35:46 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "User".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\ProfileController.php (43)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:35:46 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "User".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\ProfileController.php (37)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:36:59 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "User".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\ProfileController.php (43)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
+2014/10/14 11:37:00 [warning] [application] Failed to set unsafe attribute "aboutDoctor" of "User".
+in C:\xampp\htdocs\mySymptomsBook\protected\modules\user\controllers\ProfileController.php (37)
+in C:\xampp\htdocs\mySymptomsBook\index.php (13)
