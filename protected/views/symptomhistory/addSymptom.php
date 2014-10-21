@@ -23,7 +23,7 @@ Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/addSymptom.c
 <h3 id="addSymptomLabel">Choose a Symptom Category</h3>
 </div>
 <!-- render symptom category select div -->
-<?php $this->renderPartial('SymptomCategory', array('symptomCategoryArray'=>$this->symptomCategories)); ?>
+<?php $this->renderPartial('symptomCategory', array('symptomCategoryArray'=>$this->symptomCategories)); ?>
 
 
 <div id="symptomSelectDiv">
