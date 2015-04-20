@@ -26,7 +26,7 @@ return array(
 		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'yannis1987',
+			'password'=>'INSERTPASSWORD',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
@@ -87,7 +87,7 @@ return array(
 			'connectionString' => 'mysql:host=127.0.0.1;dbname=mySymptomsBook',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => 'yannis1987',
+			'password' => 'INSERTPASSWORD',
 			'charset' => 'utf8',
 			'tablePrefix' => 'tbl_',
 		),
@@ -131,6 +131,6 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'johnpasma@hotmail.com',
+		'adminEmail'=>'fakeEmail@hotmail.com',
 	),
 );
